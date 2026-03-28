@@ -60,8 +60,7 @@
   transition: background-color var(--transition-base);
 }
 
-.nav__item:hover .nav__link,
-.nav__item.is-active .nav__link {
+.nav__item:hover .nav__link {
   background-color: var(--clr-white);
   box-shadow: var(--shadow-nav-link);
 }
@@ -71,13 +70,11 @@
   transition: transform var(--transition-base);
 }
 
-.nav__item:hover .nav__chevron,
-.nav__item.is-active .nav__chevron {
+.nav__item:hover .nav__chevron {
   transform: rotate(180deg);
 }
 
-.nav__links:has(.nav__item:hover) .nav__item:not(:hover) .nav__link,
-.nav__links:has(.nav__item.is-active) .nav__item:not(.is-active):not(:hover) .nav__link {
+.nav__links:has(.nav__item:hover) .nav__item:not(:hover) .nav__link {
   opacity: 0.4;
 }
 
@@ -95,8 +92,7 @@
   transition: opacity var(--transition-base), visibility var(--transition-base);
 }
 
-.nav__item:hover .nav__dropdown,
-.nav__item.is-active .nav__dropdown {
+.nav__item:hover .nav__dropdown {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
