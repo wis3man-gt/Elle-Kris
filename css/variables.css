@@ -63,6 +63,11 @@
 
   /* ─── Shadows ─── */
   --shadow-nav:     0 2px 14px 0 rgba(0, 0, 0, 0.15);
+  --shadow-nav-link: 0 0 0.0625rem 0 rgba(0,0,0,0.09),
+                     0 0.0625rem 0.0625rem 0 rgba(0,0,0,0.08),
+                     0 0.1875rem 0.125rem 0 rgba(0,0,0,0.05),
+                     0 0.3125rem 0.125rem 0 rgba(0,0,0,0.01),
+                     0 0.4375rem 0.125rem 0 rgba(0,0,0,0);
   --shadow-section: 0 4px 14px 0 rgba(0, 0, 0, 0.03);
   --shadow-dropdown: 0 0.25rem 0.5625rem 0 rgba(0,0,0,0.21),
                     0 1.0625rem 1.0625rem 0 rgba(0,0,0,0.18),
