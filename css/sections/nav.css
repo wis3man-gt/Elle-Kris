@@ -109,24 +109,47 @@
 .nav__dropdown-list {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;                 /* 24px */
   background-color: var(--clr-white);
-  border-radius: var(--r-section); /* 24px */
-  padding: 1.875rem 1.5rem 1.5rem; /* 30px top, 24px sides/bottom */
-  width: 10rem;                /* 160px */
+  border-radius: var(--r-section);   /* 24px */
+  padding: 1.875rem 0.25rem 1rem;    /* 30px top (user pref), 4px sides, 16px bottom */
+  width: 10rem;                      /* 160px */
   box-shadow: var(--shadow-dropdown);
 }
 
 .nav__dropdown-link {
-  font-size: var(--fs-base);   /* 16px */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.75rem;                  /* 12px */
+  border-radius: var(--r-tile);      /* 12px */
+  font-size: var(--fs-base);
   font-weight: var(--fw-semibold);
   color: var(--clr-dark);
   white-space: nowrap;
-  transition: color var(--transition-base);
+  transition: background-color var(--transition-base), color var(--transition-base), opacity var(--transition-base);
 }
 
+.nav__dropdown-arrow {
+  flex-shrink: 0;
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+/* Hovered link */
 .nav__dropdown-link:hover {
+  background-color: var(--clr-bg);
   color: var(--clr-orange-text);
+}
+
+.nav__dropdown-link:hover .nav__dropdown-arrow {
+  opacity: 1;
+}
+
+/* Dim all other links when any one is hovered */
+.nav__dropdown-list:has(.nav__dropdown-link:hover) .nav__dropdown-link:not(:hover) {
+  color: var(--clr-dark);
+  opacity: 0.6;
 }
 
 /* ── Contact ── */
