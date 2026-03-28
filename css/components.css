@@ -1,0 +1,59 @@
+/* ── Shared Button Styles ─────────────────────────────── */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: var(--font-primary);
+  font-size: var(--fs-md);
+  font-weight: var(--fw-semibold);
+  border-radius: var(--r-btn);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: opacity var(--transition-base), background-color var(--transition-base);
+  text-decoration: none;
+}
+
+.btn--primary {
+  padding: 1rem 3rem;
+  background-color: var(--clr-orange);
+  border: 1px solid var(--clr-orange-mid);
+  color: #000000;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.btn--primary:hover {
+  background-color: var(--clr-orange-mid);
+}
+
+.btn--ghost {
+  padding: 1rem 1.5rem;
+  background-color: var(--clr-overlay-dark);
+  backdrop-filter: blur(0.75rem);
+  -webkit-backdrop-filter: blur(0.75rem);
+  color: var(--clr-white);
+}
+
+.btn--ghost:hover {
+  background-color: rgba(0, 0, 0, 0.65);
+}
+
+/* Cream/outline variant used in content sections */
+.btn--outline {
+  padding: 1rem 1.5rem;
+  background-color: var(--clr-bg);
+  color: var(--clr-orange-text);
+  border: 1px solid var(--clr-orange-light);
+}
+
+.btn--outline:hover {
+  background-color: var(--clr-bg-alt);
+}
+
+/* Arrow icon inside button */
+.btn__arrow {
+  flex-shrink: 0;
+  width: 0.75rem;
+  height: 0.75rem;
+}

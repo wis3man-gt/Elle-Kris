@@ -1,0 +1,75 @@
+:root {
+  /* ─── Colors ─── */
+  --clr-bg:           #f7f3ea;
+  --clr-bg-alt:       #e9e0cc;
+  --clr-dark:         #062753;
+  --clr-muted:        #708198;
+  --clr-orange:       #ff9025;
+  --clr-orange-mid:   #ffb46c;
+  --clr-orange-light: #ffd3aa;
+  --clr-orange-text:  #a65100;
+  --clr-white:        #ffffff;
+  --clr-whatsapp:     #19a333;
+
+  --clr-nav-bg:       rgba(247, 243, 234, 0.9);
+  --clr-overlay-dark: rgba(0, 0, 0, 0.5);
+  --clr-overlay-med:  rgba(0, 0, 0, 0.3);
+  --clr-orange-badge: rgba(255, 144, 37, 0.2);
+
+  --clr-section-dark-from: rgb(6, 39, 83);
+  --clr-section-dark-to:   rgb(6, 39, 83);
+
+  /* ─── Typography ─── */
+  --font-primary: 'Sora', sans-serif;
+
+  --fs-xs:   0.75rem;   /* 12px */
+  --fs-sm:   0.875rem;  /* 14px */
+  --fs-base: 1rem;      /* 16px */
+  --fs-md:   1.125rem;  /* 18px */
+  --fs-lg:   1.25rem;   /* 20px */
+  --fs-xl:   1.5rem;    /* 24px */
+  --fs-2xl:  2rem;      /* 32px */
+  --fs-3xl:  2.5rem;    /* 40px */
+  --fs-hero: 4rem;      /* 64px */
+
+  --fw-semibold:   600;
+  --fw-bold:       700;
+  --fw-extrabold:  800;
+
+  /* ─── Spacing ─── */
+  --sp-1:  0.375rem;  /* 6px */
+  --sp-2:  0.5rem;    /* 8px */
+  --sp-3:  0.625rem;  /* 10px */
+  --sp-4:  1rem;      /* 16px */
+  --sp-5:  1.375rem;  /* 22px */
+  --sp-6:  1.5rem;    /* 24px */
+  --sp-8:  2rem;      /* 32px */
+  --sp-10: 3rem;      /* 48px */
+  --sp-12: 4rem;      /* 64px */
+  --sp-16: 6rem;      /* 96px */
+
+  --section-gap:     1.25rem;  /* 20px — outer margin from viewport */
+  --page-margin:     10.5rem;  /* 168px */
+  --page-margin-sm:  2rem;
+
+  /* ─── Border Radius ─── */
+  --r-pill:    999px;
+  --r-section: 1.5rem;   /* 24px */
+  --r-card:    1.25rem;  /* 20px */
+  --r-btn:     1rem;     /* 16px */
+  --r-nav:     0.875rem; /* 14px */
+  --r-tile:    0.75rem;  /* 12px */
+  --r-footer:  4rem;     /* 64px */
+
+  /* ─── Shadows ─── */
+  --shadow-nav:     0 2px 14px 0 rgba(0, 0, 0, 0.15);
+  --shadow-section: 0 4px 14px 0 rgba(0, 0, 0, 0.03);
+  --shadow-project: 0 12px 26px rgba(0, 11, 25, 0.18),
+                    0 46px 46px rgba(0, 11, 25, 0.16),
+                    0 104px 63px rgba(0, 11, 25, 0.09);
+  --shadow-orange:  0 4px 0 0 var(--clr-orange);
+
+  /* ─── Transitions ─── */
+  --transition-base: 0.25s ease;
+  --transition-slow: 0.4s ease;
+}
