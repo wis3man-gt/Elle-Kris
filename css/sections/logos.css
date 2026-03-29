@@ -1,7 +1,6 @@
 /* ── Logos / Partners Strip ──────────────────────────── */
 
 .logos-strip {
-  background-color: var(--clr-white);
   padding-block: var(--sp-10);
   overflow: hidden;
 }
