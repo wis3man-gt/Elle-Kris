@@ -86,7 +86,10 @@
       </ul>
 
       <div class="nav__contact">
-        <a href="tel:+447123456789" class="nav__phone">+44 (7123) 456789</a>
+        <div class="nav__phone-wrapper">
+          <a href="tel:+447123456789" class="nav__phone" id="phone-copy">+44 (7123) 456789</a>
+          <div class="nav__tooltip">Copy to Clipboard</div>
+        </div>
         <a href="https://wa.me/447123456789" class="nav__whatsapp-btn" aria-label="Chat on WhatsApp" target="_blank" rel="noopener noreferrer">
           <img class="nav__whatsapp-icon" src="assets/svg/whatsapp.svg" alt="" aria-hidden="true">
         </a>
@@ -339,8 +342,131 @@
     </div>
   </section>
 
+  <!-- ── Section separator ─────────────────────────── -->
+  <div class="section-sep" aria-hidden="true"></div>
+
   <!-- ── Recent Work ────────────────────────────────── -->
   <section class="projects" id="projects" aria-label="Recent work">
+
+    <!-- Part 1: Header -->
+    <div class="projects__header">
+      <h2 class="projects__heading">A Look at Our Recent Work</h2>
+      <p class="projects__subheading">A selection of recently completed renovation and improvement work across different spaces and project types.</p>
+    </div>
+
+    <!-- Part 2: Project case studies -->
+    <div class="projects__list">
+
+      <article class="projects__item">
+        <div class="projects__img-wrap">
+          <img class="projects__img" src="assets/images/projects1.png" alt="Contemporary Bathroom Upgrade">
+        </div>
+        <div class="projects__content">
+          <div class="projects__info">
+            <span class="projects__badge">Bathroom Renovation</span>
+            <h3 class="projects__title">Contemporary Bathroom Upgrade</h3>
+            <p class="projects__desc">A cleaner, brighter bathroom finish with improved layout, fittings, and everyday functionality.</p>
+          </div>
+          <ul class="projects__features" aria-label="Project highlights">
+            <li class="projects__feature">
+              <span class="projects__feature-icon"><img src="assets/svg/bathtub.svg" alt="" aria-hidden="true"></span>
+              <span class="projects__feature-text">Improved layout and better use of space</span>
+            </li>
+            <li class="projects__feature">
+              <span class="projects__feature-icon"><img src="assets/svg/drop.svg" alt="" aria-hidden="true"></span>
+              <span class="projects__feature-text">Updated fittings and clean finishing details</span>
+            </li>
+            <li class="projects__feature">
+              <span class="projects__feature-icon"><img src="assets/svg/sparkle.svg" alt="" aria-hidden="true"></span>
+              <span class="projects__feature-text">Designed for comfort, function, and daily use</span>
+            </li>
+          </ul>
+          <a href="#" class="projects__btn">
+            View Full Case Study
+            <img class="projects__btn-arrow" src="assets/svg/arrow.svg" alt="" aria-hidden="true">
+          </a>
+        </div>
+      </article>
+
+      <article class="projects__item projects__item--reverse">
+        <div class="projects__img-wrap">
+          <img class="projects__img" src="assets/images/projects2.png" alt="Modern Kitchen Transformation">
+        </div>
+        <div class="projects__content">
+          <div class="projects__info">
+            <span class="projects__badge">Kitchen Renovation</span>
+            <h3 class="projects__title">Modern Kitchen Transformation</h3>
+            <p class="projects__desc">A well-planned kitchen refresh with improved layout, quality fittings, and better everyday function.</p>
+          </div>
+          <ul class="projects__features" aria-label="Project highlights">
+            <li class="projects__feature">
+              <span class="projects__feature-icon"><img src="assets/svg/bathtub.svg" alt="" aria-hidden="true"></span>
+              <span class="projects__feature-text">Improved workflow and worktop space</span>
+            </li>
+            <li class="projects__feature">
+              <span class="projects__feature-icon"><img src="assets/svg/drop.svg" alt="" aria-hidden="true"></span>
+              <span class="projects__feature-text">Quality fittings and clean finishing details</span>
+            </li>
+            <li class="projects__feature">
+              <span class="projects__feature-icon"><img src="assets/svg/sparkle.svg" alt="" aria-hidden="true"></span>
+              <span class="projects__feature-text">Tailored to daily use, style, and practicality</span>
+            </li>
+          </ul>
+          <a href="#" class="projects__btn">
+            View Full Case Study
+            <img class="projects__btn-arrow" src="assets/svg/arrow.svg" alt="" aria-hidden="true">
+          </a>
+        </div>
+      </article>
+
+      <article class="projects__item">
+        <div class="projects__img-wrap">
+          <img class="projects__img" src="assets/images/projects3.png" alt="Warm Interior Refresh">
+        </div>
+        <div class="projects__content">
+          <div class="projects__info">
+            <span class="projects__badge">Home Improvements</span>
+            <h3 class="projects__title">Warm Interior Refresh</h3>
+            <p class="projects__desc">Thoughtful finishing work that brought warmth, comfort, and a polished feel to the whole living space.</p>
+          </div>
+          <ul class="projects__features" aria-label="Project highlights">
+            <li class="projects__feature">
+              <span class="projects__feature-icon"><img src="assets/svg/bathtub.svg" alt="" aria-hidden="true"></span>
+              <span class="projects__feature-text">Refreshed flooring and interior surfaces</span>
+            </li>
+            <li class="projects__feature">
+              <span class="projects__feature-icon"><img src="assets/svg/drop.svg" alt="" aria-hidden="true"></span>
+              <span class="projects__feature-text">Updated lighting and decorative details</span>
+            </li>
+            <li class="projects__feature">
+              <span class="projects__feature-icon"><img src="assets/svg/sparkle.svg" alt="" aria-hidden="true"></span>
+              <span class="projects__feature-text">Designed for comfort and everyday living</span>
+            </li>
+          </ul>
+          <a href="#" class="projects__btn">
+            View Full Case Study
+            <img class="projects__btn-arrow" src="assets/svg/arrow.svg" alt="" aria-hidden="true">
+          </a>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- Part 3: CTA with comet border -->
+    <div class="projects__cta-wrap">
+      <a href="#" class="projects__cta">
+        <div class="projects__cta-text">
+          <div class="projects__cta-headline">
+            <span class="projects__cta-title">Let's Talk About Your Project</span>
+            <img class="projects__cta-arrow" src="assets/svg/arrow.svg" alt="" aria-hidden="true">
+          </div>
+          <p class="projects__cta-sub">Get in touch to discuss your space, your goals, and the right approach for your home.</p>
+        </div>
+        <img class="projects__cta-logo" src="assets/svg/navLogo.svg" alt="" aria-hidden="true">
+      </a>
+      <img class="projects__cta-team" src="assets/images/projectsTeamBG.png" alt="" aria-hidden="true">
+    </div>
+
   </section>
 
   <!-- ── Footer ─────────────────────────────────────── -->

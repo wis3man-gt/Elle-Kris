@@ -47,3 +47,46 @@ const cardObserver = new IntersectionObserver((entries) => {
 
 const servicesGrid = document.querySelector('.services__grid');
 if (servicesGrid) cardObserver.observe(servicesGrid);
+
+/* ── Copy Phone to Clipboard ────────────────────────── */
+
+const phoneWrapper = document.querySelector('.nav__phone-wrapper');
+const phoneLink = document.getElementById('phone-copy');
+const tooltip = document.querySelector('.nav__tooltip');
+
+if (phoneWrapper && phoneLink && tooltip) {
+  const handleCopy = (e) => {
+    e.preventDefault();
+    const phoneNumber = phoneLink.innerText.replace(/\s+/g, '');
+    
+    navigator.clipboard.writeText(phoneNumber).then(() => {
+      const originalText = tooltip.innerText;
+      tooltip.innerText = 'Copied!';
+      tooltip.classList.add('is-copied');
+      
+      setTimeout(() => {
+        tooltip.innerText = originalText;
+        tooltip.classList.remove('is-copied');
+      }, 2000);
+    }).catch(err => {
+      console.error('Failed to copy: ', err);
+    });
+  };
+
+  phoneWrapper.addEventListener('click', handleCopy);
+}
+
+/* ── Projects: fade-up items on scroll ───────────────── */
+
+const projectObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('is-visible');
+      projectObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.projects__item').forEach(item => {
+  projectObserver.observe(item);
+});
