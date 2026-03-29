@@ -31,8 +31,6 @@
   gap: 9.375rem; /* 150px */
   width: max-content;
   animation: logos-scroll 28s linear infinite;
-  mix-blend-mode: luminosity;
-  opacity: 0.6;
 }
 
 
@@ -43,11 +41,15 @@
   object-fit: contain;
   display: block;
   filter: grayscale(1);
-  transition: filter var(--transition-base);
+  opacity: 0.6;
+  mix-blend-mode: luminosity;
+  transition: filter var(--transition-base), opacity var(--transition-base);
 }
 
 .logos-strip__logo:hover {
   filter: grayscale(0);
+  opacity: 1;
+  mix-blend-mode: normal;
   cursor: pointer;
 }
 
