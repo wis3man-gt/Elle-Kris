@@ -33,6 +33,11 @@
   animation: logos-scroll 28s linear infinite;
 }
 
+.logos-strip__track.is-enhanced {
+  animation: none;
+  will-change: transform;
+}
+
 
 .logos-strip__logo {
   height: 3rem;

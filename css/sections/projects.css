@@ -87,6 +87,7 @@
   overflow: hidden;
   box-shadow: var(--shadow-project);
   aspect-ratio: 13 / 12;
+  transition: transform 0.6s ease;
 }
 
 .projects__img {
@@ -97,8 +98,12 @@
   transition: transform 0.6s ease;
 }
 
-.projects__item:hover .projects__img {
-  transform: scale(1.03);
+.projects__img-wrap:hover {
+  transform: scale(1.01);
+}
+
+.projects__img-wrap:hover .projects__img {
+  transform: scale(1.02);
 }
 
 /* ── Content ─────────────────────────────────────────── */
@@ -247,7 +252,11 @@
 }
 
 .projects__cta-wrap {
+  --projects-cta-right-pad: 3.9375rem;
+  --projects-cta-logo-space: 7rem;
+  --projects-cta-visual-gap: 3rem;
   position: relative;
+  margin-top: 5rem;
   border-radius: var(--r-pill);
   isolation: isolate;
   clip-path: inset(-30rem 0 0 0);
@@ -321,7 +330,11 @@
 .projects__cta-team {
   position: absolute;
   bottom: -9rem;
-  right: 18rem;
+  right: calc(
+    var(--projects-cta-right-pad) +
+    var(--projects-cta-logo-space) +
+    var(--projects-cta-visual-gap)
+  );
   height: 26rem;
   width: auto;
   display: block;
@@ -358,6 +371,13 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 1.5rem;
+  }
+
+  .projects__cta-wrap {
+    --projects-cta-right-pad: 2rem;
+    --projects-cta-logo-space: 0rem;
+    --projects-cta-visual-gap: 0rem;
+    margin-top: 3rem;
   }
 
   .projects__cta-logo {

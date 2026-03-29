@@ -240,10 +240,6 @@
   transform: translateX(-50%) translateY(0);
 }
 
-.nav__tooltip.is-copied {
-  color: var(--clr-orange-text);
-}
-
 .nav__whatsapp-btn {
   display: flex;
   align-items: center;
@@ -254,6 +250,19 @@
   background-color: var(--clr-whatsapp);
   flex-shrink: 0;
   transition: opacity var(--transition-base);
+}
+
+.nav__whatsapp-icon {
+  display: block;
+  transform-origin: center;
+  transition: transform var(--transition-base);
+}
+
+.nav__whatsapp-btn:hover .nav__whatsapp-icon,
+.nav__whatsapp-btn:focus-visible .nav__whatsapp-icon,
+.nav__phone-wrapper:hover + .nav__whatsapp-btn .nav__whatsapp-icon,
+.nav__phone-wrapper:focus-within + .nav__whatsapp-btn .nav__whatsapp-icon {
+  transform: scale(1.12);
 }
 
 .nav__whatsapp-btn:hover {

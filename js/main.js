@@ -48,6 +48,68 @@ const cardObserver = new IntersectionObserver((entries) => {
 const servicesGrid = document.querySelector('.services__grid');
 if (servicesGrid) cardObserver.observe(servicesGrid);
 
+/* ── Logos Strip: slow marquee on hover ───────────────── */
+
+const logosTrack = document.querySelector('.logos-strip__track');
+const logos = document.querySelectorAll('.logos-strip__logo');
+
+if (logosTrack && logos.length && typeof logosTrack.animate === 'function') {
+  const BASE_RATE = 1;
+  const HOVER_RATE = 0.18;
+  const RATE_EASE = 0.16;
+
+  logosTrack.classList.add('is-enhanced');
+
+  const logosAnimation = logosTrack.animate(
+    [
+      { transform: 'translateX(0)' },
+      { transform: 'translateX(-50%)' }
+    ],
+    {
+      duration: 28000,
+      easing: 'linear',
+      iterations: Infinity
+    }
+  );
+
+  let targetRate = BASE_RATE;
+  let rateFrame = null;
+
+  const syncPlaybackRate = () => {
+    const currentRate = logosAnimation.playbackRate;
+    const nextRate = currentRate + (targetRate - currentRate) * RATE_EASE;
+
+    if (Math.abs(targetRate - nextRate) < 0.01) {
+      logosAnimation.updatePlaybackRate(targetRate);
+      rateFrame = null;
+      return;
+    }
+
+    logosAnimation.updatePlaybackRate(nextRate);
+    rateFrame = requestAnimationFrame(syncPlaybackRate);
+  };
+
+  const setPlaybackRate = (rate) => {
+    targetRate = rate;
+    if (rateFrame === null) rateFrame = requestAnimationFrame(syncPlaybackRate);
+  };
+
+  logos.forEach((logo) => {
+    logo.addEventListener('mouseenter', () => setPlaybackRate(HOVER_RATE));
+    logo.addEventListener('mouseleave', () => setPlaybackRate(BASE_RATE));
+  });
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      logosAnimation.pause();
+      return;
+    }
+
+    logosAnimation.play();
+    logosAnimation.updatePlaybackRate(targetRate);
+  });
+}
+
 /* ── Copy Phone to Clipboard ────────────────────────── */
 
 const phoneWrapper = document.querySelector('.nav__phone-wrapper');
@@ -55,18 +117,23 @@ const phoneLink = document.getElementById('phone-copy');
 const tooltip = document.querySelector('.nav__tooltip');
 
 if (phoneWrapper && phoneLink && tooltip) {
+  const defaultTooltipText = tooltip.textContent;
+  let copyFeedbackTimeout = null;
+
   const handleCopy = (e) => {
     e.preventDefault();
-    const phoneNumber = phoneLink.innerText.replace(/\s+/g, '');
+    const phoneNumber = phoneLink.textContent.replace(/\s+/g, '');
     
     navigator.clipboard.writeText(phoneNumber).then(() => {
-      const originalText = tooltip.innerText;
-      tooltip.innerText = 'Copied!';
-      tooltip.classList.add('is-copied');
-      
-      setTimeout(() => {
-        tooltip.innerText = originalText;
-        tooltip.classList.remove('is-copied');
+      tooltip.textContent = 'Copied!';
+
+      if (document.activeElement === phoneLink) {
+        phoneLink.blur();
+      }
+
+      clearTimeout(copyFeedbackTimeout);
+      copyFeedbackTimeout = setTimeout(() => {
+        tooltip.textContent = defaultTooltipText;
       }, 2000);
     }).catch(err => {
       console.error('Failed to copy: ', err);
