@@ -1,1 +1,289 @@
-/* Why Homeowners Choose Us */
+/* ── Why Homeowners Choose Us ────────────────────────── */
+
+.why-us {
+  margin: var(--section-gap);
+  height: 80vh;
+  min-height: 40rem;
+  display: flex;
+}
+
+.why-us__card {
+  background-color: var(--clr-white);
+  border-radius: var(--r-section);
+  box-shadow: var(--shadow-section);
+  display: grid;
+  grid-template-columns: 1.2fr 1.1fr;
+  align-items: stretch;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+/* ── Left: content ───────────────────────────────────── */
+
+.why-us__content {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2rem, 4vh, 4rem);
+  padding: 4rem 2rem 4rem clamp(3rem, 8vw, 9.25rem);
+  justify-content: center;
+  align-items: flex-start;
+  height: 100%;
+}
+
+.why-us__main-group {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.5rem, 3vh, 3rem);
+}
+
+.why-us__text-group {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1rem, 2vh, 2rem);
+}
+
+.why-us__heading {
+  font-size: clamp(var(--fs-2xl), 4vw, var(--fs-3xl));
+  font-weight: var(--fw-semibold);
+  color: var(--clr-dark);
+  line-height: 1.1;
+  margin-bottom: 0.25rem;
+}
+
+.why-us__underline {
+  width: clamp(8rem, 15vw, 13.8125rem);
+  height: auto;
+  display: block;
+  margin-top: -0.25rem;
+}
+
+.why-us__subtext {
+  font-size: clamp(var(--fs-base), 1.2vw, var(--fs-lg));
+  font-weight: var(--fw-semibold);
+  color: var(--clr-dark);
+  line-height: 1.5;
+  max-width: 32rem;
+}
+
+.why-us__stats {
+  display: flex;
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  align-items: flex-start;
+}
+
+.why-us__stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.why-us__stat-num {
+  font-variant-numeric: tabular-nums;
+}
+
+.why-us__stat-value {
+  font-size: clamp(var(--fs-xl), 2.5vw, var(--fs-2xl));
+  font-weight: var(--fw-semibold);
+  color: var(--clr-dark);
+  line-height: 1;
+}
+
+.why-us__stat-label {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  color: var(--clr-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ── Right: video grid ───────────────────────────────── */
+
+.why-us__grid {
+  position: relative;
+  grid-column: 2;
+  grid-row: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem clamp(3rem, 8vw, 9.25rem) 2rem 2rem;
+  z-index: 1;
+  height: 100%;
+}
+
+.why-us__grid-inner {
+  position: relative;
+  width: 100%;
+  max-width: 42rem;
+  aspect-ratio: 4 / 3;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+.why-us__tile {
+  position: relative;
+  overflow: hidden;
+  background-color: #ebebeb;
+  width: 100%;
+  height: 100%;
+}
+
+.why-us__tile--tl { border-radius: var(--r-tile) 0 0 0; }
+.why-us__tile--tr { border-radius: 0 var(--r-tile) 0 0; }
+.why-us__tile--bl { border-radius: 0 0 0 var(--r-tile); }
+.why-us__tile--br { border-radius: 0 0 var(--r-tile) 0; }
+
+.why-us__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.why-us__tag {
+  position: absolute;
+  font-family: var(--font-primary);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  color: var(--clr-white);
+  background-color: var(--clr-overlay-dark);
+  backdrop-filter: blur(0.3125rem);
+  -webkit-backdrop-filter: blur(0.3125rem);
+  border-radius: var(--r-pill);
+  padding: 0.25rem 0.5rem;
+  white-space: nowrap;
+  z-index: 2;
+}
+
+.why-us__tag--tl { top: 0.5rem; left: 0.5rem; }
+.why-us__tag--tr { top: 0.5rem; right: 0.5rem; }
+.why-us__tag--bl { bottom: 0.5rem; left: 0.5rem; }
+.why-us__tag--br { bottom: 0.5rem; right: 0.5rem; }
+
+/* ── Center logo badge ───────────────────────────────── */
+
+.why-us__logo-badge {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: clamp(3.5rem, 6vw, 4.5rem);
+  height: clamp(3.5rem, 6vw, 4.5rem);
+  background-color: var(--clr-white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0.25rem 1.5rem rgba(0, 0, 0, 0.12);
+  z-index: 10;
+}
+
+.why-us__center-logo {
+  width: 60%;
+  height: 60%;
+  object-fit: contain;
+}
+
+/* ── Dashed border + corner brackets (CSS Restoration) ─ */
+
+.why-us__grid-border {
+  position: absolute;
+  inset: -0.875rem; /* 14px */
+  border: 1px dashed var(--clr-orange);
+  opacity: 0.5;
+  border-radius: var(--r-section);
+  pointer-events: none;
+  z-index: 5;
+}
+
+.why-us__corner {
+  position: absolute;
+  width: 2rem;
+  height: 2rem;
+  pointer-events: none;
+  z-index: 6;
+}
+
+.why-us__corner--tl {
+  top: -0.875rem; left: -0.875rem;
+  border-top: 2px solid var(--clr-orange);
+  border-left: 2px solid var(--clr-orange);
+  border-top-left-radius: var(--r-section);
+}
+
+.why-us__corner--tr {
+  top: -0.875rem; right: -0.875rem;
+  border-top: 2px solid var(--clr-orange);
+  border-right: 2px solid var(--clr-orange);
+  border-top-right-radius: var(--r-section);
+}
+
+.why-us__corner--bl {
+  bottom: -0.875rem; left: -0.875rem;
+  border-bottom: 2px solid var(--clr-orange);
+  border-left: 2px solid var(--clr-orange);
+  border-bottom-left-radius: var(--r-section);
+}
+
+.why-us__corner--br {
+  bottom: -0.875rem; right: -0.875rem;
+  border-bottom: 2px solid var(--clr-orange);
+  border-right: 2px solid var(--clr-orange);
+  border-bottom-right-radius: var(--r-section);
+}
+
+/* ── Responsive ──────────────────────────────────────── */
+
+@media (max-width: 64rem) {
+  .why-us {
+    height: auto;
+    min-height: auto;
+  }
+
+  .why-us__card {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
+  .why-us__content {
+    padding: 3rem 2rem;
+    align-items: center;
+    text-align: center;
+    height: auto;
+  }
+
+  .why-us__stats {
+    justify-content: center;
+  }
+
+  .why-us__grid {
+    grid-column: 1;
+    grid-row: 2;
+    padding: 2rem 2rem 5rem;
+    height: auto;
+  }
+
+  .why-us__grid-inner {
+    width: 90%;
+    max-width: 38rem;
+  }
+}
+
+@media (max-width: 48rem) {
+  .why-us__heading {
+    font-size: var(--fs-2xl);
+  }
+
+  .why-us__subtext {
+    font-size: var(--fs-base);
+  }
+
+  .why-us__stats {
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+}

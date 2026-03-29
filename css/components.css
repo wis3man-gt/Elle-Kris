@@ -43,14 +43,15 @@
 
 /* Cream/outline variant used in content sections */
 .btn--outline {
-  padding: 1rem 1.5rem;
-  background-color: var(--clr-bg);
+  padding: 1rem 3rem;
+  background-color: var(--clr-orange-badge);
   color: var(--clr-orange-text);
   border: 1px solid var(--clr-orange-light);
 }
 
 .btn--outline:hover {
-  background-color: var(--clr-bg-alt);
+  background-color: var(--clr-orange-light);
+  transform: scale(1.03);
 }
 
 /* Arrow icon inside button */
