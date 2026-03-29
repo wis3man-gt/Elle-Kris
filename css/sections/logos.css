@@ -1,1 +1,75 @@
-/* Logos / Partners Strip */
+/* ── Logos / Partners Strip ──────────────────────────── */
+
+.logos-strip {
+  background-color: var(--clr-white);
+  padding-block: var(--sp-10);
+  overflow: hidden;
+}
+
+.logos-strip__track-wrapper {
+  width: 100%;
+  overflow: hidden;
+  /* fade edges */
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+}
+
+.logos-strip__track {
+  display: flex;
+  align-items: center;
+  gap: 9.375rem; /* 150px */
+  width: max-content;
+  animation: logos-scroll 28s linear infinite;
+  mix-blend-mode: luminosity;
+  opacity: 0.6;
+}
+
+
+.logos-strip__logo {
+  height: 3rem;
+  width: auto;
+  flex-shrink: 0;
+  object-fit: contain;
+  display: block;
+  filter: grayscale(1);
+  transition: filter var(--transition-base);
+}
+
+.logos-strip__logo:hover {
+  filter: grayscale(0);
+  cursor: pointer;
+}
+
+@keyframes logos-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ── Responsive ──────────────────────────────────────── */
+
+@media (max-width: 48rem) {
+  .logos-strip {
+    padding-block: var(--sp-8);
+  }
+
+  .logos-strip__track {
+    gap: 4rem;
+    animation-duration: 20s;
+  }
+
+  .logos-strip__logo {
+    height: 2rem;
+  }
+}
