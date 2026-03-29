@@ -175,13 +175,23 @@
   align-items: center;
 }
 
+.nav__phone-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: max(100%, 10rem);
+  height: 0.75rem;
+}
+
 .nav__phone {
   font-size: var(--fs-lg);     /* 20px */
   font-weight: var(--fw-semibold);
   color: var(--clr-dark);
   white-space: nowrap;
   transition: color var(--transition-base);
-  cursor: copy;
+  cursor: pointer;
 }
 
 .nav__phone:hover {
@@ -190,11 +200,10 @@
 
 .nav__tooltip {
   position: absolute;
-  top: 100%;
+  top: calc(100% + 0.75rem);
   left: 50%;
   transform: translateX(-50%);
   z-index: 20;
-  margin-top: 1.3125rem;      /* 21px gap for caret */
   background-color: var(--clr-white);
   color: var(--clr-dark);
   padding: 0.75rem 1rem;
@@ -203,6 +212,7 @@
   font-weight: var(--fw-semibold);
   box-shadow: var(--shadow-dropdown);
   white-space: nowrap;
+  cursor: pointer;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -212,17 +222,18 @@
 .nav__tooltip::before {
   content: '';
   position: absolute;
-  top: -0.5625rem;
+  top: -0.45rem;
   left: 50%;
   transform: translateX(-50%);
   width: 0;
   height: 0;
   border-left: 0.53125rem solid transparent;
   border-right: 0.53125rem solid transparent;
-  border-bottom: 0.5625rem solid var(--clr-white);
+  border-bottom: 0.5rem solid var(--clr-white);
 }
 
-.nav__phone-wrapper:hover .nav__tooltip {
+.nav__phone-wrapper:hover .nav__tooltip,
+.nav__phone-wrapper:focus-within .nav__tooltip {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;

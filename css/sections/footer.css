@@ -1,1 +1,7 @@
 /* Footer */
+
+.footer {
+  background-color: var(--clr-dark);
+  position: relative;
+  z-index: 1;
+}
