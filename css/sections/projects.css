@@ -229,28 +229,6 @@
 
 /* ── CTA ─────────────────────────────────────────────── */
 
-/* Comet (JS-animated, constant linear speed) */
-.projects__comet {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 5rem;
-  height: 2px;
-  background: linear-gradient(
-    to right,
-    transparent,
-    rgba(255, 90, 10, 0.12) 25%,
-    rgba(255, 144, 37, 0.45) 55%,
-    rgba(255, 205, 110, 0.9) 82%,
-    #ffffff 94%,
-    rgba(255, 205, 110, 0.9) 100%
-  );
-  transform-origin: 100% 50%;
-  pointer-events: none;
-  z-index: 3;
-  will-change: transform;
-}
-
 .projects__cta-wrap {
   --projects-cta-right-pad: 3.9375rem;
   --projects-cta-logo-space: 7rem;
@@ -259,7 +237,70 @@
   margin-top: 5rem;
   border-radius: var(--r-pill);
   isolation: isolate;
-  clip-path: inset(-30rem 0 0 0);
+  clip-path: inset(-30rem -2rem 0 -2rem);
+  transition: transform var(--transition-base);
+}
+
+/* ── CTA animated comet border ───────────────────────── */
+
+@property --cta-comet-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
+.projects__cta-wrap::before,
+.projects__cta-wrap::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  animation: cta-comet-spin 5s linear infinite;
+}
+
+.projects__cta-wrap::before {
+  inset: 0;
+  border-radius: var(--r-pill);
+  padding: 2px;
+  background: conic-gradient(
+    from var(--cta-comet-angle),
+    transparent 0deg,
+    transparent 270deg,
+    rgba(255, 144, 37, 0.15) 305deg,
+    rgba(255, 144, 37, 0.6)  340deg,
+    rgba(255, 215, 90,  0.9) 352deg,
+    #ffffff                  357deg,
+    rgba(255, 215, 90,  0.9) 360deg
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  z-index: 3;
+}
+
+.projects__cta-wrap::after {
+  inset: -0.75rem -0.75rem 0 -0.75rem;
+  border-radius: calc(var(--r-pill) + 0.75rem);
+  background: conic-gradient(
+    from var(--cta-comet-angle),
+    transparent 0deg,
+    transparent 270deg,
+    rgba(255, 144, 37, 0.04) 305deg,
+    rgba(255, 144, 37, 0.18) 340deg,
+    rgba(255, 215, 90,  0.35) 352deg,
+    rgba(255, 255, 255, 0.55) 357deg,
+    rgba(255, 215, 90,  0.35) 360deg
+  );
+  filter: blur(0.75rem);
+  z-index: 0;
+}
+
+@keyframes cta-comet-spin {
+  to { --cta-comet-angle: 360deg; }
 }
 
 
@@ -277,7 +318,11 @@
   transition: opacity var(--transition-base);
 }
 
-.projects__cta:hover {
+.projects__cta-wrap:hover {
+  transform: scale(1.01);
+}
+
+.projects__cta-wrap:hover .projects__cta {
   opacity: 0.9;
 }
 
@@ -339,7 +384,8 @@
   width: auto;
   display: block;
   pointer-events: none;
-  z-index: 3;
+  z-index: 4;
+  transform-origin: center bottom;
   -webkit-mask-image: linear-gradient(to bottom, black 65%, transparent 90%);
   mask-image: linear-gradient(to bottom, black 65%, transparent 90%);
 }
