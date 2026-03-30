@@ -193,12 +193,15 @@
 
         <!-- Social bar -->
         <div class="nav__mobile-social">
-          <a href="https://wa.me/447123456789" class="nav__mobile-wa" aria-label="Call or WhatsApp">
-            <span class="nav__mobile-wa-icon">
-              <img src="assets/svg/whatsapp.svg" width="24" height="24" alt="" aria-hidden="true">
-            </span>
-            <span class="nav__mobile-phone">+44 (7123) 456789</span>
-          </a>
+          <div class="nav__mobile-wa-wrapper">
+            <a href="https://wa.me/447123456789" class="nav__mobile-wa-btn" aria-label="Chat on WhatsApp" target="_blank" rel="noopener noreferrer">
+              <img src="assets/svg/whatsapp.svg" width="36" height="36" alt="" aria-hidden="true">
+            </a>
+            <div class="nav__mobile-phone-wrapper">
+              <span class="nav__mobile-phone" id="phone-copy-mobile">+44 (7123) 456789</span>
+              <div class="nav__mobile-tooltip">Copied to clipboard</div>
+            </div>
+          </div>
           <div class="nav__mobile-social-sep" aria-hidden="true"></div>
           <a href="#" class="nav__mobile-ig" aria-label="Instagram">
             <span class="nav__mobile-ig-icon">

@@ -116,6 +116,10 @@ const phoneWrapper = document.querySelector('.nav__phone-wrapper');
 const phoneLink = document.getElementById('phone-copy');
 const tooltip = document.querySelector('.nav__tooltip');
 
+const phoneWrapperMobile = document.querySelector('.nav__mobile-phone-wrapper');
+const phoneLinkMobile = document.getElementById('phone-copy-mobile');
+const tooltipMobile = document.querySelector('.nav__mobile-tooltip');
+
 if (phoneWrapper && phoneLink && tooltip) {
   const defaultTooltipText = tooltip.textContent;
   let copyFeedbackTimeout = null;
@@ -141,6 +145,28 @@ if (phoneWrapper && phoneLink && tooltip) {
   };
 
   phoneWrapper.addEventListener('click', handleCopy);
+}
+
+if (phoneWrapperMobile && phoneLinkMobile && tooltipMobile) {
+  let copyFeedbackTimeoutMobile = null;
+
+  const handleCopyMobile = (e) => {
+    e.preventDefault();
+    const phoneNumber = phoneLinkMobile.textContent.replace(/\s+/g, '');
+
+    navigator.clipboard.writeText(phoneNumber).then(() => {
+      tooltipMobile.classList.add('is-visible');
+
+      clearTimeout(copyFeedbackTimeoutMobile);
+      copyFeedbackTimeoutMobile = setTimeout(() => {
+        tooltipMobile.classList.remove('is-visible');
+      }, 2000);
+    }).catch((err) => {
+      console.error('Failed to copy: ', err);
+    });
+  };
+
+  phoneWrapperMobile.addEventListener('click', handleCopyMobile);
 }
 
 /* Projects: fade-up items on scroll */
