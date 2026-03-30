@@ -7,7 +7,7 @@
   overflow: hidden;
   height: calc(100vh - 2 * var(--section-gap));
   min-height: 30rem;
-  background-color: var(--clr-bg-alt);
+  background-color: #000;
 }
 
 /* Left-to-right gradient keeps text readable over video */

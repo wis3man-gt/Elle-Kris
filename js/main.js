@@ -24,7 +24,7 @@ const statsObserver = new IntersectionObserver((entries) => {
       statsObserver.disconnect();
     }
   });
-}, { threshold: 0.3 });
+}, { threshold: 0.1 });
 
 const whyUsSection = document.querySelector('.why-us');
 if (whyUsSection) statsObserver.observe(whyUsSection);
@@ -43,7 +43,7 @@ const cardObserver = new IntersectionObserver((entries) => {
       cardObserver.disconnect();
     }
   });
-}, { threshold: 0.1 });
+}, { threshold: 0.05 });
 
 const servicesGrid = document.querySelector('.services__grid');
 if (servicesGrid) cardObserver.observe(servicesGrid);
@@ -152,7 +152,7 @@ const projectObserver = new IntersectionObserver((entries) => {
       projectObserver.unobserve(entry.target);
     }
   });
-}, { threshold: 0.15 });
+}, { threshold: 0.1 });
 
 document.querySelectorAll('.projects__item').forEach((item) => {
   projectObserver.observe(item);
@@ -208,3 +208,23 @@ if (mainNav && burgerBtn && mobilePanel) {
     if (e.key === 'Escape' && mainNav.classList.contains('is-open')) closeMenu();
   });
 }
+
+/* Video performance: only play when in viewport */
+
+const videoObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    const video = entry.target;
+    if (entry.isIntersecting) {
+      video.play().catch(() => {
+        /* Autoplay might be blocked by browser until user interaction */
+      });
+    } else {
+      video.pause();
+    }
+  });
+}, { threshold: 0.05 });
+
+document.querySelectorAll('video:not(.hero__video)').forEach((video) => {
+  videoObserver.observe(video);
+});
+

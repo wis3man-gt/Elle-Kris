@@ -13,7 +13,7 @@
   <!-- ── Hero (nav floats inside) ───────────────────── -->
   <section class="hero" id="hero" aria-label="Hero">
 
-    <video class="hero__video" autoplay muted loop playsinline>
+    <video class="hero__video" autoplay muted loop playsinline fetchpriority="high" preload="auto">
       <source src="assets/videos/heroVideo.mp4" type="video/mp4">
     </video>
 
@@ -293,28 +293,28 @@
       <div class="why-us__grid">
         <div class="why-us__grid-inner">
           <div class="why-us__tile why-us__tile--tl">
-            <video class="why-us__video" autoplay muted loop playsinline>
+            <video class="why-us__video" preload="metadata" muted loop playsinline>
               <source src="assets/videos/whyUsVid1.mp4" type="video/mp4">
             </video>
             <span class="why-us__tag why-us__tag--tl">Quality Workmanship</span>
           </div>
 
           <div class="why-us__tile why-us__tile--tr">
-            <video class="why-us__video" autoplay muted loop playsinline>
+            <video class="why-us__video" preload="metadata" muted loop playsinline>
               <source src="assets/videos/whyUsVid2.mp4" type="video/mp4">
             </video>
             <span class="why-us__tag why-us__tag--tr">Reliable Service</span>
           </div>
 
           <div class="why-us__tile why-us__tile--bl">
-            <video class="why-us__video" autoplay muted loop playsinline>
+            <video class="why-us__video" preload="metadata" muted loop playsinline>
               <source src="assets/videos/whyUsVid3.mp4" type="video/mp4">
             </video>
             <span class="why-us__tag why-us__tag--bl">Tailored Solutions</span>
           </div>
 
           <div class="why-us__tile why-us__tile--br">
-            <video class="why-us__video" autoplay muted loop playsinline>
+            <video class="why-us__video" preload="metadata" muted loop playsinline>
               <source src="assets/videos/whyUsVid4.mp4" type="video/mp4">
             </video>
             <span class="why-us__tag why-us__tag--br">Trusted Approach</span>
@@ -348,7 +348,7 @@
       <article class="services__card">
         <div class="services__inner">
           <div class="services__img-wrap">
-            <img class="services__img" src="assets/images/homeRenovation.png" alt="Home Renovation">
+            <img class="services__img" src="assets/images/homeRenovation.png" alt="Home Renovation" loading="lazy" decoding="async">
           </div>
           <div class="services__body">
             <h3 class="services__title">Home Renovation</h3>
@@ -360,7 +360,7 @@
       <article class="services__card">
         <div class="services__inner">
           <div class="services__img-wrap">
-            <img class="services__img" src="assets/images/bathroomRenovation.png" alt="Bathroom Renovation">
+            <img class="services__img" src="assets/images/bathroomRenovation.png" alt="Bathroom Renovation" loading="lazy" decoding="async">
           </div>
           <div class="services__body">
             <h3 class="services__title">Bathroom Renovation</h3>
@@ -372,7 +372,7 @@
       <article class="services__card">
         <div class="services__inner">
           <div class="services__img-wrap">
-            <img class="services__img" src="assets/images/kitchenRenovation.png" alt="Kitchen Renovation">
+            <img class="services__img" src="assets/images/kitchenRenovation.png" alt="Kitchen Renovation" loading="lazy" decoding="async">
           </div>
           <div class="services__body">
             <h3 class="services__title">Kitchen Renovation</h3>
@@ -384,7 +384,7 @@
       <article class="services__card">
         <div class="services__inner">
           <div class="services__img-wrap">
-            <img class="services__img" src="assets/images/paintingDecoration.png" alt="Painting &amp; Decorating">
+            <img class="services__img" src="assets/images/paintingDecoration.png" alt="Painting &amp; Decorating" loading="lazy" decoding="async">
           </div>
           <div class="services__body">
             <h3 class="services__title">Painting &amp; Decorating</h3>
@@ -396,7 +396,7 @@
       <article class="services__card">
         <div class="services__inner">
           <div class="services__img-wrap">
-            <img class="services__img" src="assets/images/flooringFinishes.png" alt="Flooring &amp; Finishes">
+            <img class="services__img" src="assets/images/flooringFinishes.png" alt="Flooring &amp; Finishes" loading="lazy" decoding="async">
           </div>
           <div class="services__body">
             <h3 class="services__title">Flooring &amp; Finishes</h3>
@@ -408,7 +408,7 @@
       <article class="services__card">
         <div class="services__inner">
           <div class="services__img-wrap">
-            <img class="services__img" src="assets/images/homeimprovements.png" alt="Home Improvements">
+            <img class="services__img" src="assets/images/homeimprovements.png" alt="Home Improvements" loading="lazy" decoding="async">
           </div>
           <div class="services__body">
             <h3 class="services__title">Home Improvements</h3>
@@ -438,7 +438,7 @@
 
       <article class="projects__item">
         <div class="projects__img-wrap">
-          <img class="projects__img" src="assets/images/projects1.png" alt="Contemporary Bathroom Upgrade">
+          <img class="projects__img" src="assets/images/projects1.png" alt="Contemporary Bathroom Upgrade" loading="lazy" decoding="async">
         </div>
         <div class="projects__content">
           <div class="projects__info">
@@ -469,7 +469,7 @@
 
       <article class="projects__item projects__item--reverse">
         <div class="projects__img-wrap">
-          <img class="projects__img" src="assets/images/projects2.png" alt="Modern Kitchen Transformation">
+          <img class="projects__img" src="assets/images/projects2.png" alt="Modern Kitchen Transformation" loading="lazy" decoding="async">
         </div>
         <div class="projects__content">
           <div class="projects__info">
@@ -500,7 +500,7 @@
 
       <article class="projects__item">
         <div class="projects__img-wrap">
-          <img class="projects__img" src="assets/images/projects3.png" alt="Warm Interior Refresh">
+          <img class="projects__img" src="assets/images/projects3.png" alt="Warm Interior Refresh" loading="lazy" decoding="async">
         </div>
         <div class="projects__content">
           <div class="projects__info">
@@ -543,7 +543,7 @@
         </div>
         <img class="projects__cta-logo" src="assets/svg/logoLightBig.svg" alt="" aria-hidden="true">
       </a>
-      <img class="projects__cta-team" src="assets/images/projectsTeamBG.png" alt="" aria-hidden="true">
+      <img class="projects__cta-team" src="assets/images/projectsTeamBG.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
     </div>
 
   </section>
