@@ -8,14 +8,20 @@
   z-index: 2;
 }
 
-/* ── Recent Work / Projects ──────────────────────────── */
-
-
-.projects {
+.projects-footer-shell {
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(85, 159, 255, 0.3) 100%), var(--clr-dark);
   position: relative;
   z-index: 1;
   margin-top: calc(-1 * var(--r-footer));
+}
+
+/* ── Recent Work / Projects ──────────────────────────── */
+
+
+.projects {
+  background: transparent;
+  position: relative;
+  z-index: 1;
   padding: calc(var(--r-footer) + 6rem) var(--page-margin) 6rem;
   display: flex;
   flex-direction: column;
@@ -237,7 +243,7 @@
   margin-top: 5rem;
   border-radius: var(--r-pill);
   isolation: isolate;
-  clip-path: inset(-30rem -2rem 0 -2rem);
+  overflow: visible;
   transition: transform var(--transition-base);
 }
 
@@ -254,7 +260,7 @@
   content: '';
   position: absolute;
   pointer-events: none;
-  animation: cta-comet-spin 5s linear infinite;
+  animation: cta-comet-spin 8s linear infinite;
 }
 
 .projects__cta-wrap::before {
@@ -283,7 +289,7 @@
 }
 
 .projects__cta-wrap::after {
-  inset: -0.75rem -0.75rem 0 -0.75rem;
+  inset: -0.75rem;
   border-radius: calc(var(--r-pill) + 0.75rem);
   background: conic-gradient(
     from var(--cta-comet-angle),
@@ -295,7 +301,7 @@
     rgba(255, 255, 255, 0.55) 357deg,
     rgba(255, 215, 90,  0.35) 360deg
   );
-  filter: blur(0.75rem);
+  filter: blur(1.5rem);
   z-index: 0;
 }
 
@@ -365,7 +371,7 @@
 }
 
 .projects__cta-logo {
-  height: 7rem;
+  height: 5.25rem;
   width: auto;
   display: block;
   flex-shrink: 0;
@@ -374,6 +380,7 @@
 
 .projects__cta-team {
   position: absolute;
+  clip-path: inset(0 0 9rem 0);
   bottom: -9rem;
   right: calc(
     var(--projects-cta-right-pad) +
