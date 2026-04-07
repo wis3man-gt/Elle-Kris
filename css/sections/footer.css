@@ -1,9 +1,18 @@
 /* ── Footer ──────────────────────────────────────────── */
 
+/* ── CTA wrapper ─────────────────────────────────────── */
+
+.footer__cta {
+  margin-top: 6rem;
+  padding: 5rem clamp(3rem, 8vw, 9.25rem) clamp(3rem, 5vw, 5rem);
+}
+
+.footer__cta .projects__cta-wrap {
+  margin-top: 0;
+}
+
 .footer {
   background: transparent;
-  width: calc(100% - (2 * var(--page-margin)));
-  margin-inline: auto;
   position: relative;
   z-index: 1;
   overflow: hidden;
@@ -11,8 +20,7 @@
 
 .footer__inner {
   width: 100%;
-  max-width: none;
-  padding: 4rem 3.9375rem 2rem 4.8125rem;
+  padding: 4rem calc(clamp(3rem, 8vw, 9.25rem) + 3.9375rem) 2rem calc(clamp(3rem, 8vw, 9.25rem) + 4.8125rem);
   display: flex;
   flex-direction: column;
   gap: 4rem;
@@ -348,12 +356,8 @@
 /* ── Responsive ──────────────────────────────────────── */
 
 @media (max-width: 64rem) {
-  .footer {
-    width: calc(100% - (2 * var(--page-margin-sm)));
-  }
-
   .footer__inner {
-    padding: 3rem 1.75rem 1.75rem;
+    padding: 3rem clamp(2rem, 5vw, 3rem) 1.75rem;
     gap: 2.75rem;
   }
 
@@ -444,8 +448,7 @@
 
 @media (max-width: 48rem) {
   .footer__inner {
-    padding-left: 0;
-    padding-right: 0;
+    padding-inline: 1.5rem;
   }
 
   .footer__col-heading {
@@ -459,12 +462,8 @@
 }
 
 @media (max-width: 40rem) {
-  .footer {
-    width: calc(100% - 2.5rem);
-  }
-
   .footer__inner {
-    padding: 2.75rem 0 1.5rem;
+    padding: 2.75rem 1rem 1.5rem;
     gap: 2.25rem;
   }
 

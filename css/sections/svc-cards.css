@@ -1,0 +1,150 @@
+/* ── Services Cards Grid ──────────────────────────────── */
+
+.svc-cards {
+  margin: var(--section-gap);
+  border-radius: var(--r-section);  /* 24px */
+  background-color: var(--clr-white);
+  overflow: hidden;
+}
+
+.svc-cards__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* ── Card ── */
+
+.svc-cards__card {
+  padding: 3rem;                     /* 48px — Figma exact */
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;                         /* 32px — between upper group and list */
+  border-right: 1px solid #ece3d0;
+  border-bottom: 1px solid #ece3d0;
+}
+
+/* ── Upper group (image + title/desc) ── */
+
+.svc-cards__upper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;                       /* 24px — between image and text */
+}
+
+/* ── Image ── */
+
+.svc-cards__img-wrap {
+  border-radius: 0.75rem;            /* 12px — Figma exact */
+  overflow: hidden;
+  aspect-ratio: 488 / 242;           /* Figma exact dimensions */
+  flex-shrink: 0;
+}
+
+.svc-cards__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--transition-slow);
+}
+
+.svc-cards__card:hover .svc-cards__img {
+  transform: scale(1.04);
+}
+
+/* ── Text (title + description) ── */
+
+.svc-cards__text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;                      /* 12px — Figma exact */
+}
+
+.svc-cards__title {
+  font-size: var(--fs-lg);           /* 20px */
+  font-weight: var(--fw-semibold);   /* 600 — Figma exact */
+  color: var(--clr-dark);
+  line-height: 1.25;
+}
+
+.svc-cards__desc {
+  font-size: var(--fs-base);         /* 16px — Figma exact */
+  font-weight: 400;                  /* Figma exact — requires Sora 400 */
+  color: var(--clr-dark);
+  line-height: 1.5;
+}
+
+/* ── Bullet list ── */
+
+.svc-cards__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;                      /* 12px — Figma exact */
+}
+
+.svc-cards__item {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;                      /* 4px — Figma exact */
+  font-size: var(--fs-base);         /* 16px — Figma exact */
+  font-weight: var(--fw-semibold);   /* 600 */
+  color: var(--clr-dark);
+  line-height: 1.25;
+}
+
+.svc-cards__item::before {
+  content: '';
+  flex-shrink: 0;
+  width: 1.5rem;                     /* 24px — Figma exact */
+  height: 1.5rem;
+  background-image: url('../../assets/svg/bullets.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* ── Responsive ── */
+
+@media (max-width: 68.75rem) { /* 1100px → 2 columns */
+  .svc-cards__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .svc-cards__card {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 48rem) { /* 768px → 1 column */
+  .svc-cards {
+    margin: calc(var(--section-gap) / 2);
+  }
+
+  .svc-cards__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .svc-cards__card {
+    padding: 1.5rem;
+    gap: 1.5rem;
+  }
+
+  .svc-cards__upper {
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 26.25rem) { /* 420px */
+  .svc-cards__card {
+    padding: 1.25rem;
+  }
+
+  .svc-cards__title {
+    font-size: var(--fs-md);
+  }
+
+  .svc-cards__desc,
+  .svc-cards__item {
+    font-size: var(--fs-sm);
+  }
+}

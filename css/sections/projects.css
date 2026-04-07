@@ -35,9 +35,9 @@
   position: relative;
   z-index: 1;
   padding:
-    calc(var(--r-footer) + clamp(4rem, 7vw, 6rem))
-    clamp(1rem, 5vw, 7rem)
-    clamp(4rem, 6vw, 6rem);
+    calc(var(--r-footer) + 4rem)
+    clamp(3rem, 8vw, 9.25rem)
+    4rem;
   display: flex;
   flex-direction: column;
   gap: 6rem;
@@ -427,7 +427,7 @@
   .projects {
     padding:
       clamp(4rem, 8vw, 5rem)
-      clamp(1.5rem, 4vw, 2rem)
+      clamp(2rem, 5vw, 3rem)
       4rem;
     gap: 4rem;
   }
@@ -595,7 +595,7 @@
   .projects {
     padding:
       clamp(3rem, 10vw, 4rem)
-      1rem
+      1.5rem
       3rem;
   }
 
@@ -627,7 +627,7 @@
   .projects {
     padding:
       3rem
-      0.75rem
+      1rem
       2.5rem;
     gap: 3rem;
   }

@@ -1,0 +1,236 @@
+/* ── Services Steps ────────────────────────────────── */
+
+.svc-steps {
+  padding: 5rem var(--page-margin);
+}
+
+/* ── Header ── */
+
+.svc-steps__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.5rem;                /* 24px — Figma exact */
+  margin-bottom: 3.25rem;     /* 52px — Figma gap header→cards ≈51px scaled */
+}
+
+.svc-steps__badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.625rem 1.25rem;  /* 10px 20px */
+  background-color: var(--clr-white);
+  border: 1px solid #ece3d0;
+  border-radius: var(--r-pill);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.06);
+  font-size: var(--fs-sm);    /* 14px */
+  font-weight: var(--fw-semibold);
+  color: var(--clr-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.svc-steps__heading {
+  font-size: clamp(var(--fs-2xl), 3.5vw, 2.5rem); /* 32px→40px fluid */
+  font-weight: var(--fw-bold);
+  color: var(--clr-dark);
+  line-height: 1.25;
+  max-width: 75%;
+}
+
+/* ── Track: cards + connectors ── */
+
+.svc-steps__track {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+}
+
+/* ── Connector (SVG includes circle, arrow, and beige separation ring) ── */
+
+.svc-steps__connector {
+  display: block;
+  width: 6rem;          /* 96px — native SVG size including 20px beige ring each side */
+  height: auto;
+  flex-shrink: 0;
+  align-self: center;
+  margin: 0 -2rem;      /* 32px overlap into each card — Figma exact 12px into white area */
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Step card ── */
+
+.svc-steps__card {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1.75rem 2rem;
+  background-color: var(--clr-white);
+  border: 1px solid #ece3d0;
+  border-radius: var(--r-section);   /* 24px */
+  position: relative;
+  transition:
+    box-shadow 0.3s ease,
+    opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  /* entrance animation initial state */
+  opacity: 0;
+  transform: translateY(2rem);
+}
+
+.svc-steps__card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.svc-steps__card:hover {
+  box-shadow: 0 8px 32px rgba(6, 39, 83, 0.08);
+}
+
+/* ── Card header: eyebrow + title ── */
+
+.svc-steps__card-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.375rem;          /* 6px — Figma exact */
+  margin-bottom: 1.25rem; /* 20px ≈ 21px scaled — Figma title→image gap */
+  width: 100%;
+}
+
+.svc-steps__eyebrow {
+  font-size: var(--fs-sm);   /* 14px */
+  font-weight: 400;
+  color: var(--clr-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  line-height: 1.25;
+}
+
+.svc-steps__title {
+  font-size: var(--fs-lg);   /* 20px — Figma exact */
+  font-weight: var(--fw-semibold);
+  color: var(--clr-dark);
+  line-height: 1.25;
+}
+
+/* ── Illustration ── */
+
+.svc-steps__img {
+  width: auto;       /* natural SVG width — gives breathing room like Figma */
+  max-width: 100%;   /* scales down if card is narrower than SVG native width */
+  height: auto;
+  display: block;
+  transition: transform var(--transition-slow);
+}
+
+.svc-steps__card:hover .svc-steps__img {
+  transform: scale(1.04);
+}
+
+/* ── Description (pushed to bottom) ── */
+
+.svc-steps__desc {
+  margin-top: auto;          /* pushes to card bottom */
+  padding-top: 1.875rem;     /* 30px ≈ 30px scaled — Figma image→desc gap */
+  font-size: var(--fs-base); /* 16px — Figma exact */
+  font-weight: var(--fw-semibold); /* 600 — Figma exact */
+  color: var(--clr-dark);
+  line-height: 1.5;
+}
+
+/* ── Responsive ── */
+
+@media (max-width: 80rem) { /* 1280px */
+  .svc-steps {
+    padding: 5rem 5rem;
+  }
+}
+
+@media (max-width: 68.75rem) { /* 1100px */
+  .svc-steps {
+    padding: 4.5rem 3rem;
+  }
+
+  .svc-steps__connector {
+    width: 4.5rem;
+    margin: 0 -1.5rem;
+  }
+
+  .svc-steps__card {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 56rem) { /* 896px */
+  .svc-steps {
+    padding: 4rem 2rem;
+  }
+
+  .svc-steps__heading {
+    font-size: var(--fs-2xl);
+  }
+
+  .svc-steps__connector {
+    width: 3.5rem;
+    margin: 0 -1.25rem;
+  }
+}
+
+@media (max-width: 48rem) { /* 768px → single column */
+  .svc-steps {
+    padding: 3.5rem var(--page-margin-sm);
+  }
+
+  .svc-steps__header {
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .svc-steps__track {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+
+  .svc-steps__connector {
+    display: none;
+  }
+
+  .svc-steps__card {
+    padding: 1.75rem 1.5rem;
+  }
+
+  .svc-steps__img {
+    max-width: 72%;
+    margin: 0 auto;
+  }
+
+  .svc-steps__desc {
+    margin-top: 0;
+    padding-top: 1.5rem;
+  }
+}
+
+@media (max-width: 26.25rem) { /* 420px */
+  .svc-steps {
+    padding: 2.5rem 1.25rem;
+  }
+
+  .svc-steps__heading {
+    font-size: var(--fs-xl);
+    line-height: 1.3;
+  }
+
+  .svc-steps__title {
+    font-size: var(--fs-md);
+  }
+
+  .svc-steps__desc {
+    font-size: var(--fs-sm);
+  }
+}

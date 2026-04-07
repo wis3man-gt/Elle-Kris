@@ -169,6 +169,25 @@ if (phoneWrapperMobile && phoneLinkMobile && tooltipMobile) {
   phoneWrapperMobile.addEventListener('click', handleCopyMobile);
 }
 
+/* Steps: staggered fade-up entrance on scroll */
+
+const stepsTrack = document.querySelector('.svc-steps__track');
+
+if (stepsTrack) {
+  const stepsObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.querySelectorAll('.svc-steps__card').forEach((card, i) => {
+          setTimeout(() => card.classList.add('is-visible'), i * 150);
+        });
+        stepsObserver.disconnect();
+      }
+    });
+  }, { threshold: 0.1 });
+
+  stepsObserver.observe(stepsTrack);
+}
+
 /* Projects: fade-up items on scroll */
 
 const projectObserver = new IntersectionObserver((entries) => {
@@ -214,7 +233,8 @@ if (mainNav && burgerBtn && mobilePanel) {
   });
 
   mobilePanel.querySelectorAll('.nav__mobile-row').forEach((row) => {
-    row.addEventListener('click', () => {
+    row.addEventListener('click', (e) => {
+      e.preventDefault();
       const item = row.closest('.nav__mobile-item');
       const wasExpanded = item.classList.contains('is-expanded');
 

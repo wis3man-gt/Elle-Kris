@@ -70,6 +70,16 @@
   box-shadow: var(--shadow-nav-link);
 }
 
+/* Fade all links when one is active, unless hovering another */
+.nav__links:has(.nav__link.is-active) .nav__link:not(.is-active) {
+  opacity: 0.4;
+}
+
+/* Ensure hovered link always has full opacity even if another is active */
+.nav__links .nav__item:hover .nav__link {
+  opacity: 1 !important;
+}
+
 .nav__chevron {
   flex-shrink: 0;
   transition: transform var(--transition-base);
@@ -460,8 +470,7 @@
     justify-content: space-between;
     width: 100%;
     padding: 1.5rem 1rem;
-    background: none;
-    text-align: left;
+    text-decoration: none;
     cursor: pointer;
     flex-shrink: 0;
   }
