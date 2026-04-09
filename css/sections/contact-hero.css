@@ -1,0 +1,394 @@
+/* ── Contact Hero ──────────────────────────────────────── */
+
+.contact-hero {
+  position: relative;
+  /* No bottom margin — form container handles the gap */
+  margin: var(--section-gap) var(--section-gap) 0;
+  border-radius: var(--r-section);
+  /* Deep navy with a lighter-blue radial bloom at the top centre */
+  background:
+    radial-gradient(ellipse 80% 70% at 50% 0%, #1c5299 0%, rgba(6, 39, 83, 0) 75%),
+    var(--clr-dark);
+}
+
+/* ── Body (title + phones only — form is a sibling below) ── */
+
+.contact-hero__body {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 2rem;
+  /* top padding clears the nav bar; bottom padding extends the dark
+     section down to the form's visual midpoint (~20 rem)            */
+  padding: clamp(9rem, 16.5vw, 14.875rem) clamp(2rem, 5vw, 4.5rem) 20rem;
+}
+
+/* ── Text ── */
+
+.contact-hero__text {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-hero__title {
+  font-size: clamp(var(--fs-2xl), 3.5vw, 3rem);
+  font-weight: var(--fw-semibold);
+  color: var(--clr-white);
+  line-height: 1.2;
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.25);
+}
+
+.contact-hero__sub {
+  font-size: clamp(var(--fs-sm), 1.5vw, var(--fs-base));
+  font-weight: var(--fw-semibold);
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.6;
+  max-width: 38rem;
+}
+
+/* ── Phone row ── */
+
+.contact-hero__phones {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.contact-hero__phone {
+  font-size: var(--fs-base);
+  font-weight: var(--fw-semibold);
+  color: var(--clr-white);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: opacity var(--transition-base);
+}
+
+.contact-hero__phone:hover {
+  opacity: 0.7;
+}
+
+.contact-hero__wa {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.625rem;
+  height: 2.625rem;
+  border-radius: var(--r-pill);
+  background: var(--clr-whatsapp);
+  flex-shrink: 0;
+  transition: opacity var(--transition-base), transform var(--transition-base);
+  text-decoration: none;
+}
+
+.contact-hero__wa:hover {
+  opacity: 0.85;
+  transform: scale(1.06);
+}
+
+.contact-hero__wa img {
+  width: 1.5rem;
+  height: 1.5rem;
+  display: block;
+}
+
+/* ── Form container (straddles hero/page boundary) ────── */
+/*
+ * The hero body's padding-bottom: 20rem extends the dark section
+ * 20rem below the phone row.  This container is pulled up by 18rem,
+ * leaving a ~2rem gap beneath the phones, and placing the form's
+ * visual midpoint right at the dark-section boundary.
+ */
+
+.contact-form-container {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Pull up into the dark hero section */
+  margin-top: -18rem;
+  /* Side padding mirrors section-gap so form aligns with page grid */
+  padding: 0 var(--section-gap) 0;
+  /* Small gap between form bottom and section separator */
+  margin-bottom: var(--section-gap);
+}
+
+/* ── Form card ── */
+
+.contact-form {
+  width: 100%;
+  max-width: 44rem;
+  background: var(--clr-white);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.03);
+  text-align: left;
+}
+
+.contact-form__header {
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4375rem;
+}
+
+.contact-form__title {
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-semibold);
+  color: var(--clr-dark);
+  line-height: 1.25;
+}
+
+.contact-form__sub {
+  font-size: var(--fs-base);
+  font-weight: 400;
+  color: var(--clr-dark);
+  line-height: 1.25;
+}
+
+/* ── Form fields ── */
+
+.contact-form__fields {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.contact-form__input,
+.contact-form__select,
+.contact-form__textarea {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: var(--font-primary);
+  font-size: var(--fs-base);
+  font-weight: 400;
+  color: var(--clr-dark);
+  background: var(--clr-bg);
+  border: 1px solid #ddcfb1;
+  border-radius: 0.875rem;
+  padding: 1.5625rem;
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+  box-shadow:
+    0px 5px 2px rgba(0, 0, 0, 0.01),
+    0px 3px 2px rgba(0, 0, 0, 0.05),
+    0px 1px 1px rgba(0, 0, 0, 0.08),
+    0px 0px 1px rgba(0, 0, 0, 0.09);
+  transition: border-color var(--transition-base), background-color var(--transition-base);
+}
+
+.contact-form__input::placeholder,
+.contact-form__textarea::placeholder {
+  color: #66532b;
+  font-weight: 400;
+}
+
+.contact-form__input:focus,
+.contact-form__select:focus,
+.contact-form__textarea:focus {
+  border-color: #b8ae9c;
+  background-color: var(--clr-white);
+}
+
+/* Select */
+.contact-form__select-wrap {
+  position: relative;
+}
+
+.contact-form__select {
+  cursor: pointer;
+  padding-right: 3rem;
+}
+
+.contact-form__select:required:invalid {
+  color: #66532b;
+}
+
+.contact-form__select-chevron {
+  position: absolute;
+  right: 1.5625rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0.75rem;
+  height: 0.75rem;
+  pointer-events: none;
+  opacity: 0.45;
+}
+
+/* Textarea */
+.contact-form__textarea {
+  resize: vertical;
+  min-height: 7.5rem;
+  line-height: 1.5;
+}
+
+/* Upload row */
+.contact-form__upload {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  background: var(--clr-bg);
+  border: 1px solid #ddcfb1;
+  border-radius: 0.875rem;
+  padding: 0 1.5625rem;
+  min-height: 4.375rem;
+  box-shadow:
+    0px 5px 2px rgba(0, 0, 0, 0.01),
+    0px 3px 2px rgba(0, 0, 0, 0.05),
+    0px 1px 1px rgba(0, 0, 0, 0.08),
+    0px 0px 1px rgba(0, 0, 0, 0.09);
+}
+
+.contact-form__upload-hint {
+  font-size: var(--fs-base);
+  font-weight: 400;
+  color: #66532b;
+  line-height: 1.25;
+}
+
+.contact-form__upload-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-primary);
+  font-size: var(--fs-base);
+  font-weight: 400;
+  color: #000000;
+  white-space: nowrap;
+  cursor: pointer;
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: var(--r-pill);
+  background: var(--clr-white);
+  box-shadow:
+    0px 5px 2px rgba(0, 0, 0, 0.01),
+    0px 3px 2px rgba(0, 0, 0, 0.05),
+    0px 1px 1px rgba(0, 0, 0, 0.08),
+    0px 0px 1px rgba(0, 0, 0, 0.09);
+  transition: opacity var(--transition-base);
+  flex-shrink: 0;
+}
+
+.contact-form__upload-label:hover {
+  opacity: 0.8;
+}
+
+.contact-form__upload-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  flex-shrink: 0;
+  display: block;
+}
+
+.contact-form__file {
+  display: none;
+}
+
+/* Submit */
+.contact-form__submit {
+  width: 100%;
+  padding-block: 1.5rem;
+  font-size: var(--fs-md);
+  font-weight: var(--fw-semibold);
+  border: 1px solid #ed7b0e;
+  cursor: pointer;
+  border-radius: 0.875rem;
+  box-shadow:
+    0px 5px 2px rgba(0, 0, 0, 0.01),
+    0px 3px 2px rgba(0, 0, 0, 0.05),
+    0px 1px 1px rgba(0, 0, 0, 0.08),
+    0px 0px 1px rgba(0, 0, 0, 0.09);
+}
+
+
+/* ── Section separator note (contact page only) ─────── */
+
+.section-sep {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 1.5rem;
+  padding-inline: var(--section-gap);
+}
+
+.section-sep__note {
+  font-size: var(--fs-base);
+  font-weight: 400;
+  color: #796f56;
+  line-height: 1.25;
+  width: 100%;
+  max-width: 40rem;
+}
+
+/* ── Responsive ──────────────────────────────────────── */
+
+@media (max-width: 68.75rem) {
+  .contact-hero__body {
+    padding-inline: 3rem;
+  }
+}
+
+@media (max-width: 48rem) {
+  .contact-hero {
+    margin: calc(var(--section-gap) / 2) calc(var(--section-gap) / 2) 0;
+  }
+
+  .contact-hero__body {
+    padding-inline: var(--page-margin-sm);
+    gap: 1.5rem;
+    padding-bottom: 16rem;
+  }
+
+  .contact-hero__sub {
+    max-width: 30ch;
+  }
+
+  .contact-form-container {
+    margin-top: -14rem;
+    padding: 0 calc(var(--section-gap) / 2) 0;
+  }
+
+  .contact-form {
+    padding: 1.375rem 1.375rem 1.5rem;
+  }
+}
+
+@media (max-width: 36rem) {
+  .contact-hero__phones {
+    gap: 0.875rem;
+  }
+
+  .contact-hero__phone {
+    font-size: var(--fs-sm);
+  }
+
+  .contact-form__upload {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .contact-form__upload-label {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 26.25rem) {
+  .contact-hero__body {
+    padding-inline: 1.25rem;
+  }
+
+  .contact-hero__title {
+    font-size: var(--fs-xl);
+  }
+}

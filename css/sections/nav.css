@@ -54,7 +54,6 @@
 .nav__link {
   display: flex;
   align-items: center;
-  gap: 0.375rem;               /* 6px */
   padding: 0.625rem clamp(0.5rem, 1vw, 1rem);
   border-radius: var(--r-pill);
   font-size: clamp(0.875rem, 1vw, 1rem);
@@ -62,116 +61,21 @@
   color: var(--clr-dark);
   text-transform: uppercase;
   white-space: nowrap;
-  transition: background-color var(--transition-base);
+  transition: opacity var(--transition-base);
 }
 
 .nav__item:hover .nav__link {
-  background-color: var(--clr-white);
-  box-shadow: var(--shadow-nav-link);
+  opacity: 0.7;
 }
 
-/* Fade all links when one is active, unless hovering another */
+/* Fade all links when one is active */
 .nav__links:has(.nav__link.is-active) .nav__link:not(.is-active) {
   opacity: 0.4;
 }
 
-/* Ensure hovered link always has full opacity even if another is active */
+/* Ensure hovered link always has full opacity */
 .nav__links .nav__item:hover .nav__link {
   opacity: 1 !important;
-}
-
-.nav__chevron {
-  flex-shrink: 0;
-  transition: transform var(--transition-base);
-}
-
-.nav__item:hover .nav__chevron {
-  transform: rotate(180deg);
-}
-
-.nav__links:has(.nav__item:hover) .nav__item:not(:hover) .nav__link {
-  opacity: 0.4;
-}
-
-/* ── Dropdown ── */
-
-.nav__dropdown {
-  position: absolute;
-  top: 100%;                   /* flush — no gap, hover stays active */
-  left: 0;
-  z-index: 20;
-  padding-top: 1.3125rem;      /* 21px — 12px gap + 9px caret height */
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transition: opacity var(--transition-base), visibility var(--transition-base);
-}
-
-.nav__item:hover .nav__dropdown {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-}
-
-/* Caret sits at the bottom of the gap, right on top of the white box */
-.nav__dropdown::before {
-  content: '';
-  position: absolute;
-  top: 0.75rem;                /* 12px below nav__link */
-  left: 2.125rem;              /* 34px — Figma position */
-  width: 0;
-  height: 0;
-  border-left: 0.53125rem solid transparent;
-  border-right: 0.53125rem solid transparent;
-  border-bottom: 0.5625rem solid var(--clr-white);
-}
-
-.nav__dropdown-list {
-  display: flex;
-  flex-direction: column;
-  background-color: var(--clr-white);
-  border-radius: var(--r-section);   /* 24px */
-  padding: 0.75rem 0.25rem;          /* 12px vertical, 4px horizontal */
-  width: 10rem;                      /* 160px */
-  box-shadow: var(--shadow-dropdown);
-}
-
-.nav__dropdown-link {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  padding: 0.75rem 1rem;             /* 12px vertical, 16px horizontal */
-  border-radius: var(--r-tile);      /* 12px */
-  font-size: var(--fs-base);
-  font-weight: var(--fw-semibold);
-  color: var(--clr-dark);
-  white-space: nowrap;
-  transition: background-color var(--transition-base), color var(--transition-base), opacity var(--transition-base);
-}
-
-.nav__dropdown-arrow {
-  width: 0.75rem;
-  height: 0.75rem;
-  flex-shrink: 0;
-  opacity: 0;
-  transition: opacity var(--transition-base);
-}
-
-/* Hovered link */
-.nav__dropdown-link:hover {
-  background-color: var(--clr-bg);
-  color: var(--clr-orange-text);
-}
-
-.nav__dropdown-link:hover .nav__dropdown-arrow {
-  opacity: 1;
-}
-
-/* Dim all other links when any one is hovered */
-.nav__dropdown-list:has(.nav__dropdown-link:hover) .nav__dropdown-link:not(:hover) {
-  color: var(--clr-dark);
-  opacity: 0.6;
 }
 
 /* ── Contact ── */
@@ -444,24 +348,7 @@
   .nav__mobile-item {
     display: flex;
     flex-direction: column;
-    transition: border-radius 0.2s ease;
     flex-shrink: 0;
-  }
-
-  /* White card when expanded — hides own separator */
-  .nav__mobile-item.is-expanded {
-    background-color: var(--clr-white);
-    border-radius: 1.25rem;
-    overflow: hidden;
-  }
-
-  .nav__mobile-item.is-expanded > .nav__mobile-sep {
-    display: none;
-  }
-
-  /* Hide separator of next sibling too (white card replaces visual gap) */
-  .nav__mobile-item.is-expanded + .nav__mobile-item > .nav__mobile-sep {
-    display: none;
   }
 
   .nav__mobile-row {
@@ -482,74 +369,6 @@
     text-transform: uppercase;
     line-height: normal;
     white-space: nowrap;
-  }
-
-  .nav__mobile-chevron {
-    width: 0.75rem;
-    height: 0.75rem;
-    flex-shrink: 0;
-    transition: transform 0.25s ease;
-  }
-
-  .nav__mobile-item.is-expanded .nav__mobile-chevron {
-    transform: rotate(180deg);
-  }
-
-  /* ── Sub-menu (accordion) ── */
-
-  .nav__mobile-sub {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .nav__mobile-item.is-expanded .nav__mobile-sub {
-    max-height: 100rem;
-  }
-
-  .nav__mobile-sub-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    padding: 0.25rem 0.5rem 1rem;
-    background-color: var(--clr-white);
-  }
-
-  .nav__mobile-sub-link {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0.75rem 0.75rem;
-    border-radius: 0.75rem;
-    font-size: clamp(1rem, 4vw, 1.125rem);
-    font-weight: var(--fw-semibold);
-    color: var(--clr-dark);
-    white-space: nowrap;
-    text-decoration: none;
-    width: 100%;
-    transition: background-color 0.2s ease, color 0.2s ease;
-  }
-
-  /* Active/Hover state for mobile sub-links */
-  .nav__mobile-sub-link:active,
-  .nav__mobile-sub-link.is-active {
-    background-color: var(--clr-white);
-    color: var(--clr-orange-text);
-  }
-
-  .nav__mobile-sub-arrow {
-    width: 0.75rem;
-    height: 0.75rem;
-    flex-shrink: 0;
-    opacity: 0.4;
-    -webkit-filter: brightness(0) saturate(100%) invert(10%) sepia(68%) saturate(3474%) hue-rotate(210deg) brightness(91%) contrast(108%);
-    filter: brightness(0) saturate(100%) invert(10%) sepia(68%) saturate(3474%) hue-rotate(210deg) brightness(91%) contrast(108%);
-    transition: opacity 0.2s ease;
-  }
-
-  .nav__mobile-sub-link:active .nav__mobile-sub-arrow,
-  .nav__mobile-sub-link.is-active .nav__mobile-sub-arrow {
-    opacity: 1;
   }
 
   /* ── Social bar ── */

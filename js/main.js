@@ -222,32 +222,10 @@ if (mainNav && burgerBtn && mobilePanel) {
     burgerBtn.setAttribute('aria-expanded', 'false');
     mobilePanel.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
-    mainNav.querySelectorAll('.nav__mobile-item.is-expanded').forEach((el) => {
-      el.classList.remove('is-expanded');
-      el.querySelector('.nav__mobile-sub')?.setAttribute('aria-hidden', 'true');
-    });
   };
 
   burgerBtn.addEventListener('click', () => {
     mainNav.classList.contains('is-open') ? closeMenu() : openMenu();
-  });
-
-  mobilePanel.querySelectorAll('.nav__mobile-row').forEach((row) => {
-    row.addEventListener('click', (e) => {
-      e.preventDefault();
-      const item = row.closest('.nav__mobile-item');
-      const wasExpanded = item.classList.contains('is-expanded');
-
-      mobilePanel.querySelectorAll('.nav__mobile-item').forEach((i) => {
-        i.classList.remove('is-expanded');
-        i.querySelector('.nav__mobile-sub')?.setAttribute('aria-hidden', 'true');
-      });
-
-      if (!wasExpanded) {
-        item.classList.add('is-expanded');
-        item.querySelector('.nav__mobile-sub')?.setAttribute('aria-hidden', 'false');
-      }
-    });
   });
 
   document.addEventListener('keydown', (e) => {

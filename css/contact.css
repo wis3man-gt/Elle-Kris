@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500&display=swap');
+
+@import './variables.css';
+@import './reset.css';
+@import './components.css';
+
+@import './sections/nav.css';
+@import './sections/contact-hero.css';
+@import './sections/projects.css';
+@import './sections/footer.css';
+
+/* ── Contact footer shell: dark background ── */
+
+.projects-footer-shell {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0) 100%), var(--clr-dark);
+}

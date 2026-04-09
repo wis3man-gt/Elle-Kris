@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Elle & Kris's Construction — A thoughtful approach to home renovation built on quality workmanship, practical solutions, and professional standards." />
+  <link rel="icon" type="image/svg+xml" href="assets/svg/logo.svg">
+  <title>About — Elle & Kris's Construction</title>
+  <link rel="stylesheet" href="css/about.css" />
+</head>
+<body>
+
+  <!-- ── About Hero (nav floats inside) ───────────────── -->
+  <section class="about-hero" id="about-hero" aria-label="About hero">
+
+    <nav class="nav" id="main-nav" aria-label="Main navigation">
+      <a class="nav__logo" href="index.html" aria-label="Elle and Kris's Construction — Home">
+        <img class="nav__logo-icon" src="assets/svg/navLogo.svg" alt="Elle and Kris's Construction">
+      </a>
+
+      <ul class="nav__links" role="list">
+        <li class="nav__item"><a href="services.html" class="nav__link">Services</a></li>
+        <li class="nav__item"><a href="#" class="nav__link">Projects</a></li>
+        <li class="nav__item"><a href="about.html" class="nav__link is-active">About</a></li>
+        <li class="nav__item"><a href="contact.html" class="nav__link">Contact</a></li>
+      </ul>
+
+      <div class="nav__contact">
+        <div class="nav__phone-wrapper">
+          <a href="tel:+447123456789" class="nav__phone" id="phone-copy">+44 (7123) 456789</a>
+          <div class="nav__tooltip">Copy to Clipboard</div>
+        </div>
+        <a href="https://wa.me/447123456789" class="nav__whatsapp-btn" aria-label="Chat on WhatsApp" target="_blank" rel="noopener noreferrer">
+          <img class="nav__whatsapp-icon" src="assets/svg/whatsapp.svg" alt="" aria-hidden="true">
+        </a>
+      </div>
+
+      <!-- ── Burger toggle (mobile only) ── -->
+      <button class="nav__burger" id="nav-burger" type="button" aria-expanded="false" aria-controls="nav-mobile" aria-label="Toggle menu">
+        <span class="nav__burger-menu">
+          <span class="nav__burger-text">MENU</span>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <line x1="2" y1="5.5" x2="18" y2="5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="2" y1="10" x2="18" y2="10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="2" y1="14.5" x2="18" y2="14.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span class="nav__burger-close">
+          <span class="nav__burger-text">CLOSE</span>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <line x1="4" y1="4" x2="16" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="16" y1="4" x2="4" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </span>
+      </button>
+
+      <!-- ── Mobile panel ── -->
+      <div class="nav__mobile" id="nav-mobile" aria-hidden="true">
+
+        <ul class="nav__mobile-list" role="list">
+          <li class="nav__mobile-item">
+            <div class="nav__mobile-sep" aria-hidden="true"></div>
+            <a class="nav__mobile-row" href="services.html"><span class="nav__mobile-label">Services</span></a>
+          </li>
+          <li class="nav__mobile-item">
+            <div class="nav__mobile-sep" aria-hidden="true"></div>
+            <a class="nav__mobile-row" href="#"><span class="nav__mobile-label">Projects</span></a>
+          </li>
+          <li class="nav__mobile-item">
+            <div class="nav__mobile-sep" aria-hidden="true"></div>
+            <a class="nav__mobile-row" href="about.html"><span class="nav__mobile-label">About</span></a>
+          </li>
+          <li class="nav__mobile-item">
+            <div class="nav__mobile-sep" aria-hidden="true"></div>
+            <a class="nav__mobile-row" href="contact.html"><span class="nav__mobile-label">Contact</span></a>
+          </li>
+          <li class="nav__mobile-trail" aria-hidden="true"><div class="nav__mobile-sep"></div></li>
+        </ul>
+
+        <!-- Social bar -->
+        <div class="nav__mobile-social">
+          <div class="nav__mobile-wa-wrapper">
+            <a href="https://wa.me/447123456789" class="nav__mobile-wa-btn" aria-label="Chat on WhatsApp" target="_blank" rel="noopener noreferrer">
+              <img src="assets/svg/whatsapp.svg" width="36" height="36" alt="" aria-hidden="true">
+            </a>
+            <div class="nav__mobile-phone-wrapper">
+              <span class="nav__mobile-phone" id="phone-copy-mobile">+44 (7123) 456789</span>
+              <div class="nav__mobile-tooltip">Copied to clipboard</div>
+            </div>
+          </div>
+          <div class="nav__mobile-social-sep" aria-hidden="true"></div>
+          <a href="#" class="nav__mobile-ig" aria-label="Instagram">
+            <span class="nav__mobile-ig-icon">
+              <img src="assets/svg/instagramFooter.svg" width="24" height="24" alt="" aria-hidden="true">
+            </span>
+          </a>
+        </div>
+
+      </div>
+    </nav>
+
+    <!-- Hero content -->
+    <div class="about-hero__body">
+      <h1 class="about-hero__heading">A Thoughtful Approach to Home Renovation</h1>
+      <p class="about-hero__sub">We focus on practical renovation work, quality finishing, and a reliable service experience designed around the way people live in their homes.</p>
+    </div>
+
+    <!-- Frosted glass value cards -->
+    <div class="about-hero__cards">
+      <div class="about-hero__card">
+        <div class="about-hero__card-icon">
+          <img src="assets/svg/flowerLotus.svg" alt="" aria-hidden="true">
+        </div>
+        <div class="about-hero__card-text">
+          <p class="about-hero__card-title">Quality Workmanship</p>
+          <p class="about-hero__card-desc">We take pride in careful, precise work — the kind that lasts and performs well over time.</p>
+        </div>
+      </div>
+
+      <div class="about-hero__card">
+        <div class="about-hero__card-icon">
+          <img src="assets/svg/gpsFix.svg" alt="" aria-hidden="true">
+        </div>
+        <div class="about-hero__card-text">
+          <p class="about-hero__card-title">Thoughtful Solutions</p>
+          <p class="about-hero__card-desc">We approach each project with attention to how you live, planning around your needs and the way your space is used.</p>
+        </div>
+      </div>
+
+      <div class="about-hero__card">
+        <div class="about-hero__card-icon">
+          <img src="assets/svg/ruby.svg" alt="" aria-hidden="true">
+        </div>
+        <div class="about-hero__card-text">
+          <p class="about-hero__card-title">Professional Standards</p>
+          <p class="about-hero__card-desc">From first contact to final finishing, we work with care, clear communication, and a consistent standard of service.</p>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ── Section separator ─────────────────────────────── -->
+  <div class="section-sep" aria-hidden="true"></div>
+
+  <!-- ── Footer ────────────────────────────────────────── -->
+  <div class="projects-footer-shell">
+    <footer class="footer" id="site-footer">
+
+      <!-- CTA -->
+      <div class="footer__cta">
+        <div class="footer__cta-wrap">
+          <a href="contact.html" class="footer__cta-pill">
+            <div class="footer__cta-content">
+              <div class="footer__cta-headline">
+                <span class="footer__cta-title">Let's Talk About Your Project</span>
+                <img class="footer__cta-arrow" src="assets/svg/arrow.svg" alt="" aria-hidden="true">
+              </div>
+              <p class="footer__cta-sub">Get in touch to discuss your space, your goals, and the right approach for your home.</p>
+            </div>
+          </a>
+          <img class="footer__cta-team" src="assets/images/teamBG.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
+          <img class="footer__cta-logo" src="assets/svg/logoLightBig.svg" alt="" aria-hidden="true">
+          <div class="footer__cta-bottom-border" aria-hidden="true"></div>
+        </div>
+      </div>
+
+      <div class="footer__inner">
+        <!-- Brand -->
+        <div class="footer__brand">
+          <a href="index.html" class="footer__logo">
+            <img src="assets/svg/logoLightBig.svg" alt="" aria-hidden="true" class="footer__logo-img">
+            <span class="footer__logo-copy">
+              <span class="footer__logo-title">ELLE &amp; KRIS&rsquo;S</span>
+              <span class="footer__logo-subtitle">CONSTRUCTION</span>
+            </span>
+          </a>
+          <div class="footer__brand-divider" aria-hidden="true"></div>
+          <p class="footer__tagline">Thoughtful renovation and improvement services focused on quality, reliability, and better everyday living.</p>
+        </div>
+
+        <!-- Nav columns -->
+        <div class="footer__nav">
+          <div class="footer__col">
+            <p class="footer__col-heading">Quick Links</p>
+            <div class="footer__link-grid">
+              <ul class="footer__link-list">
+                <li><a href="index.html" class="footer__link"><img src="assets/svg/dot.svg" alt="" aria-hidden="true" class="footer__dot"><span>Home</span></a></li>
+                <li><a href="services.html" class="footer__link"><img src="assets/svg/dot.svg" alt="" aria-hidden="true" class="footer__dot"><span>Services</span></a></li>
+                <li><a href="#" class="footer__link"><img src="assets/svg/dot.svg" alt="" aria-hidden="true" class="footer__dot"><span>Projects</span></a></li>
+              </ul>
+              <ul class="footer__link-list">
+                <li><a href="about.html" class="footer__link"><img src="assets/svg/dot.svg" alt="" aria-hidden="true" class="footer__dot"><span>About</span></a></li>
+                <li><a href="contact.html" class="footer__link"><img src="assets/svg/dot.svg" alt="" aria-hidden="true" class="footer__dot"><span>Contact</span></a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="footer__col">
+            <p class="footer__col-heading">Services</p>
+            <div class="footer__link-grid">
+              <ul class="footer__link-list">
+                <li><a href="services.html" class="footer__link"><img src="assets/svg/dot.svg" alt="" aria-hidden="true" class="footer__dot"><span>Home Renovation</span></a></li>
+                <li><a href="services.html" class="footer__link"><img src="assets/svg/dot.svg" alt="" aria-hidden="true" class="footer__dot"><span>Bathroom Renovation</span></a></li>
+                <li><a href="services.html" class="footer__link"><img src="assets/svg/dot.svg" alt="" aria-hidden="true" class="footer__dot"><span>Kitchen Renovation</span></a></li>
+              </ul>
+              <ul class="footer__link-list">
+                <li><a href="services.html" class="footer__link"><img src="assets/svg/dot.svg" alt="" aria-hidden="true" class="footer__dot"><span>Painting &amp; Decorating</span></a></li>
+                <li><a href="services.html" class="footer__link"><img src="assets/svg/dot.svg" alt="" aria-hidden="true" class="footer__dot"><span>Flooring &amp; Finishes</span></a></li>
+                <li><a href="services.html" class="footer__link"><img src="assets/svg/dot.svg" alt="" aria-hidden="true" class="footer__dot"><span>Home Improvements</span></a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="footer__col">
+            <p class="footer__col-heading">Keep in Touch</p>
+            <ul class="footer__contact-list">
+              <li>
+                <a href="https://wa.me/447123456789" class="footer__contact-item">
+                  <img src="assets/svg/whatsappFooter.svg" alt="" aria-hidden="true" class="footer__contact-icon">
+                  <span>+44 (7123) 456789</span>
+                </a>
+              </li>
+              <li>
+                <a href="mailto:hello@elleandkriss.co.uk" class="footer__contact-item">
+                  <img src="assets/svg/atFooter.svg" alt="" aria-hidden="true" class="footer__contact-icon">
+                  <span>hello@elleandkriss.co.uk</span>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="footer__contact-item">
+                  <img src="assets/svg/instagramFooter.svg" alt="" aria-hidden="true" class="footer__contact-icon">
+                  <span>elleandkriss</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Bottom bar -->
+        <div class="footer__bottom">
+          <div class="footer__bottom-divider" aria-hidden="true"></div>
+          <div class="footer__bottom-bar">
+            <p class="footer__copyright">&copy; 2026 Elle &amp; Kris's Construction. All rights reserved.</p>
+            <a href="#" target="_blank" rel="noopener noreferrer" class="footer__credit-wrap" aria-label="Digital Goat">
+              <span class="footer__credit-label">Developed by</span>
+              <span class="dg-logo-wrap">
+                <img src="assets/svg/digitalGoatLogoOuter.svg" class="dg-logo-outer" alt="" aria-hidden="true">
+                <img src="assets/svg/digitalGoatLogoInner.svg" class="dg-logo-inner" alt="" aria-hidden="true">
+              </span>
+              <span class="dg-text-wrap">
+                <span class="dg-text-slider">
+                  <img src="assets/svg/digitalGoatText.svg" class="dg-text" alt="" aria-hidden="true">
+                  <img src="assets/svg/digitalGoatText.svg" class="dg-text" alt="" aria-hidden="true">
+                </span>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
