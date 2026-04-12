@@ -1,0 +1,285 @@
+/* ── About Story ───────────────────────────────────────── */
+
+.about-story {
+  max-width: 73.75rem; /* 1180px */
+  margin: 8rem auto 0;
+  padding: 0 var(--section-gap);
+}
+
+.about-story__inner {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: clamp(3rem, 9vw, 10.8125rem); /* 173px at 1600px */
+}
+
+.about-story__heading {
+  flex: 1;
+  font-size: var(--fs-2xl); /* 32px */
+  font-weight: var(--fw-semibold);
+  color: var(--clr-dark);
+  line-height: 1.25;
+}
+
+.about-story__copy {
+  flex: 1.1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-8); /* 32px */
+}
+
+.about-story__copy p {
+  font-size: var(--fs-base); /* 16px */
+  font-weight: 400;
+  color: var(--clr-dark);
+  line-height: 1.5625; /* 25/16 */
+}
+
+/* ── About Stats ─────────────────────────────────────── */
+
+.about-stats {
+  max-width: 73.75rem;
+  margin: 5rem auto 0;
+  padding: 0 var(--section-gap);
+}
+
+.about-stats__inner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0;
+}
+
+.about-stats__item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.125rem;
+}
+
+.about-stats__num {
+  font-size: 2.25rem; /* 36px */
+  font-weight: var(--fw-semibold);
+  color: var(--clr-dark);
+  line-height: 1.25;
+}
+
+.about-stats__label {
+  font-size: var(--fs-base);
+  font-weight: 400;
+  color: var(--clr-dark);
+  line-height: 1.25;
+}
+
+.about-stats__div {
+  width: 1px;
+  height: 3.125rem; /* 50px */
+  background: #e8e1d2;
+  flex-shrink: 0;
+}
+
+/* ── About Grid (bento) ──────────────────────────────── */
+
+.about-grid {
+  max-width: 73.75rem;
+  margin: 5rem auto 0;
+  padding: 0 var(--section-gap) 2.5rem;
+}
+
+.about-grid__inner {
+  display: flex;
+  gap: 1.25rem; /* 20px */
+  height: 33.75rem; /* 540px */
+}
+
+.about-grid__col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* ── Cell shared ── */
+
+.about-grid__cell {
+  border-radius: 1rem;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow:
+    0px 2px 6px rgba(87, 59, 0, 0.06),
+    0px 8px 20px rgba(87, 59, 0, 0.10),
+    0px 20px 32px rgba(87, 59, 0, 0.08);
+}
+
+.about-grid__cell img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ── Col 1: house fills full height ── */
+
+.about-grid__cell--house {
+  flex: 1;
+  background: var(--clr-white);
+}
+
+/* ── Col 2: Approach short, kitchen tall ── */
+
+.about-grid__cell--approach {
+  flex: 0 0 10.625rem; /* 170px */
+  background: var(--clr-dark);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.25rem;
+}
+
+.about-grid__cell--kitchen {
+  flex: 1; /* fills remaining 350px */
+  background: var(--clr-white);
+}
+
+/* ── Col 3: bathroom tall, goal short ── */
+
+.about-grid__cell--bathroom {
+  flex: 1; /* fills remaining 350px */
+  background: var(--clr-white);
+}
+
+.about-grid__cell--goal {
+  flex: 0 0 10.625rem; /* 170px */
+  background: var(--clr-orange);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.25rem;
+}
+
+/* ── Card text ── */
+
+.about-grid__tag {
+  font-size: var(--fs-xl); /* 24px */
+  font-weight: var(--fw-semibold);
+  color: var(--clr-white);
+  line-height: 1.25;
+}
+
+.about-grid__sub {
+  font-size: var(--fs-md); /* 18px */
+  font-weight: var(--fw-semibold);
+  color: var(--clr-white);
+  line-height: 1.25;
+}
+
+/* ── Responsive ─────────────────────────────────────── */
+
+@media (max-width: 68.75rem) {
+  .about-story__inner {
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 56.25rem) {
+  /* 900px — stack story, shrink grid */
+  .about-story__inner {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .about-story__heading {
+    max-width: 32rem;
+  }
+
+  .about-grid__inner {
+    height: 28rem;
+    gap: 0.75rem;
+  }
+
+  .about-grid__col {
+    gap: 0.75rem;
+  }
+
+  .about-grid__cell--approach,
+  .about-grid__cell--goal {
+    flex-basis: 8.5rem;
+  }
+}
+
+@media (max-width: 48rem) {
+  /* 768px */
+  .about-story,
+  .about-stats,
+  .about-grid {
+    margin-top: 3rem;
+  }
+
+  .about-stats__inner {
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .about-stats__div {
+    display: none;
+  }
+
+  .about-stats__item {
+    flex: 0 0 calc(50% - 0.75rem);
+  }
+
+  /* 2-col on tablet: house + approach/kitchen left, bathroom/goal right */
+  .about-grid__inner {
+    height: auto;
+    flex-wrap: wrap;
+  }
+
+  .about-grid__col:first-child {
+    flex: 0 0 calc(50% - 0.625rem);
+    height: 28rem;
+  }
+
+  .about-grid__col:nth-child(2) {
+    flex: 0 0 calc(50% - 0.625rem);
+    height: 28rem;
+  }
+
+  .about-grid__col:nth-child(3) {
+    flex: 0 0 100%;
+    flex-direction: row;
+    height: 14rem;
+  }
+
+  .about-grid__cell--approach,
+  .about-grid__cell--goal {
+    flex-basis: auto;
+  }
+}
+
+@media (max-width: 30rem) {
+  /* 480px — single column */
+  .about-grid__col {
+    flex: 0 0 100%;
+  }
+
+  .about-grid__col:first-child { height: 16rem; }
+
+  .about-grid__col:nth-child(2),
+  .about-grid__col:nth-child(3) {
+    height: auto;
+    flex-direction: column;
+  }
+
+  .about-grid__cell--approach,
+  .about-grid__cell--goal {
+    flex-basis: 8rem;
+  }
+
+  .about-grid__cell--kitchen,
+  .about-grid__cell--bathroom {
+    flex-basis: 14rem;
+  }
+}

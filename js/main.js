@@ -1,17 +1,22 @@
-/* Why Us: stat count-up on scroll */
+/* Stat count-up on scroll (why-us + about-stats) */
 
-const statNums = document.querySelectorAll('.why-us__stat-num');
+const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
 
 const countUp = (el) => {
   const target = +el.dataset.target;
-  const duration = 1500;
+  const suffix = el.dataset.suffix || '';
+  const duration = 2400;
   const start = performance.now();
 
   const tick = (now) => {
-    const progress = Math.min((now - start) / duration, 1);
-    el.textContent = Math.floor(progress * target);
-    if (progress < 1) requestAnimationFrame(tick);
-    else el.textContent = target;
+    const raw = Math.min((now - start) / duration, 1);
+    const progress = easeOutCubic(raw);
+    if (raw < 1) {
+      el.textContent = Math.floor(progress * target) + suffix;
+      requestAnimationFrame(tick);
+    } else {
+      el.textContent = target + suffix;
+    }
   };
 
   requestAnimationFrame(tick);
@@ -20,7 +25,7 @@ const countUp = (el) => {
 const statsObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
-      statNums.forEach(countUp);
+      document.querySelectorAll('.why-us__stat-num').forEach(countUp);
       statsObserver.disconnect();
     }
   });
@@ -28,6 +33,18 @@ const statsObserver = new IntersectionObserver((entries) => {
 
 const whyUsSection = document.querySelector('.why-us');
 if (whyUsSection) statsObserver.observe(whyUsSection);
+
+const aboutStatsObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      document.querySelectorAll('.about-stats__num').forEach(countUp);
+      aboutStatsObserver.disconnect();
+    }
+  });
+}, { threshold: 0.3 });
+
+const aboutStats = document.querySelector('.about-stats');
+if (aboutStats) aboutStatsObserver.observe(aboutStats);
 
 /* Services: staggered card entrance on scroll */
 
