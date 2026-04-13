@@ -11,19 +11,19 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 1.5rem;                /* 24px — Figma exact */
-  margin-bottom: 3.25rem;     /* 52px — Figma gap header→cards ≈51px scaled */
+  gap: 1.5rem; /* 24px — Figma exact */
+  margin-bottom: 3.25rem; /* 52px — Figma gap header→cards ≈51px scaled */
 }
 
 .svc-steps__badge {
   display: inline-flex;
   align-items: center;
-  padding: 0.625rem 1.25rem;  /* 10px 20px */
+  padding: 0.625rem 1.25rem; /* 10px 20px */
   background-color: var(--clr-white);
   border: 1px solid #ece3d0;
   border-radius: var(--r-pill);
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.06);
-  font-size: var(--fs-sm);    /* 14px */
+  font-size: var(--fs-sm); /* 14px */
   font-weight: var(--fw-semibold);
   color: var(--clr-dark);
   text-transform: uppercase;
@@ -50,11 +50,11 @@
 
 .svc-steps__connector {
   display: block;
-  width: 6rem;          /* 96px — native SVG size including 20px beige ring each side */
+  width: 6rem; /* 96px — native SVG size including 20px beige ring each side */
   height: auto;
   flex-shrink: 0;
   align-self: center;
-  margin: 0 -2rem;      /* 32px overlap into each card — Figma exact 12px into white area */
+  margin: 0 -2rem; /* 32px overlap into each card — Figma exact 12px into white area */
   position: relative;
   z-index: 1;
 }
@@ -70,8 +70,7 @@
   text-align: center;
   padding: 1.75rem 2rem;
   background-color: var(--clr-white);
-  border: 1px solid #ece3d0;
-  border-radius: var(--r-section);   /* 24px */
+  border-radius: var(--r-section); /* 24px */
   position: relative;
   transition:
     box-shadow 0.3s ease,
@@ -97,13 +96,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.375rem;          /* 6px — Figma exact */
+  gap: 0.375rem; /* 6px — Figma exact */
   margin-bottom: 1.25rem; /* 20px ≈ 21px scaled — Figma title→image gap */
   width: 100%;
 }
 
 .svc-steps__eyebrow {
-  font-size: var(--fs-sm);   /* 14px */
+  font-size: var(--fs-sm); /* 14px */
   font-weight: 400;
   color: var(--clr-muted);
   text-transform: uppercase;
@@ -112,7 +111,7 @@
 }
 
 .svc-steps__title {
-  font-size: var(--fs-lg);   /* 20px — Figma exact */
+  font-size: var(--fs-lg); /* 20px — Figma exact */
   font-weight: var(--fw-semibold);
   color: var(--clr-dark);
   line-height: 1.25;
@@ -121,8 +120,8 @@
 /* ── Illustration ── */
 
 .svc-steps__img {
-  width: auto;       /* natural SVG width — gives breathing room like Figma */
-  max-width: 100%;   /* scales down if card is narrower than SVG native width */
+  width: auto; /* natural SVG width — gives breathing room like Figma */
+  max-width: 100%; /* scales down if card is narrower than SVG native width */
   height: auto;
   display: block;
   transition: transform var(--transition-slow);
@@ -135,8 +134,8 @@
 /* ── Description (pushed to bottom) ── */
 
 .svc-steps__desc {
-  margin-top: auto;          /* pushes to card bottom */
-  padding-top: 1.875rem;     /* 30px ≈ 30px scaled — Figma image→desc gap */
+  margin-top: auto; /* pushes to card bottom */
+  padding-top: 1.875rem; /* 30px ≈ 30px scaled — Figma image→desc gap */
   font-size: var(--fs-base); /* 16px — Figma exact */
   font-weight: var(--fw-semibold); /* 600 — Figma exact */
   color: var(--clr-dark);
@@ -145,13 +144,15 @@
 
 /* ── Responsive ── */
 
-@media (max-width: 80rem) { /* 1280px */
+@media (max-width: 80rem) {
+  /* 1280px */
   .svc-steps {
     padding: 5rem 5rem;
   }
 }
 
-@media (max-width: 68.75rem) { /* 1100px */
+@media (max-width: 68.75rem) {
+  /* 1100px */
   .svc-steps {
     padding: 4.5rem 3rem;
   }
@@ -166,7 +167,8 @@
   }
 }
 
-@media (max-width: 56rem) { /* 896px */
+@media (max-width: 56rem) {
+  /* 896px */
   .svc-steps {
     padding: 4rem 2rem;
   }
@@ -181,9 +183,14 @@
   }
 }
 
-@media (max-width: 48rem) { /* 768px → single column */
+@media (max-width: 48rem) {
+  /* 768px → single column */
   .svc-steps {
     padding: 3.5rem var(--page-margin-sm);
+  }
+
+  .svc-steps__card {
+    padding: 3rem 0;
   }
 
   .svc-steps__header {
@@ -194,11 +201,16 @@
   .svc-steps__track {
     flex-direction: column;
     align-items: stretch;
-    gap: 1rem;
+    gap: 0;
   }
 
   .svc-steps__connector {
-    display: none;
+    display: block;
+    width: 6rem;
+    height: 6rem;
+    transform: rotate(90deg);
+    margin: -1.7rem auto; /* beige ring overlaps cards above + below */
+    align-self: center;
   }
 
   .svc-steps__card {
@@ -210,13 +222,24 @@
     margin: 0 auto;
   }
 
+  .svc-steps__eyebrow {
+    font-size: 0.75rem; /* 12px */
+  }
+
+  .svc-steps__title {
+    font-size: 1rem; /* 16px */
+  }
+
   .svc-steps__desc {
     margin-top: 0;
     padding-top: 1.5rem;
+    font-size: var(--fs-sm); /* 14px */
+    line-height: 1.2857; /* 18/14 */
   }
 }
 
-@media (max-width: 26.25rem) { /* 420px */
+@media (max-width: 26.25rem) {
+  /* 420px */
   .svc-steps {
     padding: 2.5rem 1.25rem;
   }
@@ -224,13 +247,5 @@
   .svc-steps__heading {
     font-size: var(--fs-xl);
     line-height: 1.3;
-  }
-
-  .svc-steps__title {
-    font-size: var(--fs-md);
-  }
-
-  .svc-steps__desc {
-    font-size: var(--fs-sm);
   }
 }

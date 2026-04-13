@@ -2,7 +2,7 @@
 
 .svc-cards {
   margin: var(--section-gap);
-  border-radius: var(--r-section);  /* 24px */
+  border-radius: var(--r-section); /* 24px */
   background-color: var(--clr-white);
   overflow: hidden;
 }
@@ -15,10 +15,10 @@
 /* ── Card ── */
 
 .svc-cards__card {
-  padding: 3rem;                     /* 48px — Figma exact */
+  padding: 2rem; /* 48px — Figma exact */
   display: flex;
   flex-direction: column;
-  gap: 2rem;                         /* 32px — between upper group and list */
+  gap: 2rem; /* 32px — between upper group and list */
   border-right: 1px solid #ece3d0;
   border-bottom: 1px solid #ece3d0;
 }
@@ -28,15 +28,15 @@
 .svc-cards__upper {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;                       /* 24px — between image and text */
+  gap: 1.5rem; /* 24px — between image and text */
 }
 
 /* ── Image ── */
 
 .svc-cards__img-wrap {
-  border-radius: 0.75rem;            /* 12px — Figma exact */
+  border-radius: 0.75rem; /* 12px — Figma exact */
   overflow: hidden;
-  aspect-ratio: 488 / 242;           /* Figma exact dimensions */
+  aspect-ratio: 488 / 242; /* Figma exact dimensions */
   flex-shrink: 0;
 }
 
@@ -57,19 +57,19 @@
 .svc-cards__text {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;                      /* 12px — Figma exact */
+  gap: 0.75rem; /* 12px — Figma exact */
 }
 
 .svc-cards__title {
-  font-size: var(--fs-lg);           /* 20px */
-  font-weight: var(--fw-semibold);   /* 600 — Figma exact */
+  font-size: var(--fs-lg); /* 20px */
+  font-weight: var(--fw-semibold); /* 600 — Figma exact */
   color: var(--clr-dark);
   line-height: 1.25;
 }
 
 .svc-cards__desc {
-  font-size: var(--fs-base);         /* 16px — Figma exact */
-  font-weight: 400;                  /* Figma exact — requires Sora 400 */
+  font-size: var(--fs-base); /* 16px — Figma exact */
+  font-weight: 400; /* Figma exact — requires Sora 400 */
   color: var(--clr-dark);
   line-height: 1.5;
 }
@@ -79,25 +79,25 @@
 .svc-cards__list {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;                      /* 12px — Figma exact */
+  gap: 0.75rem; /* 12px — Figma exact */
 }
 
 .svc-cards__item {
   display: flex;
   align-items: center;
-  gap: 0.25rem;                      /* 4px — Figma exact */
-  font-size: var(--fs-base);         /* 16px — Figma exact */
-  font-weight: var(--fw-semibold);   /* 600 */
+  gap: 0.25rem; /* 4px — Figma exact */
+  font-size: var(--fs-base); /* 16px — Figma exact */
+  font-weight: var(--fw-semibold); /* 600 */
   color: var(--clr-dark);
   line-height: 1.25;
 }
 
 .svc-cards__item::before {
-  content: '';
+  content: "";
   flex-shrink: 0;
-  width: 1.5rem;                     /* 24px — Figma exact */
+  width: 1.5rem; /* 24px — Figma exact */
   height: 1.5rem;
-  background-image: url('../../assets/svg/bullets.svg');
+  background-image: url("../../assets/svg/bullets.svg");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -105,17 +105,20 @@
 
 /* ── Responsive ── */
 
-@media (max-width: 68.75rem) { /* 1100px → 2 columns */
+@media (max-width: 68.75rem) {
+  /* 1100px → 2 columns */
   .svc-cards__grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
   .svc-cards__card {
     padding: 2rem;
+    border-right: none;
   }
 }
 
-@media (max-width: 48rem) { /* 768px → 1 column */
+@media (max-width: 48rem) {
+  /* 768px → 1 column */
   .svc-cards {
     margin: calc(var(--section-gap) / 2);
   }
@@ -125,26 +128,43 @@
   }
 
   .svc-cards__card {
-    padding: 1.5rem;
-    gap: 1.5rem;
+    padding: 1.4rem 0.7rem;
+    gap: 1rem; /* 16px */
   }
 
   .svc-cards__upper {
-    gap: 1rem;
+    gap: 1rem; /* 16px */
   }
-}
 
-@media (max-width: 26.25rem) { /* 420px */
-  .svc-cards__card {
-    padding: 1.25rem;
+  .svc-cards__img-wrap {
+    aspect-ratio: unset;
+    height: 12.5rem; /* 200px */
+  }
+
+  .svc-cards__text {
+    padding: 0 1rem; /* 0px 16px */
+    gap: 0.375rem; /* 6px */
   }
 
   .svc-cards__title {
-    font-size: var(--fs-md);
+    font-size: 1rem; /* 16px */
   }
 
-  .svc-cards__desc,
+  .svc-cards__desc {
+    font-size: var(--fs-sm); /* 14px */
+    line-height: 1.2857; /* 18/14 */
+  }
+
+  .svc-cards__list {
+    padding: 0 1rem 1rem; /* 0px 16px + bottom breathing room */
+    gap: 0.375rem; /* 6px */
+  }
+
   .svc-cards__item {
-    font-size: var(--fs-sm);
+    font-size: var(--fs-sm); /* 14px */
+  }
+
+  .svc-cards__card:last-child {
+    border-bottom: none;
   }
 }
