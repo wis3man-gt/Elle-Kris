@@ -21,6 +21,7 @@
   font-weight: var(--fw-semibold);
   color: var(--clr-dark);
   line-height: 1.25; /* 40/32 */
+  white-space: nowrap;
 }
 
 .about-story__copy {
@@ -199,6 +200,7 @@
   /* 1200px — tighten story gap; stats switch to column */
   .about-story__inner {
     gap: clamp(2rem, 6vw, 6rem);
+    flex-direction: column;
   }
 
   .about-stats__inner {
@@ -273,6 +275,10 @@
   .about-stats,
   .about-grid {
     margin-top: 4rem;
+  }
+
+  .about-story__heading {
+    font-size: 1.6rem;
   }
 
   .about-grid {
@@ -357,5 +363,9 @@
   .about-grid {
     margin-top: 3rem;
     padding-inline: var(--section-gap);
+  }
+
+  .about-story__heading {
+    font-size: 1.25rem;
   }
 }

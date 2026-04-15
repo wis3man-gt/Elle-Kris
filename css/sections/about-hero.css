@@ -23,7 +23,7 @@
   align-items: center;
   text-align: center;
   gap: 1.5rem;
-  padding: clamp(9rem, 16.5vw, 14.875rem) var(--page-margin) 3rem;
+  padding: clamp(9rem, 16.5vw, 11.875rem) var(--page-margin) 3rem;
 }
 
 .about-hero__heading {
@@ -44,7 +44,9 @@
   max-width: 64rem;
 }
 
-.about-hero__sub--short { display: none; }
+.about-hero__sub--short {
+  display: none;
+}
 
 /* ── Frosted glass cards row ── */
 
@@ -140,13 +142,13 @@
   }
 
   .about-hero__card {
-    flex: 0 0 24rem;
+    flex: 0 0 19rem;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
     gap: 0.5rem; /* 8px */
     padding: 0.75rem 1rem; /* 12px 16px */
-    height: 7rem;
+    height: 6.75rem;
     scroll-snap-align: start;
   }
 
@@ -158,12 +160,12 @@
 
   .about-hero__card-title {
     font-size: var(--fs-sm); /* 14px */
-    line-height: 1.2857; /* 18/14 */
+    line-height: 100%; /* 18/14 */
   }
 
   .about-hero__card-desc {
     font-size: 0.75rem; /* 12px */
-    line-height: 1.25; /* 15/12 */
+    line-height: 100%; /* 15/12 */
   }
 }
 
@@ -178,8 +180,12 @@
     font-size: var(--fs-lg); /* 20px */
   }
 
-  .about-hero__sub--long  { display: none; }
-  .about-hero__sub--short { display: block; }
+  .about-hero__sub--long {
+    display: none;
+  }
+  .about-hero__sub--short {
+    display: block;
+  }
 
   .about-hero__sub {
     font-size: var(--fs-sm); /* 14px */

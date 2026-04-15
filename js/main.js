@@ -4,7 +4,7 @@ const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
 
 const countUp = (el) => {
   const target = +el.dataset.target;
-  const suffix = el.dataset.suffix || '';
+  const suffix = el.dataset.suffix || "";
   const duration = 2400;
   const start = performance.now();
 
@@ -22,71 +22,77 @@ const countUp = (el) => {
   requestAnimationFrame(tick);
 };
 
-const statsObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      document.querySelectorAll('.why-us__stat-num').forEach(countUp);
-      statsObserver.disconnect();
-    }
-  });
-}, { threshold: 0.1 });
+const statsObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        document.querySelectorAll(".why-us__stat-num").forEach(countUp);
+        statsObserver.disconnect();
+      }
+    });
+  },
+  { threshold: 0.1 },
+);
 
-const whyUsSection = document.querySelector('.why-us');
+const whyUsSection = document.querySelector(".why-us");
 if (whyUsSection) statsObserver.observe(whyUsSection);
 
-const aboutStatsObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      document.querySelectorAll('.about-stats__num').forEach(countUp);
-      aboutStatsObserver.disconnect();
-    }
-  });
-}, { threshold: 0.3 });
+const aboutStatsObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        document.querySelectorAll(".about-stats__num").forEach(countUp);
+        aboutStatsObserver.disconnect();
+      }
+    });
+  },
+  { threshold: 0.3 },
+);
 
-const aboutStats = document.querySelector('.about-stats');
+const aboutStats = document.querySelector(".about-stats");
 if (aboutStats) aboutStatsObserver.observe(aboutStats);
 
 /* Services: staggered card entrance on scroll */
 
-const serviceCards = document.querySelectorAll('.services__card');
+const serviceCards = document.querySelectorAll(".services__card");
 
-const cardObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      const cards = entry.target.querySelectorAll('.services__card');
-      cards.forEach((card, i) => {
-        setTimeout(() => card.classList.add('is-visible'), i * 80);
-      });
-      cardObserver.disconnect();
-    }
-  });
-}, { threshold: 0.05 });
+const cardObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const cards = entry.target.querySelectorAll(".services__card");
+        cards.forEach((card, i) => {
+          setTimeout(() => card.classList.add("is-visible"), i * 80);
+        });
+        cardObserver.disconnect();
+      }
+    });
+  },
+  { threshold: 0.05 },
+);
 
-const servicesGrid = document.querySelector('.services__grid');
+const servicesGrid = document.querySelector(".services__grid");
 if (servicesGrid) cardObserver.observe(servicesGrid);
 
 /* Logos strip: slow marquee on logo hover */
 
-const logosTrack = document.querySelector('.logos-strip__track');
-const logos = document.querySelectorAll('.logos-strip__logo');
+const logosTrack = document.querySelector(".logos-strip__track");
+const logos = document.querySelectorAll(".logos-strip__logo");
 
-if (logosTrack && logos.length && typeof logosTrack.animate === 'function') {
+if (logosTrack && logos.length && typeof logosTrack.animate === "function") {
   const BASE_RATE = 1;
   const HOVER_RATE = 0.18;
   const RATE_EASE = 0.16;
 
-  logosTrack.classList.add('is-enhanced');
+  logosTrack.classList.add("is-enhanced");
 
   const logosAnimation = logosTrack.animate(
-    [
-      { transform: 'translateX(0)' },
-      { transform: 'translateX(-50%)' }
-    ],
+    [{ transform: "translateX(0)" }, { transform: "translateX(-50%)" }],
     {
       duration: 28000,
-      easing: 'linear',
-      iterations: Infinity
-    }
+      easing: "linear",
+      iterations: Infinity,
+    },
   );
 
   let targetRate = BASE_RATE;
@@ -112,11 +118,11 @@ if (logosTrack && logos.length && typeof logosTrack.animate === 'function') {
   };
 
   logos.forEach((logo) => {
-    logo.addEventListener('mouseenter', () => setPlaybackRate(HOVER_RATE));
-    logo.addEventListener('mouseleave', () => setPlaybackRate(BASE_RATE));
+    logo.addEventListener("mouseenter", () => setPlaybackRate(HOVER_RATE));
+    logo.addEventListener("mouseleave", () => setPlaybackRate(BASE_RATE));
   });
 
-  document.addEventListener('visibilitychange', () => {
+  document.addEventListener("visibilitychange", () => {
     if (document.hidden) {
       logosAnimation.pause();
       return;
@@ -129,13 +135,13 @@ if (logosTrack && logos.length && typeof logosTrack.animate === 'function') {
 
 /* Copy phone to clipboard */
 
-const phoneWrapper = document.querySelector('.nav__phone-wrapper');
-const phoneLink = document.getElementById('phone-copy');
-const tooltip = document.querySelector('.nav__tooltip');
+const phoneWrapper = document.querySelector(".nav__phone-wrapper");
+const phoneLink = document.getElementById("phone-copy");
+const tooltip = document.querySelector(".nav__tooltip");
 
-const phoneWrapperMobile = document.querySelector('.nav__mobile-phone-wrapper');
-const phoneLinkMobile = document.getElementById('phone-copy-mobile');
-const tooltipMobile = document.querySelector('.nav__mobile-tooltip');
+const phoneWrapperMobile = document.querySelector(".nav__mobile-phone-wrapper");
+const phoneLinkMobile = document.getElementById("phone-copy-mobile");
+const tooltipMobile = document.querySelector(".nav__mobile-tooltip");
 
 if (phoneWrapper && phoneLink && tooltip) {
   const defaultTooltipText = tooltip.textContent;
@@ -143,25 +149,28 @@ if (phoneWrapper && phoneLink && tooltip) {
 
   const handleCopy = (e) => {
     e.preventDefault();
-    const phoneNumber = phoneLink.textContent.replace(/\s+/g, '');
+    const phoneNumber = phoneLink.textContent.replace(/\s+/g, "");
 
-    navigator.clipboard.writeText(phoneNumber).then(() => {
-      tooltip.textContent = 'Copied!';
+    navigator.clipboard
+      .writeText(phoneNumber)
+      .then(() => {
+        tooltip.textContent = "Copied!";
 
-      if (document.activeElement === phoneLink) {
-        phoneLink.blur();
-      }
+        if (document.activeElement === phoneLink) {
+          phoneLink.blur();
+        }
 
-      clearTimeout(copyFeedbackTimeout);
-      copyFeedbackTimeout = setTimeout(() => {
-        tooltip.textContent = defaultTooltipText;
-      }, 2000);
-    }).catch((err) => {
-      console.error('Failed to copy: ', err);
-    });
+        clearTimeout(copyFeedbackTimeout);
+        copyFeedbackTimeout = setTimeout(() => {
+          tooltip.textContent = defaultTooltipText;
+        }, 2000);
+      })
+      .catch((err) => {
+        console.error("Failed to copy: ", err);
+      });
   };
 
-  phoneWrapper.addEventListener('click', handleCopy);
+  phoneWrapper.addEventListener("click", handleCopy);
 }
 
 if (phoneWrapperMobile && phoneLinkMobile && tooltipMobile) {
@@ -169,103 +178,117 @@ if (phoneWrapperMobile && phoneLinkMobile && tooltipMobile) {
 
   const handleCopyMobile = (e) => {
     e.preventDefault();
-    const phoneNumber = phoneLinkMobile.textContent.replace(/\s+/g, '');
+    const phoneNumber = phoneLinkMobile.textContent.replace(/\s+/g, "");
 
-    navigator.clipboard.writeText(phoneNumber).then(() => {
-      tooltipMobile.classList.add('is-visible');
+    navigator.clipboard
+      .writeText(phoneNumber)
+      .then(() => {
+        tooltipMobile.classList.add("is-visible");
 
-      clearTimeout(copyFeedbackTimeoutMobile);
-      copyFeedbackTimeoutMobile = setTimeout(() => {
-        tooltipMobile.classList.remove('is-visible');
-      }, 2000);
-    }).catch((err) => {
-      console.error('Failed to copy: ', err);
-    });
+        clearTimeout(copyFeedbackTimeoutMobile);
+        copyFeedbackTimeoutMobile = setTimeout(() => {
+          tooltipMobile.classList.remove("is-visible");
+        }, 2000);
+      })
+      .catch((err) => {
+        console.error("Failed to copy: ", err);
+      });
   };
 
-  phoneWrapperMobile.addEventListener('click', handleCopyMobile);
+  phoneWrapperMobile.addEventListener("click", handleCopyMobile);
 }
 
 /* Steps: staggered fade-up entrance on scroll */
 
-const stepsTrack = document.querySelector('.svc-steps__track');
+const stepsTrack = document.querySelector(".svc-steps__track");
 
 if (stepsTrack) {
-  const stepsObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.querySelectorAll('.svc-steps__card').forEach((card, i) => {
-          setTimeout(() => card.classList.add('is-visible'), i * 150);
-        });
-        stepsObserver.disconnect();
-      }
-    });
-  }, { threshold: 0.1 });
+  const stepsObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target
+            .querySelectorAll(".svc-steps__card, .svc-steps__connector")
+            .forEach((el, i) => {
+              setTimeout(() => el.classList.add("is-visible"), i * 70);
+            });
+          stepsObserver.disconnect();
+        }
+      });
+    },
+    { threshold: 0.1 },
+  );
 
   stepsObserver.observe(stepsTrack);
 }
 
 /* Projects: fade-up items on scroll */
 
-const projectObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('is-visible');
-      projectObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.1 });
+const projectObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+        projectObserver.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.1 },
+);
 
-document.querySelectorAll('.projects__item').forEach((item) => {
+document.querySelectorAll(".projects__item").forEach((item) => {
   projectObserver.observe(item);
 });
 
 /* Mobile nav: burger + accordion */
 
-const mainNav = document.getElementById('main-nav');
-const burgerBtn = document.getElementById('nav-burger');
-const mobilePanel = document.getElementById('nav-mobile');
+const mainNav = document.getElementById("main-nav");
+const burgerBtn = document.getElementById("nav-burger");
+const mobilePanel = document.getElementById("nav-mobile");
 
 if (mainNav && burgerBtn && mobilePanel) {
   const openMenu = () => {
-    mainNav.classList.add('is-open');
-    burgerBtn.setAttribute('aria-expanded', 'true');
-    mobilePanel.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
+    mainNav.classList.add("is-open");
+    burgerBtn.setAttribute("aria-expanded", "true");
+    mobilePanel.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
   };
 
   const closeMenu = () => {
-    mainNav.classList.remove('is-open');
-    burgerBtn.setAttribute('aria-expanded', 'false');
-    mobilePanel.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
+    mainNav.classList.remove("is-open");
+    burgerBtn.setAttribute("aria-expanded", "false");
+    mobilePanel.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
   };
 
-  burgerBtn.addEventListener('click', () => {
-    mainNav.classList.contains('is-open') ? closeMenu() : openMenu();
+  burgerBtn.addEventListener("click", () => {
+    mainNav.classList.contains("is-open") ? closeMenu() : openMenu();
   });
 
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && mainNav.classList.contains('is-open')) closeMenu();
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && mainNav.classList.contains("is-open"))
+      closeMenu();
   });
 }
 
 /* Video performance: only play when in viewport */
 
-const videoObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    const video = entry.target;
-    if (entry.isIntersecting) {
-      video.play().catch(() => {
-        /* Autoplay might be blocked by browser until user interaction */
-      });
-    } else {
-      video.pause();
-    }
-  });
-}, { threshold: 0.05 });
+const videoObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      const video = entry.target;
+      if (entry.isIntersecting) {
+        video.play().catch(() => {
+          /* Autoplay might be blocked by browser until user interaction */
+        });
+      } else {
+        video.pause();
+      }
+    });
+  },
+  { threshold: 0.05 },
+);
 
-document.querySelectorAll('video:not(.hero__video)').forEach((video) => {
+document.querySelectorAll("video:not(.hero__video)").forEach((video) => {
   videoObserver.observe(video);
 });
-
