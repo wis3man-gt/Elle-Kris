@@ -2,6 +2,10 @@
 
 .svc-steps {
   padding: 5rem var(--page-margin);
+  background-color: var(--clr-bg);
+  border-radius: 0 0 var(--r-footer) var(--r-footer);
+  position: relative;
+  z-index: 2;
 }
 
 /* ── Header ── */
@@ -179,6 +183,10 @@
 
 @media (max-width: 64rem) {
   /* 1024px */
+  .svc-steps {
+    border-radius: 0 0 1.5rem 1.5rem;
+  }
+
   .svc-steps__heading {
     font-size: 1.5rem;
   }

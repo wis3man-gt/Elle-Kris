@@ -11,6 +11,7 @@
 @media (max-width: 64rem) {
   .section-sep {
     height: 5rem;
+    border-radius: 0 0 1.5rem 1.5rem;
   }
 
   .projects__header {
@@ -21,7 +22,13 @@
 }
 
 .projects-footer-shell {
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(85, 159, 255, 0.3) 100%), var(--clr-dark);
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.3) 0%,
+      rgba(85, 159, 255, 0.3) 100%
+    ),
+    var(--clr-dark);
   position: relative;
   z-index: 1;
   margin-top: calc(-1 * var(--r-footer));
@@ -29,15 +36,11 @@
 
 /* ── Recent Work / Projects ──────────────────────────── */
 
-
 .projects {
   background: transparent;
   position: relative;
   z-index: 1;
-  padding:
-    calc(var(--r-footer) + 4rem)
-    clamp(3rem, 8vw, 9.25rem)
-    4rem;
+  padding: calc(var(--r-footer) + 4rem) clamp(3rem, 8vw, 9.25rem) 4rem;
   display: flex;
   flex-direction: column;
   gap: 6rem;
@@ -83,7 +86,9 @@
   align-items: center;
   opacity: 0;
   transform: translateY(2rem);
-  transition: opacity 0.65s ease, transform 0.65s ease;
+  transition:
+    opacity 0.65s ease,
+    transform 0.65s ease;
 }
 
 .projects__item.is-visible {
@@ -111,7 +116,7 @@
 }
 
 .projects__img-wrap::after {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   border: 2px solid rgba(255, 255, 255, 0.2);
@@ -241,7 +246,9 @@
   border-radius: var(--r-btn);
   line-height: normal;
   white-space: nowrap;
-  transition: background-color var(--transition-base), transform var(--transition-base);
+  transition:
+    background-color var(--transition-base),
+    transform var(--transition-base);
 }
 
 .projects__btn:hover {
@@ -274,14 +281,14 @@
 /* ── CTA animated comet border ───────────────────────── */
 
 @property --cta-comet-angle {
-  syntax: '<angle>';
+  syntax: "<angle>";
   inherits: false;
   initial-value: 0deg;
 }
 
 .projects__cta-wrap::before,
 .projects__cta-wrap::after {
-  content: '';
+  content: "";
   position: absolute;
   pointer-events: none;
   animation: cta-comet-spin 8s linear infinite;
@@ -296,10 +303,10 @@
     transparent 0deg,
     transparent 270deg,
     rgba(255, 144, 37, 0.15) 305deg,
-    rgba(255, 144, 37, 0.6)  340deg,
-    rgba(255, 215, 90,  0.9) 352deg,
-    #ffffff                  357deg,
-    rgba(255, 215, 90,  0.9) 360deg
+    rgba(255, 144, 37, 0.6) 340deg,
+    rgba(255, 215, 90, 0.9) 352deg,
+    #ffffff 357deg,
+    rgba(255, 215, 90, 0.9) 360deg
   );
   -webkit-mask:
     linear-gradient(#000 0 0) content-box,
@@ -321,18 +328,19 @@
     transparent 270deg,
     rgba(255, 144, 37, 0.04) 305deg,
     rgba(255, 144, 37, 0.18) 340deg,
-    rgba(255, 215, 90,  0.35) 352deg,
+    rgba(255, 215, 90, 0.35) 352deg,
     rgba(255, 255, 255, 0.55) 357deg,
-    rgba(255, 215, 90,  0.35) 360deg
+    rgba(255, 215, 90, 0.35) 360deg
   );
   filter: blur(1.5rem);
   z-index: 0;
 }
 
 @keyframes cta-comet-spin {
-  to { --cta-comet-angle: 360deg; }
+  to {
+    --cta-comet-angle: 360deg;
+  }
 }
-
 
 .projects__cta {
   display: flex;
@@ -407,9 +415,8 @@
   clip-path: inset(0 0 9rem 0);
   bottom: -9rem;
   right: calc(
-    var(--projects-cta-right-pad) +
-    var(--projects-cta-logo-space) +
-    var(--projects-cta-visual-gap)
+    var(--projects-cta-right-pad) + var(--projects-cta-logo-space) +
+      var(--projects-cta-visual-gap)
   );
   height: 26rem;
   width: auto;
@@ -425,10 +432,7 @@
 
 @media (max-width: 64rem) {
   .projects {
-    padding:
-      clamp(4rem, 8vw, 5rem)
-      clamp(2rem, 5vw, 3rem)
-      4rem;
+    padding: clamp(4rem, 8vw, 5rem) clamp(2rem, 5vw, 3rem) 4rem;
     gap: 4rem;
   }
 
@@ -593,10 +597,7 @@
 
 @media (max-width: 48rem) {
   .projects {
-    padding:
-      clamp(3rem, 10vw, 4rem)
-      1.5rem
-      3rem;
+    padding: clamp(3rem, 10vw, 4rem) 1.5rem 3rem;
   }
 
   .projects__cta {
@@ -625,10 +626,7 @@
 
 @media (max-width: 40rem) {
   .projects {
-    padding:
-      3rem
-      1rem
-      2.5rem;
+    padding: 3rem 1rem 2.5rem;
     gap: 3rem;
   }
 

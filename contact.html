@@ -228,9 +228,12 @@
         </div>
 
         <div class="contact-hero__phones" aria-label="Contact phone numbers">
-          <a href="tel:+447123456789" class="contact-hero__phone"
-            >+44 (7123) 456789</a
-          >
+          <div class="contact-hero__phone-wrapper">
+            <a href="tel:+447123456789" class="contact-hero__phone"
+              >+44 (7123) 456789</a
+            >
+            <div class="contact-hero__tooltip">Copy to Clipboard</div>
+          </div>
           <a
             href="https://wa.me/447123456789"
             class="contact-hero__wa"
@@ -240,9 +243,12 @@
           >
             <img src="assets/svg/whatsapp.svg" alt="" aria-hidden="true" />
           </a>
-          <a href="tel:+447987654321" class="contact-hero__phone"
-            >+44 (7987) 654321</a
-          >
+          <div class="contact-hero__phone-wrapper">
+            <a href="tel:+447987654321" class="contact-hero__phone"
+              >+44 (7987) 654321</a
+            >
+            <div class="contact-hero__tooltip">Copy to Clipboard</div>
+          </div>
         </div>
       </div>
     </section>
@@ -264,7 +270,16 @@
           </p>
         </div>
 
-        <form class="contact-form__fields" action="#" method="post" novalidate>
+        <div class="contact-form__success" id="contact-form-success" hidden>
+          <svg class="contact-form__success-icon" viewBox="0 0 56 56" fill="none" aria-hidden="true">
+            <circle cx="28" cy="28" r="28" fill="#e8f5e9"/>
+            <polyline points="16,28 24,36 40,20" stroke="#2e7d32" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <h3 class="contact-form__success-title">Message Sent!</h3>
+          <p class="contact-form__success-sub">Thanks for reaching out. We'll get back to you as soon as possible, usually within 2 hours.</p>
+        </div>
+
+        <form class="contact-form__fields" id="contact-form-el" action="https://formspree.io/f/xpqkpjon" method="POST">
           <input
             class="contact-form__input"
             type="text"
@@ -358,6 +373,8 @@
             </label>
           </div>
 
+          <p class="contact-form__error" id="contact-form-error" hidden></p>
+
           <button type="submit" class="contact-form__submit btn btn--primary">
             Request Your Estimate
           </button>
@@ -368,7 +385,7 @@
     <!-- ── Section separator ─────────────────────────────── -->
     <div class="section-sep">
       <p class="section-sep__note">
-        Send us your details and we’ll get back to you as soon as possible,
+        Send us your details and we’ll get back to you as soon as<br />possible,
         usually within 2 hours.
       </p>
     </div>

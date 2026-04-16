@@ -173,6 +173,35 @@ if (phoneWrapper && phoneLink && tooltip) {
   phoneWrapper.addEventListener("click", handleCopy);
 }
 
+/* Contact hero: copy phone numbers to clipboard */
+
+document.querySelectorAll(".contact-hero__phone-wrapper").forEach((wrapper) => {
+  const link = wrapper.querySelector(".contact-hero__phone");
+  const tip = wrapper.querySelector(".contact-hero__tooltip");
+  if (!link || !tip) return;
+
+  const defaultText = tip.textContent;
+  let feedbackTimeout = null;
+
+  wrapper.addEventListener("click", (e) => {
+    e.preventDefault();
+    const number = link.textContent.replace(/\s+/g, "");
+
+    navigator.clipboard
+      .writeText(number)
+      .then(() => {
+        tip.textContent = "Copied!";
+        clearTimeout(feedbackTimeout);
+        feedbackTimeout = setTimeout(() => {
+          tip.textContent = defaultText;
+        }, 2000);
+      })
+      .catch((err) => {
+        console.error("Failed to copy:", err);
+      });
+  });
+});
+
 if (phoneWrapperMobile && phoneLinkMobile && tooltipMobile) {
   let copyFeedbackTimeoutMobile = null;
 
@@ -292,3 +321,105 @@ const videoObserver = new IntersectionObserver(
 document.querySelectorAll("video:not(.hero__video)").forEach((video) => {
   videoObserver.observe(video);
 });
+
+/* Contact form: AJAX submit — no redirect, files as real attachments */
+
+const contactFormEl = document.getElementById("contact-form-el");
+const contactFormSuccess = document.getElementById("contact-form-success");
+const contactFormError = document.getElementById("contact-form-error");
+
+const resetContactForm = () => {
+  if (!contactFormEl) return;
+  const submitBtn = contactFormEl.querySelector(".contact-form__submit");
+  contactFormEl.reset();
+  contactFormEl.hidden = false;
+  submitBtn.disabled = false;
+  submitBtn.textContent = "Request Your Estimate";
+  if (contactFormSuccess) contactFormSuccess.hidden = true;
+  if (contactFormError) contactFormError.hidden = true;
+};
+
+if (contactFormEl) {
+  /* Restore clean form state when page is pulled from bfcache */
+  window.addEventListener("pageshow", (e) => {
+    if (e.persisted) resetContactForm();
+  });
+
+  contactFormEl.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const submitBtn = contactFormEl.querySelector(".contact-form__submit");
+    const originalLabel = submitBtn.textContent;
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Sending…";
+    if (contactFormError) contactFormError.hidden = true;
+
+    try {
+      const res = await fetch(contactFormEl.action, {
+        method: "POST",
+        body: new FormData(contactFormEl),
+        headers: { Accept: "application/json" },
+      });
+
+      if (res.ok) {
+        contactFormEl.hidden = true;
+        if (contactFormSuccess) contactFormSuccess.hidden = false;
+      } else {
+        const data = await res.json().catch(() => ({}));
+        const msg =
+          data.errors?.map((err) => err.message).join(" ") ||
+          "Something went wrong. Please try again.";
+        if (contactFormError) {
+          contactFormError.textContent = msg;
+          contactFormError.hidden = false;
+        }
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalLabel;
+      }
+    } catch {
+      if (contactFormError) {
+        contactFormError.textContent =
+          "Network error. Please check your connection and try again.";
+        contactFormError.hidden = false;
+      }
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalLabel;
+    }
+  });
+}
+
+/* Contact page: pin form exactly 3.5 rem below the phone row */
+
+const contactPhones = document.querySelector(".contact-hero__phones");
+const contactFormContainer = document.querySelector(".contact-form-container");
+const contactHero = document.querySelector(".contact-hero");
+
+const cfServicePlaceholder = document.querySelector(
+  "#cf-service option[disabled][value='']"
+);
+if (cfServicePlaceholder) {
+  const mq = window.matchMedia("(max-width: 48rem)");
+  const updatePlaceholder = (e) => {
+    cfServicePlaceholder.textContent = e.matches
+      ? "What type of service are you\nlooking for?"
+      : "What type of service are you looking for?";
+  };
+  updatePlaceholder(mq);
+  mq.addEventListener("change", updatePlaceholder);
+}
+
+if (contactPhones && contactFormContainer && contactHero) {
+  const GAP_REM = 3.5;
+
+  const pinFormBelowPhones = () => {
+    const rem = parseFloat(getComputedStyle(document.documentElement).fontSize);
+    const gap = GAP_REM * rem;
+    const phonesBottom = contactPhones.getBoundingClientRect().bottom;
+    const heroBottom = contactHero.getBoundingClientRect().bottom;
+    contactFormContainer.style.marginTop = phonesBottom + gap - heroBottom + "px";
+  };
+
+  pinFormBelowPhones();
+  window.addEventListener("resize", pinFormBelowPhones);
+}

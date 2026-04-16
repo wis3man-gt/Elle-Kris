@@ -18,13 +18,7 @@
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0) 100%), var(--clr-dark);
 }
 
-/* ── Services CTA shell (wraps CTA + footer on dark bg) ── */
-
-.section-sep {
-  height: 4.5rem;
-}
-
-/* ── Services: override footer__cta top padding for section-sep offset ── */
+/* ── Services: override footer__cta top padding ── */
 
 .footer__cta {
   padding-top: calc(var(--r-footer) + clamp(6rem, 10vw, 10rem));
