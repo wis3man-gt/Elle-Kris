@@ -14,7 +14,7 @@
   <body>
     <!-- ── Projects Hero (nav floats inside) ────────────── -->
     <section
-      class="services-hero"
+      class="projects-hero"
       id="projects-hero"
       aria-label="Projects hero"
     >
@@ -221,21 +221,22 @@
       </nav>
 
       <!-- Decorative background vector (house silhouette watermark) -->
-      <div class="services-hero__vector" aria-hidden="true">
+      <div class="projects-hero__vector" aria-hidden="true">
         <img src="assets/svg/servicesHeroVector.svg" alt="" />
       </div>
 
       <!-- Hero content -->
-      <div class="services-hero__body">
-        <h1 class="services-hero__heading">
-          A Selection of Recently Completed<br />Renovation Projects
+      <div class="projects-hero__body">
+        <h1 class="projects-hero__heading">
+          <span class="projects-hero__heading--long">A Selection of Recently Completed<br />Renovation Projects</span>
+          <span class="projects-hero__heading--short">Our Recent Renovation<br />Projects</span>
         </h1>
-        <p class="services-hero__sub">
-          <span class="services-hero__sub--long"
+        <p class="projects-hero__sub">
+          <span class="projects-hero__sub--long"
             >Take a look at some of our recently completed projects across
             bathrooms, kitchens, interiors, and home improvements.</span
           >
-          <span class="services-hero__sub--short"
+          <span class="projects-hero__sub--short"
             >Recently completed projects across bathrooms, kitchens, and home
             improvements.</span
           >
@@ -245,8 +246,8 @@
 
     <!-- ── Projects + Footer (dark shell) ────────────────── -->
     <div class="projects-footer-shell">
-      <section class="projects" id="projects-list" aria-label="Projects list">
-        <div class="projects__list">
+      <section class="projects-page" id="projects-list" aria-label="Projects list">
+        <div class="projects-page__list">
           <!-- ── Project Card 1: Bathroom ─────────────────── -->
           <article class="proj-card" aria-label="Contemporary Bathroom Upgrade">
             <div class="proj-card__slider">
@@ -956,79 +957,82 @@
       </section>
     </div>
 
-    <!-- ── Social + Footer (dark shell) ────────────────── -->
-    <div class="proj-dark-shell">
-      <section class="proj-social" aria-label="Follow us on social media">
-        <div class="proj-social__inner">
-          <div class="proj-social__top">
-            <div class="proj-social__badge">
-              See More of Our Work on Social Media
-            </div>
-            <p class="proj-social__heading">
-              Follow along for project highlights, renovation progress,
-              behind-the-scenes updates, and finished spaces as they come
-              together.
-            </p>
+    <!-- ── Social ───────────────────────────────────────── -->
+    <div class="proj-social-shell">
+    <section class="proj-social" aria-label="Follow us on social media">
+      <div class="proj-social__inner">
+        <div class="proj-social__top">
+          <div class="proj-social__badge">
+            See More of Our Work<br class="proj-social__badge-br" /> on Social Media
           </div>
-          <div class="proj-social__icons">
-            <a href="#" class="proj-social__icon-item" aria-label="Instagram">
-              <div class="proj-social__icon-wrap">
-                <img
-                  src="assets/svg/projectsInstagram.svg"
-                  width="32"
-                  height="32"
-                  alt=""
-                  aria-hidden="true"
-                />
-              </div>
-              <span class="proj-social__icon-label">Instagram</span>
-            </a>
-            <a href="#" class="proj-social__icon-item" aria-label="Facebook">
-              <div class="proj-social__icon-wrap">
-                <img
-                  src="assets/svg/projectsFacebook.svg"
-                  width="32"
-                  height="32"
-                  alt=""
-                  aria-hidden="true"
-                />
-              </div>
-              <span class="proj-social__icon-label">Facebook</span>
-            </a>
-            <a href="#" class="proj-social__icon-item" aria-label="Youtube">
-              <div class="proj-social__icon-wrap">
-                <img
-                  src="assets/svg/projectsYoutube.svg"
-                  width="32"
-                  height="32"
-                  alt=""
-                  aria-hidden="true"
-                />
-              </div>
-              <span class="proj-social__icon-label">Youtube</span>
-            </a>
-            <a
-              href="https://wa.me/447123456789"
-              class="proj-social__icon-item"
-              aria-label="WhatsApp"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <div class="proj-social__icon-wrap">
-                <img
-                  src="assets/svg/projectsWhatsapp.svg"
-                  width="32"
-                  height="32"
-                  alt=""
-                  aria-hidden="true"
-                />
-              </div>
-              <span class="proj-social__icon-label">Whatsapp</span>
-            </a>
-          </div>
+          <p class="proj-social__heading">
+            Follow along for project highlights, renovation progress,
+            behind-the-scenes updates, and finished spaces as they come
+            together.
+          </p>
         </div>
-      </section>
+        <div class="proj-social__icons">
+          <a href="#" class="proj-social__icon-item" aria-label="Instagram">
+            <div class="proj-social__icon-wrap">
+              <img
+                src="assets/svg/projectsInstagram.svg"
+                width="32"
+                height="32"
+                alt=""
+                aria-hidden="true"
+              />
+            </div>
+            <span class="proj-social__icon-label">Instagram</span>
+          </a>
+          <a href="#" class="proj-social__icon-item" aria-label="Facebook">
+            <div class="proj-social__icon-wrap">
+              <img
+                src="assets/svg/projectsFacebook.svg"
+                width="32"
+                height="32"
+                alt=""
+                aria-hidden="true"
+              />
+            </div>
+            <span class="proj-social__icon-label">Facebook</span>
+          </a>
+          <a href="#" class="proj-social__icon-item" aria-label="Youtube">
+            <div class="proj-social__icon-wrap">
+              <img
+                src="assets/svg/projectsYoutube.svg"
+                width="32"
+                height="32"
+                alt=""
+                aria-hidden="true"
+              />
+            </div>
+            <span class="proj-social__icon-label">Youtube</span>
+          </a>
+          <a
+            href="https://wa.me/447123456789"
+            class="proj-social__icon-item"
+            aria-label="WhatsApp"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="proj-social__icon-wrap">
+              <img
+                src="assets/svg/projectsWhatsapp.svg"
+                width="32"
+                height="32"
+                alt=""
+                aria-hidden="true"
+              />
+            </div>
+            <span class="proj-social__icon-label">Whatsapp</span>
+          </a>
+        </div>
+      </div>
+    </section>
+    </div>
 
+    <!-- ── Footer (dark shell) ───────────────────────── -->
+    <div class="proj-dark-shell">
       <!-- ── Footer ─────────────────────────────────────── -->
       <footer class="footer projects-page__footer" id="site-footer">
         <!-- CTA -->

@@ -214,6 +214,15 @@
         </div>
       </nav>
 
+      <!-- ── Success toast (shown on form submit) ── -->
+      <div class="contact-success-toast" id="contact-success-toast" aria-live="polite" hidden>
+        <img class="contact-success-toast__icon" src="assets/svg/greenTick.svg" width="48" height="48" alt="" aria-hidden="true" />
+        <div class="contact-success-toast__body">
+          <p class="contact-success-toast__title">Successfully Sent</p>
+          <p class="contact-success-toast__sub">Thanks for reaching out, we will get back soon!</p>
+        </div>
+      </div>
+
       <!-- ── Hero content ── -->
       <div class="contact-hero__body">
         <div class="contact-hero__text">
@@ -268,15 +277,6 @@
             Tell us a little about your project and we'll get back to you as
             soon as possible.
           </p>
-        </div>
-
-        <div class="contact-form__success" id="contact-form-success" hidden>
-          <svg class="contact-form__success-icon" viewBox="0 0 56 56" fill="none" aria-hidden="true">
-            <circle cx="28" cy="28" r="28" fill="#e8f5e9"/>
-            <polyline points="16,28 24,36 40,20" stroke="#2e7d32" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          <h3 class="contact-form__success-title">Message Sent!</h3>
-          <p class="contact-form__success-sub">Thanks for reaching out. We'll get back to you as soon as possible, usually within 2 hours.</p>
         </div>
 
         <form class="contact-form__fields" id="contact-form-el" action="https://formspree.io/f/xpqkpjon" method="POST">

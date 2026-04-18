@@ -191,14 +191,22 @@ document.querySelectorAll(".contact-hero__phone-wrapper").forEach((wrapper) => {
       .writeText(number)
       .then(() => {
         tip.textContent = "Copied!";
+        wrapper.classList.add("is-copied");
+        wrapper.classList.remove("is-post-copy");
         clearTimeout(feedbackTimeout);
         feedbackTimeout = setTimeout(() => {
-          tip.textContent = defaultText;
-        }, 2000);
+          wrapper.classList.remove("is-copied");
+          wrapper.classList.add("is-post-copy");
+          setTimeout(() => { tip.textContent = defaultText; }, 250);
+        }, 1000);
       })
       .catch((err) => {
         console.error("Failed to copy:", err);
       });
+  });
+
+  wrapper.addEventListener("mouseleave", () => {
+    wrapper.classList.remove("is-post-copy");
   });
 });
 
@@ -299,17 +307,19 @@ document.querySelectorAll(".proj-card").forEach((card) => {
   /* Start at first real slide (after prepended clones) */
   let current = total;
   let isAnimating = false;
+  let step = 0; /* cached — recomputed after layout and on resize */
 
-  /* offsetLeft difference accounts for gap without manual calculation */
-  const getStep = () =>
-    allSlides.length > 1
-      ? allSlides[1].offsetLeft - allSlides[0].offsetLeft
-      : allSlides[0].offsetWidth;
+  const computeStep = () => {
+    step =
+      allSlides.length > 1
+        ? allSlides[1].offsetLeft - allSlides[0].offsetLeft
+        : allSlides[0].offsetWidth;
+  };
 
   const goTo = (index, animate) => {
     track.style.transition = animate ? "transform 0.4s ease" : "none";
-    if (!animate) void track.offsetWidth; /* flush styles so none takes effect */
-    track.style.transform = `translateX(${-index * getStep()}px)`;
+    if (!animate) void track.offsetWidth; /* flush so transition:none takes effect */
+    track.style.transform = `translateX(${-index * step}px)`;
   };
 
   track.addEventListener("transitionend", (e) => {
@@ -339,11 +349,27 @@ document.querySelectorAll(".proj-card").forEach((card) => {
     goTo(current, true);
   });
 
-  window.addEventListener("resize", () => goTo(current, false), {
-    passive: true,
-  });
+  /* Debounced resize: recalculate step after viewport settles.
+     Resets isAnimating in case a mid-animation resize cancelled transitionend. */
+  let resizeTimer;
+  window.addEventListener(
+    "resize",
+    () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        computeStep();
+        isAnimating = false;
+        goTo(current, false);
+      }, 150);
+    },
+    { passive: true },
+  );
 
-  goTo(current, false);
+  /* Defer init to next frame so layout (including % widths) is fully computed */
+  requestAnimationFrame(() => {
+    computeStep();
+    goTo(current, false);
+  });
 });
 
 /* Mobile nav: burger + accordion */
@@ -402,18 +428,31 @@ document.querySelectorAll("video:not(.hero__video)").forEach((video) => {
 /* Contact form: AJAX submit — no redirect, files as real attachments */
 
 const contactFormEl = document.getElementById("contact-form-el");
-const contactFormSuccess = document.getElementById("contact-form-success");
 const contactFormError = document.getElementById("contact-form-error");
+const contactSuccessToast = document.getElementById("contact-success-toast");
+
+let toastDismissTimer = null;
+
+const showContactToast = () => {
+  if (!contactSuccessToast) return;
+  clearTimeout(toastDismissTimer);
+  contactSuccessToast.hidden = false;
+  toastDismissTimer = setTimeout(() => {
+    contactSuccessToast.hidden = true;
+  }, 6000);
+};
 
 const resetContactForm = () => {
   if (!contactFormEl) return;
   const submitBtn = contactFormEl.querySelector(".contact-form__submit");
   contactFormEl.reset();
-  contactFormEl.hidden = false;
   submitBtn.disabled = false;
   submitBtn.textContent = "Request Your Estimate";
-  if (contactFormSuccess) contactFormSuccess.hidden = true;
   if (contactFormError) contactFormError.hidden = true;
+  if (contactSuccessToast) {
+    clearTimeout(toastDismissTimer);
+    contactSuccessToast.hidden = true;
+  }
 };
 
 if (contactFormEl) {
@@ -440,8 +479,10 @@ if (contactFormEl) {
       });
 
       if (res.ok) {
-        contactFormEl.hidden = true;
-        if (contactFormSuccess) contactFormSuccess.hidden = false;
+        showContactToast();
+        contactFormEl.reset();
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalLabel;
       } else {
         const data = await res.json().catch(() => ({}));
         const msg =

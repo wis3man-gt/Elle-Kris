@@ -1,6 +1,6 @@
-/* ── Services Hero ────────────────────────────────────── */
+/* ── Projects Hero ─────────────────────────────────────── */
 
-.services-hero {
+.projects-hero {
   position: relative;
   margin: var(--section-gap);
   border-radius: var(--r-section);
@@ -20,7 +20,7 @@
 
 /* Decorative centered vector (house silhouette watermark) */
 
-.services-hero__vector {
+.projects-hero__vector {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -31,7 +31,7 @@
   z-index: 0;
 }
 
-.services-hero__vector img {
+.projects-hero__vector img {
   position: absolute;
   top: -6.5%;
   left: -5.49%;
@@ -42,7 +42,7 @@
 
 /* Text body */
 
-.services-hero__body {
+.projects-hero__body {
   position: relative;
   z-index: 2;
   display: flex;
@@ -50,11 +50,10 @@
   align-items: center;
   text-align: center;
   gap: 2.25rem;
-  /* padding: clamp(9rem, 16.5vw, 14.875rem) var(--page-margin) clamp(4rem, 7vw, 6.5rem); */
   padding-top: 7rem;
 }
 
-.services-hero__heading {
+.projects-hero__heading {
   font-size: clamp(var(--fs-2xl), 3.5vw, var(--fs-3xl)); /* 32–40px */
   font-weight: var(--fw-semibold);
   color: var(--clr-white);
@@ -63,7 +62,7 @@
   max-width: 46.4375rem; /* 743px */
 }
 
-.services-hero__sub {
+.projects-hero__sub {
   font-size: clamp(var(--fs-base), 1.5vw, var(--fs-lg)); /* 16–20px */
   font-weight: var(--fw-semibold);
   color: var(--clr-white);
@@ -72,11 +71,11 @@
   max-width: 63.875rem; /* 1022px */
 }
 
-.services-hero__sub--short {
+.projects-hero__sub--short {
   display: none;
 }
 
-.services-hero__heading--short {
+.projects-hero__heading--short {
   display: none;
 }
 
@@ -84,59 +83,59 @@
 
 @media (max-width: 68.75rem) {
   /* 1100px — reduce inline padding at mid-range */
-  .services-hero__body {
+  .projects-hero__body {
     padding-inline: 3rem;
   }
 }
 
 @media (max-width: 48rem) {
   /* 768px */
-  .services-hero {
+  .projects-hero {
     margin: calc(var(--section-gap) / 2);
     min-height: 17rem;
   }
 
   /* When mobile nav is open, grow hero to contain it (avoids overflow: hidden clipping) */
-  .services-hero:has(.nav.is-open) {
+  .projects-hero:has(.nav.is-open) {
     min-height: calc(100dvh - var(--section-gap));
   }
 
-  .services-hero__heading {
+  .projects-hero__heading {
     font-size: 1.25rem;
   }
 
-  .services-hero__heading--long {
+  .projects-hero__heading--long {
     display: none;
   }
-  .services-hero__heading--short {
+  .projects-hero__heading--short {
     display: inline;
   }
 
-  .services-hero__body {
+  .projects-hero__body {
     padding-inline: var(--page-margin-sm);
     gap: var(--sp-4);
     padding-top: 5rem;
   }
 
-  .services-hero__sub {
+  .projects-hero__sub {
     max-width: 36ch;
   }
 
-  .services-hero__sub--long {
+  .projects-hero__sub--long {
     display: none;
   }
-  .services-hero__sub--short {
+  .projects-hero__sub--short {
     display: inline;
   }
 }
 
 @media (max-width: 26.25rem) {
   /* 420px */
-  .services-hero__body {
+  .projects-hero__body {
     padding-inline: 1.25rem;
   }
 
-  .services-hero__sub {
+  .projects-hero__sub {
     font-size: var(--fs-sm);
   }
 }
