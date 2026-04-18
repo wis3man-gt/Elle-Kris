@@ -269,6 +269,83 @@ document.querySelectorAll(".projects__item").forEach((item) => {
   projectObserver.observe(item);
 });
 
+document.querySelectorAll(".proj-card").forEach((card) => {
+  projectObserver.observe(card);
+});
+
+/* Project card sliders — infinite clone-based loop */
+
+document.querySelectorAll(".proj-card").forEach((card) => {
+  const track = card.querySelector(".proj-card__track");
+  const origSlides = Array.from(card.querySelectorAll(".proj-card__slide"));
+  const prevBtn = card.querySelector(".proj-card__arrow--prev");
+  const nextBtn = card.querySelector(".proj-card__arrow--next");
+
+  if (!track || !origSlides.length || !prevBtn || !nextBtn) return;
+
+  const total = origSlides.length;
+
+  /* Prepend and append clones for seamless wrap-around */
+  const prependFrag = document.createDocumentFragment();
+  origSlides.forEach((s) => prependFrag.appendChild(s.cloneNode(true)));
+  track.insertBefore(prependFrag, origSlides[0]);
+
+  const appendFrag = document.createDocumentFragment();
+  origSlides.forEach((s) => appendFrag.appendChild(s.cloneNode(true)));
+  track.appendChild(appendFrag);
+
+  const allSlides = Array.from(track.querySelectorAll(".proj-card__slide"));
+
+  /* Start at first real slide (after prepended clones) */
+  let current = total;
+  let isAnimating = false;
+
+  /* offsetLeft difference accounts for gap without manual calculation */
+  const getStep = () =>
+    allSlides.length > 1
+      ? allSlides[1].offsetLeft - allSlides[0].offsetLeft
+      : allSlides[0].offsetWidth;
+
+  const goTo = (index, animate) => {
+    track.style.transition = animate ? "transform 0.4s ease" : "none";
+    if (!animate) void track.offsetWidth; /* flush styles so none takes effect */
+    track.style.transform = `translateX(${-index * getStep()}px)`;
+  };
+
+  track.addEventListener("transitionend", (e) => {
+    if (e.propertyName !== "transform") return;
+    /* After sliding into clone range, jump silently to the real position */
+    if (current >= total * 2) {
+      current = total;
+      goTo(current, false);
+    } else if (current < total) {
+      current = total * 2 - 1;
+      goTo(current, false);
+    }
+    isAnimating = false;
+  });
+
+  prevBtn.addEventListener("click", () => {
+    if (isAnimating) return;
+    isAnimating = true;
+    current--;
+    goTo(current, true);
+  });
+
+  nextBtn.addEventListener("click", () => {
+    if (isAnimating) return;
+    isAnimating = true;
+    current++;
+    goTo(current, true);
+  });
+
+  window.addEventListener("resize", () => goTo(current, false), {
+    passive: true,
+  });
+
+  goTo(current, false);
+});
+
 /* Mobile nav: burger + accordion */
 
 const mainNav = document.getElementById("main-nav");

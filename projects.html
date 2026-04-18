@@ -243,206 +243,794 @@
       </div>
     </section>
 
-    <!-- ── Section separator ─────────────────────────────── -->
-    <div class="section-sep" aria-hidden="true"></div>
-
     <!-- ── Projects + Footer (dark shell) ────────────────── -->
     <div class="projects-footer-shell">
       <section class="projects" id="projects-list" aria-label="Projects list">
         <div class="projects__list">
-          <article class="projects__item">
-            <div class="projects__img-wrap">
-              <img
-                class="projects__img"
-                src="assets/images/projects1.png"
-                alt="Contemporary Bathroom Upgrade"
-                loading="lazy"
-                decoding="async"
-              />
+          <!-- ── Project Card 1: Bathroom ─────────────────── -->
+          <article class="proj-card" aria-label="Contemporary Bathroom Upgrade">
+            <div class="proj-card__slider">
+              <button
+                class="proj-card__arrow proj-card__arrow--prev"
+                aria-label="Previous image"
+              >
+                <img src="assets/svg/arrow.svg" alt="" aria-hidden="true" />
+              </button>
+              <button
+                class="proj-card__arrow proj-card__arrow--next"
+                aria-label="Next image"
+              >
+                <img src="assets/svg/arrow.svg" alt="" aria-hidden="true" />
+              </button>
+              <div class="proj-card__track-wrap">
+                <div class="proj-card__track">
+                  <div class="proj-card__slide">
+                    <img
+                      src="assets/images/projectsSlider1.png"
+                      alt="Bathroom renovation — view 1"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                  <div class="proj-card__slide">
+                    <img
+                      src="assets/images/projectsSlider2.png"
+                      alt="Bathroom renovation — view 2"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                  <div class="proj-card__slide">
+                    <img
+                      src="assets/images/projectsSlider3.png"
+                      alt="Bathroom renovation — view 3"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <div class="proj-card__review">
+                      <div class="proj-card__review-header">
+                        <div
+                          class="proj-card__stars"
+                          aria-label="5 out of 5 stars"
+                        >
+                          <img
+                            src="assets/svg/star.svg"
+                            class="proj-card__star"
+                            alt=""
+                            aria-hidden="true"
+                          />
+                          <img
+                            src="assets/svg/star.svg"
+                            class="proj-card__star"
+                            alt=""
+                            aria-hidden="true"
+                          />
+                          <img
+                            src="assets/svg/star.svg"
+                            class="proj-card__star"
+                            alt=""
+                            aria-hidden="true"
+                          />
+                          <img
+                            src="assets/svg/star.svg"
+                            class="proj-card__star"
+                            alt=""
+                            aria-hidden="true"
+                          />
+                          <img
+                            src="assets/svg/star.svg"
+                            class="proj-card__star"
+                            alt=""
+                            aria-hidden="true"
+                          />
+                        </div>
+                        <span class="proj-card__reviewer"
+                          >/ Jonathan's Feedback</span
+                        >
+                      </div>
+                      <p class="proj-card__quote">
+                        "The final result feels much cleaner, brighter, and more
+                        comfortable than the original space. Everything was
+                        finished with real care, and the layout works much
+                        better for everyday use."
+                      </p>
+                    </div>
+                  </div>
+                  <div class="proj-card__slide">
+                    <img
+                      src="assets/images/projectsSlider4.png"
+                      alt="Bathroom renovation — view 4"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="projects__content">
-              <div class="projects__info">
-                <span class="projects__badge">Bathroom Renovation</span>
-                <h2 class="projects__title">Contemporary Bathroom Upgrade</h2>
-                <p class="projects__desc">
-                  A cleaner, brighter bathroom finish with improved layout,
-                  fittings, and everyday functionality.
+
+            <div class="proj-card__body">
+              <div class="proj-card__info">
+                <h2 class="proj-card__title">Contemporary Bathroom Upgrade</h2>
+                <p class="proj-card__desc">
+                  A cleaner, brighter bathroom transformation focused on better
+                  layout, updated fittings, and a more refined everyday feel.
                 </p>
               </div>
-              <ul class="projects__features" aria-label="Project highlights">
-                <li class="projects__feature">
-                  <span class="projects__feature-icon"
-                    ><img
-                      src="assets/svg/bathtub.svg"
+              <div class="proj-card__materials">
+                <h3 class="proj-card__materials-title">
+                  Materials &amp; Finishes
+                </h3>
+                <ul class="proj-card__materials-list">
+                  <li class="proj-card__material">
+                    <img
+                      src="assets/svg/dot.svg"
+                      class="proj-card__dot"
                       alt=""
                       aria-hidden="true"
-                  /></span>
-                  <span class="projects__feature-text"
-                    >Improved layout and better use of space</span
-                  >
-                </li>
-                <li class="projects__feature">
-                  <span class="projects__feature-icon"
-                    ><img src="assets/svg/drop.svg" alt="" aria-hidden="true"
-                  /></span>
-                  <span class="projects__feature-text"
-                    >Updated fittings and clean finishing details</span
-                  >
-                </li>
-                <li class="projects__feature">
-                  <span class="projects__feature-icon"
-                    ><img
-                      src="assets/svg/sparkle.svg"
+                    /><span>Large-format wall tiles</span>
+                  </li>
+                  <li class="proj-card__material">
+                    <img
+                      src="assets/svg/dot.svg"
+                      class="proj-card__dot"
                       alt=""
                       aria-hidden="true"
-                  /></span>
-                  <span class="projects__feature-text"
-                    >Designed for comfort, function, and daily use</span
+                    /><span>Moisture-resistant paint</span>
+                  </li>
+                  <li class="proj-card__material">
+                    <img
+                      src="assets/svg/dot.svg"
+                      class="proj-card__dot"
+                      alt=""
+                      aria-hidden="true"
+                    /><span>Porcelain floor tiles</span>
+                  </li>
+                  <li class="proj-card__material">
+                    <img
+                      src="assets/svg/dot.svg"
+                      class="proj-card__dot"
+                      alt=""
+                      aria-hidden="true"
+                    /><span>Floating vanity unit</span>
+                  </li>
+                  <li class="proj-card__material">
+                    <img
+                      src="assets/svg/dot.svg"
+                      class="proj-card__dot"
+                      alt=""
+                      aria-hidden="true"
+                    /><span>Warm LED mirror lighting</span>
+                  </li>
+                  <li class="proj-card__material">
+                    <img
+                      src="assets/svg/dot.svg"
+                      class="proj-card__dot"
+                      alt=""
+                      aria-hidden="true"
+                    /><span>Matt black fixtures and fittings</span>
+                  </li>
+                  <li class="proj-card__material">
+                    <img
+                      src="assets/svg/dot.svg"
+                      class="proj-card__dot"
+                      alt=""
+                      aria-hidden="true"
+                    /><span>Floating vanity unit</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="proj-card__meta">
+              <div class="proj-card__meta-item">
+                <div class="proj-card__meta-icon">
+                  <img src="assets/svg/resize.svg" alt="" aria-hidden="true" />
+                </div>
+                <div class="proj-card__meta-text">
+                  <span class="proj-card__meta-label">Project Size</span>
+                  <span class="proj-card__meta-value">12 m²</span>
+                </div>
+              </div>
+              <div class="proj-card__meta-item">
+                <div class="proj-card__meta-icon">
+                  <img
+                    src="assets/svg/calendar.svg"
+                    alt=""
+                    aria-hidden="true"
+                  />
+                </div>
+                <div class="proj-card__meta-text">
+                  <span class="proj-card__meta-label">Duration</span>
+                  <span class="proj-card__meta-value">2.5 weeks</span>
+                </div>
+              </div>
+              <div class="proj-card__meta-item">
+                <div class="proj-card__meta-icon">
+                  <img src="assets/svg/kanban.svg" alt="" aria-hidden="true" />
+                </div>
+                <div class="proj-card__meta-text">
+                  <span class="proj-card__meta-label">Project Type</span>
+                  <span class="proj-card__meta-value">Bathroom Renovation</span>
+                </div>
+              </div>
+              <div class="proj-card__meta-item">
+                <div class="proj-card__meta-icon">
+                  <img
+                    src="assets/svg/mapTriflod.svg"
+                    alt=""
+                    aria-hidden="true"
+                  />
+                </div>
+                <div class="proj-card__meta-text">
+                  <span class="proj-card__meta-label">Location</span>
+                  <span class="proj-card__meta-value">South East UK</span>
+                </div>
+              </div>
+              <div class="proj-card__meta-item">
+                <div class="proj-card__meta-icon">
+                  <img src="assets/svg/stack.svg" alt="" aria-hidden="true" />
+                </div>
+                <div class="proj-card__meta-text">
+                  <span class="proj-card__meta-label">Scope</span>
+                  <span class="proj-card__meta-value"
+                    >Layout improvement, fixture upgrades, tiling</span
                   >
-                </li>
-              </ul>
-              <a href="#" class="projects__btn">
-                View Full Case Study
-                <img
-                  class="projects__btn-arrow"
-                  src="assets/svg/arrow.svg"
-                  alt=""
-                  aria-hidden="true"
-                />
-              </a>
+                </div>
+              </div>
             </div>
           </article>
 
-          <article class="projects__item projects__item--reverse">
-            <div class="projects__img-wrap">
-              <img
-                class="projects__img"
-                src="assets/images/projects2.png"
-                alt="Modern Kitchen Transformation"
-                loading="lazy"
-                decoding="async"
-              />
+          <!-- ── Project Card 2: Kitchen ──────────────────── -->
+          <article class="proj-card" aria-label="Modern Kitchen Renovation">
+            <div class="proj-card__slider">
+              <button
+                class="proj-card__arrow proj-card__arrow--prev"
+                aria-label="Previous image"
+              >
+                <img src="assets/svg/arrow.svg" alt="" aria-hidden="true" />
+              </button>
+              <button
+                class="proj-card__arrow proj-card__arrow--next"
+                aria-label="Next image"
+              >
+                <img src="assets/svg/arrow.svg" alt="" aria-hidden="true" />
+              </button>
+              <div class="proj-card__track-wrap">
+                <div class="proj-card__track">
+                  <div class="proj-card__slide">
+                    <img
+                      src="assets/images/projectsSlider3.png"
+                      alt="Kitchen renovation — view 1"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                  <div class="proj-card__slide">
+                    <img
+                      src="assets/images/projectsSlider1.png"
+                      alt="Kitchen renovation — view 2"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <div class="proj-card__review">
+                      <div class="proj-card__review-header">
+                        <div
+                          class="proj-card__stars"
+                          aria-label="5 out of 5 stars"
+                        >
+                          <img
+                            src="assets/svg/star.svg"
+                            class="proj-card__star"
+                            alt=""
+                            aria-hidden="true"
+                          />
+                          <img
+                            src="assets/svg/star.svg"
+                            class="proj-card__star"
+                            alt=""
+                            aria-hidden="true"
+                          />
+                          <img
+                            src="assets/svg/star.svg"
+                            class="proj-card__star"
+                            alt=""
+                            aria-hidden="true"
+                          />
+                          <img
+                            src="assets/svg/star.svg"
+                            class="proj-card__star"
+                            alt=""
+                            aria-hidden="true"
+                          />
+                          <img
+                            src="assets/svg/star.svg"
+                            class="proj-card__star"
+                            alt=""
+                            aria-hidden="true"
+                          />
+                        </div>
+                        <span class="proj-card__reviewer"
+                          >Jonathan's Feedback</span
+                        >
+                      </div>
+                      <p class="proj-card__quote">
+                        "The final result feels much cleaner, brighter, and more
+                        comfortable than the original space. Everything was
+                        finished with real care, and the layout works much
+                        better for everyday use."
+                      </p>
+                    </div>
+                  </div>
+                  <div class="proj-card__slide">
+                    <img
+                      src="assets/images/projectsSlider4.png"
+                      alt="Kitchen renovation — view 3"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                  <div class="proj-card__slide">
+                    <img
+                      src="assets/images/projectsSlider2.png"
+                      alt="Kitchen renovation — view 4"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="projects__content">
-              <div class="projects__info">
-                <span class="projects__badge">Kitchen Renovation</span>
-                <h2 class="projects__title">Modern Kitchen Transformation</h2>
-                <p class="projects__desc">
-                  A well-planned kitchen refresh with improved layout, quality
-                  fittings, and better everyday function.
+
+            <div class="proj-card__body">
+              <div class="proj-card__info">
+                <h2 class="proj-card__title">Modern Kitchen Renovation</h2>
+                <p class="proj-card__desc">
+                  A practical kitchen transformation built around everyday use,
+                  better storage flow, and a cleaner, more durable finish.
                 </p>
               </div>
-              <ul class="projects__features" aria-label="Project highlights">
-                <li class="projects__feature">
-                  <span class="projects__feature-icon"
-                    ><img
-                      src="assets/svg/bathtub.svg"
+              <div class="proj-card__materials">
+                <h3 class="proj-card__materials-title">
+                  Materials &amp; Finishes
+                </h3>
+                <ul class="proj-card__materials-list">
+                  <li class="proj-card__material">
+                    <img
+                      src="assets/svg/dot.svg"
+                      class="proj-card__dot"
                       alt=""
                       aria-hidden="true"
-                  /></span>
-                  <span class="projects__feature-text"
-                    >Improved workflow and worktop space</span
-                  >
-                </li>
-                <li class="projects__feature">
-                  <span class="projects__feature-icon"
-                    ><img src="assets/svg/drop.svg" alt="" aria-hidden="true"
-                  /></span>
-                  <span class="projects__feature-text"
-                    >Quality fittings and clean finishing details</span
-                  >
-                </li>
-                <li class="projects__feature">
-                  <span class="projects__feature-icon"
-                    ><img
-                      src="assets/svg/sparkle.svg"
+                    /><span>Large-format wall tiles</span>
+                  </li>
+                  <li class="proj-card__material">
+                    <img
+                      src="assets/svg/dot.svg"
+                      class="proj-card__dot"
                       alt=""
                       aria-hidden="true"
-                  /></span>
-                  <span class="projects__feature-text"
-                    >Tailored to daily use, style, and practicality</span
+                    /><span>Moisture-resistant paint</span>
+                  </li>
+                  <li class="proj-card__material">
+                    <img
+                      src="assets/svg/dot.svg"
+                      class="proj-card__dot"
+                      alt=""
+                      aria-hidden="true"
+                    /><span>Porcelain floor tiles</span>
+                  </li>
+                  <li class="proj-card__material">
+                    <img
+                      src="assets/svg/dot.svg"
+                      class="proj-card__dot"
+                      alt=""
+                      aria-hidden="true"
+                    /><span>Floating vanity unit</span>
+                  </li>
+                  <li class="proj-card__material">
+                    <img
+                      src="assets/svg/dot.svg"
+                      class="proj-card__dot"
+                      alt=""
+                      aria-hidden="true"
+                    /><span>Warm LED mirror lighting</span>
+                  </li>
+                  <li class="proj-card__material">
+                    <img
+                      src="assets/svg/dot.svg"
+                      class="proj-card__dot"
+                      alt=""
+                      aria-hidden="true"
+                    /><span>Matt black fixtures and fittings</span>
+                  </li>
+                  <li class="proj-card__material">
+                    <img
+                      src="assets/svg/dot.svg"
+                      class="proj-card__dot"
+                      alt=""
+                      aria-hidden="true"
+                    /><span>Floating vanity unit</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="proj-card__meta">
+              <div class="proj-card__meta-item">
+                <div class="proj-card__meta-icon">
+                  <img src="assets/svg/resize.svg" alt="" aria-hidden="true" />
+                </div>
+                <div class="proj-card__meta-text">
+                  <span class="proj-card__meta-label">Project Size</span>
+                  <span class="proj-card__meta-value">18 m²</span>
+                </div>
+              </div>
+              <div class="proj-card__meta-item">
+                <div class="proj-card__meta-icon">
+                  <img
+                    src="assets/svg/calendar.svg"
+                    alt=""
+                    aria-hidden="true"
+                  />
+                </div>
+                <div class="proj-card__meta-text">
+                  <span class="proj-card__meta-label">Duration</span>
+                  <span class="proj-card__meta-value">2.5 weeks</span>
+                </div>
+              </div>
+              <div class="proj-card__meta-item">
+                <div class="proj-card__meta-icon">
+                  <img src="assets/svg/kanban.svg" alt="" aria-hidden="true" />
+                </div>
+                <div class="proj-card__meta-text">
+                  <span class="proj-card__meta-label">Project Type</span>
+                  <span class="proj-card__meta-value">Kitchen Renovation</span>
+                </div>
+              </div>
+              <div class="proj-card__meta-item">
+                <div class="proj-card__meta-icon">
+                  <img
+                    src="assets/svg/mapTriflod.svg"
+                    alt=""
+                    aria-hidden="true"
+                  />
+                </div>
+                <div class="proj-card__meta-text">
+                  <span class="proj-card__meta-label">Location</span>
+                  <span class="proj-card__meta-value">Greater London</span>
+                </div>
+              </div>
+              <div class="proj-card__meta-item">
+                <div class="proj-card__meta-icon">
+                  <img src="assets/svg/stack.svg" alt="" aria-hidden="true" />
+                </div>
+                <div class="proj-card__meta-text">
+                  <span class="proj-card__meta-label">Scope</span>
+                  <span class="proj-card__meta-value"
+                    >Cabinet updates, worktop installation, fitting
+                    improvements</span
                   >
-                </li>
-              </ul>
-              <a href="#" class="projects__btn">
-                View Full Case Study
-                <img
-                  class="projects__btn-arrow"
-                  src="assets/svg/arrow.svg"
-                  alt=""
-                  aria-hidden="true"
-                />
-              </a>
+                </div>
+              </div>
             </div>
           </article>
 
-          <article class="projects__item">
-            <div class="projects__img-wrap">
-              <img
-                class="projects__img"
-                src="assets/images/projects3.png"
-                alt="Warm Interior Refresh"
-                loading="lazy"
-                decoding="async"
-              />
+          <!-- ── Project Card 3: Kitchen ──────────────────── -->
+          <article
+            class="proj-card"
+            aria-label="Kitchen &amp; Utility Renovation"
+          >
+            <div class="proj-card__slider">
+              <button
+                class="proj-card__arrow proj-card__arrow--prev"
+                aria-label="Previous image"
+              >
+                <img src="assets/svg/arrow.svg" alt="" aria-hidden="true" />
+              </button>
+              <button
+                class="proj-card__arrow proj-card__arrow--next"
+                aria-label="Next image"
+              >
+                <img src="assets/svg/arrow.svg" alt="" aria-hidden="true" />
+              </button>
+              <div class="proj-card__track-wrap">
+                <div class="proj-card__track">
+                  <div class="proj-card__slide">
+                    <img
+                      src="assets/images/projectsSlider2.png"
+                      alt="Kitchen renovation — view 1"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                  <div class="proj-card__slide">
+                    <img
+                      src="assets/images/projectsSlider4.png"
+                      alt="Kitchen renovation — view 2"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                  <div class="proj-card__slide">
+                    <img
+                      src="assets/images/projectsSlider1.png"
+                      alt="Kitchen renovation — view 3"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                  <div class="proj-card__slide">
+                    <img
+                      src="assets/images/projectsSlider3.png"
+                      alt="Kitchen renovation — view 4"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <div class="proj-card__review">
+                      <div class="proj-card__review-header">
+                        <div
+                          class="proj-card__stars"
+                          aria-label="5 out of 5 stars"
+                        >
+                          <img
+                            src="assets/svg/star.svg"
+                            class="proj-card__star"
+                            alt=""
+                            aria-hidden="true"
+                          />
+                          <img
+                            src="assets/svg/star.svg"
+                            class="proj-card__star"
+                            alt=""
+                            aria-hidden="true"
+                          />
+                          <img
+                            src="assets/svg/star.svg"
+                            class="proj-card__star"
+                            alt=""
+                            aria-hidden="true"
+                          />
+                          <img
+                            src="assets/svg/star.svg"
+                            class="proj-card__star"
+                            alt=""
+                            aria-hidden="true"
+                          />
+                          <img
+                            src="assets/svg/star.svg"
+                            class="proj-card__star"
+                            alt=""
+                            aria-hidden="true"
+                          />
+                        </div>
+                        <span class="proj-card__reviewer"
+                          >Jonathan's Feedback</span
+                        >
+                      </div>
+                      <p class="proj-card__quote">
+                        "The final result feels much cleaner, brighter, and more
+                        comfortable than the original space. Everything was
+                        finished with real care, and the layout works much
+                        better for everyday use."
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="projects__content">
-              <div class="projects__info">
-                <span class="projects__badge">Home Improvements</span>
-                <h2 class="projects__title">Warm Interior Refresh</h2>
-                <p class="projects__desc">
-                  Thoughtful finishing work that brought warmth, comfort, and a
-                  polished feel to the whole living space.
+
+            <div class="proj-card__body">
+              <div class="proj-card__info">
+                <h2 class="proj-card__title">
+                  Kitchen &amp; Utility Renovation
+                </h2>
+                <p class="proj-card__desc">
+                  A practical kitchen transformation built around everyday use,
+                  better storage flow, and a cleaner, more durable finish.
                 </p>
               </div>
-              <ul class="projects__features" aria-label="Project highlights">
-                <li class="projects__feature">
-                  <span class="projects__feature-icon"
-                    ><img
-                      src="assets/svg/bathtub.svg"
+              <div class="proj-card__materials">
+                <h3 class="proj-card__materials-title">
+                  Materials &amp; Finishes
+                </h3>
+                <ul class="proj-card__materials-list">
+                  <li class="proj-card__material">
+                    <img
+                      src="assets/svg/dot.svg"
+                      class="proj-card__dot"
                       alt=""
                       aria-hidden="true"
-                  /></span>
-                  <span class="projects__feature-text"
-                    >Refreshed flooring and interior surfaces</span
-                  >
-                </li>
-                <li class="projects__feature">
-                  <span class="projects__feature-icon"
-                    ><img src="assets/svg/drop.svg" alt="" aria-hidden="true"
-                  /></span>
-                  <span class="projects__feature-text"
-                    >Updated lighting and decorative details</span
-                  >
-                </li>
-                <li class="projects__feature">
-                  <span class="projects__feature-icon"
-                    ><img
-                      src="assets/svg/sparkle.svg"
+                    /><span>Large-format wall tiles</span>
+                  </li>
+                  <li class="proj-card__material">
+                    <img
+                      src="assets/svg/dot.svg"
+                      class="proj-card__dot"
                       alt=""
                       aria-hidden="true"
-                  /></span>
-                  <span class="projects__feature-text"
-                    >Designed for comfort and everyday living</span
+                    /><span>Moisture-resistant paint</span>
+                  </li>
+                  <li class="proj-card__material">
+                    <img
+                      src="assets/svg/dot.svg"
+                      class="proj-card__dot"
+                      alt=""
+                      aria-hidden="true"
+                    /><span>Porcelain floor tiles</span>
+                  </li>
+                  <li class="proj-card__material">
+                    <img
+                      src="assets/svg/dot.svg"
+                      class="proj-card__dot"
+                      alt=""
+                      aria-hidden="true"
+                    /><span>Floating vanity unit</span>
+                  </li>
+                  <li class="proj-card__material">
+                    <img
+                      src="assets/svg/dot.svg"
+                      class="proj-card__dot"
+                      alt=""
+                      aria-hidden="true"
+                    /><span>Warm LED mirror lighting</span>
+                  </li>
+                  <li class="proj-card__material">
+                    <img
+                      src="assets/svg/dot.svg"
+                      class="proj-card__dot"
+                      alt=""
+                      aria-hidden="true"
+                    /><span>Matt black fixtures and fittings</span>
+                  </li>
+                  <li class="proj-card__material">
+                    <img
+                      src="assets/svg/dot.svg"
+                      class="proj-card__dot"
+                      alt=""
+                      aria-hidden="true"
+                    /><span>Floating vanity unit</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="proj-card__meta">
+              <div class="proj-card__meta-item">
+                <div class="proj-card__meta-icon">
+                  <img src="assets/svg/resize.svg" alt="" aria-hidden="true" />
+                </div>
+                <div class="proj-card__meta-text">
+                  <span class="proj-card__meta-label">Project Size</span>
+                  <span class="proj-card__meta-value">18 m²</span>
+                </div>
+              </div>
+              <div class="proj-card__meta-item">
+                <div class="proj-card__meta-icon">
+                  <img
+                    src="assets/svg/calendar.svg"
+                    alt=""
+                    aria-hidden="true"
+                  />
+                </div>
+                <div class="proj-card__meta-text">
+                  <span class="proj-card__meta-label">Duration</span>
+                  <span class="proj-card__meta-value">3 weeks</span>
+                </div>
+              </div>
+              <div class="proj-card__meta-item">
+                <div class="proj-card__meta-icon">
+                  <img src="assets/svg/kanban.svg" alt="" aria-hidden="true" />
+                </div>
+                <div class="proj-card__meta-text">
+                  <span class="proj-card__meta-label">Project Type</span>
+                  <span class="proj-card__meta-value">Kitchen Renovation</span>
+                </div>
+              </div>
+              <div class="proj-card__meta-item">
+                <div class="proj-card__meta-icon">
+                  <img
+                    src="assets/svg/mapTriflod.svg"
+                    alt=""
+                    aria-hidden="true"
+                  />
+                </div>
+                <div class="proj-card__meta-text">
+                  <span class="proj-card__meta-label">Location</span>
+                  <span class="proj-card__meta-value">Greater London</span>
+                </div>
+              </div>
+              <div class="proj-card__meta-item">
+                <div class="proj-card__meta-icon">
+                  <img src="assets/svg/stack.svg" alt="" aria-hidden="true" />
+                </div>
+                <div class="proj-card__meta-text">
+                  <span class="proj-card__meta-label">Scope</span>
+                  <span class="proj-card__meta-value"
+                    >Cabinet updates, worktop installation, fitting
+                    improvements</span
                   >
-                </li>
-              </ul>
-              <a href="#" class="projects__btn">
-                View Full Case Study
-                <img
-                  class="projects__btn-arrow"
-                  src="assets/svg/arrow.svg"
-                  alt=""
-                  aria-hidden="true"
-                />
-              </a>
+                </div>
+              </div>
             </div>
           </article>
         </div>
       </section>
+    </div>
+
+    <!-- ── Social + Footer (dark shell) ────────────────── -->
+    <div class="proj-dark-shell">
+      <section class="proj-social" aria-label="Follow us on social media">
+        <div class="proj-social__inner">
+          <div class="proj-social__top">
+            <div class="proj-social__badge">
+              See More of Our Work on Social Media
+            </div>
+            <p class="proj-social__heading">
+              Follow along for project highlights, renovation progress,
+              behind-the-scenes updates, and finished spaces as they come
+              together.
+            </p>
+          </div>
+          <div class="proj-social__icons">
+            <a href="#" class="proj-social__icon-item" aria-label="Instagram">
+              <div class="proj-social__icon-wrap">
+                <img
+                  src="assets/svg/projectsInstagram.svg"
+                  width="32"
+                  height="32"
+                  alt=""
+                  aria-hidden="true"
+                />
+              </div>
+              <span class="proj-social__icon-label">Instagram</span>
+            </a>
+            <a href="#" class="proj-social__icon-item" aria-label="Facebook">
+              <div class="proj-social__icon-wrap">
+                <img
+                  src="assets/svg/projectsFacebook.svg"
+                  width="32"
+                  height="32"
+                  alt=""
+                  aria-hidden="true"
+                />
+              </div>
+              <span class="proj-social__icon-label">Facebook</span>
+            </a>
+            <a href="#" class="proj-social__icon-item" aria-label="Youtube">
+              <div class="proj-social__icon-wrap">
+                <img
+                  src="assets/svg/projectsYoutube.svg"
+                  width="32"
+                  height="32"
+                  alt=""
+                  aria-hidden="true"
+                />
+              </div>
+              <span class="proj-social__icon-label">Youtube</span>
+            </a>
+            <a
+              href="https://wa.me/447123456789"
+              class="proj-social__icon-item"
+              aria-label="WhatsApp"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div class="proj-social__icon-wrap">
+                <img
+                  src="assets/svg/projectsWhatsapp.svg"
+                  width="32"
+                  height="32"
+                  alt=""
+                  aria-hidden="true"
+                />
+              </div>
+              <span class="proj-social__icon-label">Whatsapp</span>
+            </a>
+          </div>
+        </div>
+      </section>
 
       <!-- ── Footer ─────────────────────────────────────── -->
-      <footer class="footer" id="site-footer">
+      <footer class="footer projects-page__footer" id="site-footer">
         <!-- CTA -->
         <div class="footer__cta">
           <div class="footer__cta-wrap">
