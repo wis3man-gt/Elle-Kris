@@ -12,7 +12,7 @@
 
 /* Left-to-right gradient keeps text readable over video */
 .hero::after {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(
@@ -38,7 +38,8 @@
 
 .hero__body {
   position: absolute;
-  bottom: clamp(3rem, 7vh, 5.25rem);
+  top: 55%;
+  transform: translateY(-55%);
   left: 9.75rem;
   z-index: 2;
   width: 39.875rem;
@@ -114,7 +115,6 @@
   }
 
   .hero__body {
-    bottom: 3.75rem;
     left: 5rem;
     width: 34rem;
     max-width: calc(100% - 8rem);
@@ -137,6 +137,8 @@
   }
 
   .hero__body {
+    top: auto;
+    transform: none;
     bottom: 2.25rem;
     left: clamp(1rem, 4vw, 1.5rem);
     width: min(28rem, calc(100% - 2rem));

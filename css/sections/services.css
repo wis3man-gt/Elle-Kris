@@ -1,8 +1,11 @@
 /* ── Services ────────────────────────────────────────── */
 
 .services {
-  margin: var(--section-gap);
+  margin: var(--section-gap) 0 0;
   padding-inline: clamp(1rem, 5vw, 7rem);
+  padding-bottom: 8rem;
+  background-color: var(--clr-bg);
+  border-radius: 0 0 var(--r-footer) var(--r-footer);
   position: relative;
   z-index: 3;
 }
@@ -229,8 +232,10 @@
 
 @media (max-width: 48rem) {
   .services {
-    margin: calc(var(--section-gap) / 2);
+    margin: calc(var(--section-gap) / 2) 0 0;
     padding-inline: 0;
+    padding-bottom: 5rem;
+    border-radius: 0 0 1.5rem 1.5rem;
   }
 
   .services__header {

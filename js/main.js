@@ -365,10 +365,13 @@ document.querySelectorAll(".proj-card").forEach((card) => {
     { passive: true },
   );
 
-  /* Defer init to next frame so layout (including % widths) is fully computed */
+  /* Double rAF: first frame commits styles, second frame gives mobile browsers
+     time to resolve flex-basis percentages before we measure offsetLeft */
   requestAnimationFrame(() => {
-    computeStep();
-    goTo(current, false);
+    requestAnimationFrame(() => {
+      computeStep();
+      goTo(current, false);
+    });
   });
 });
 
@@ -535,7 +538,8 @@ if (contactPhones && contactFormContainer && contactHero) {
     const gap = GAP_REM * rem;
     const phonesBottom = contactPhones.getBoundingClientRect().bottom;
     const heroBottom = contactHero.getBoundingClientRect().bottom;
-    contactFormContainer.style.marginTop = phonesBottom + gap - heroBottom + "px";
+    const heroMarginBottom = parseFloat(getComputedStyle(contactHero).marginBottom);
+    contactFormContainer.style.marginTop = phonesBottom + gap - heroBottom - heroMarginBottom + "px";
   };
 
   pinFormBelowPhones();

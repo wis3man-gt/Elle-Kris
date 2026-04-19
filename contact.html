@@ -31,7 +31,9 @@
           <li class="nav__item">
             <a href="services.html" class="nav__link">Services</a>
           </li>
-          <li class="nav__item"><a href="projects.html" class="nav__link">Projects</a></li>
+          <li class="nav__item">
+            <a href="projects.html" class="nav__link">Projects</a>
+          </li>
           <li class="nav__item">
             <a href="about.html" class="nav__link">About</a>
           </li>
@@ -215,11 +217,25 @@
       </nav>
 
       <!-- ── Success toast (shown on form submit) ── -->
-      <div class="contact-success-toast" id="contact-success-toast" aria-live="polite" hidden>
-        <img class="contact-success-toast__icon" src="assets/svg/greenTick.svg" width="48" height="48" alt="" aria-hidden="true" />
+      <div
+        class="contact-success-toast"
+        id="contact-success-toast"
+        aria-live="polite"
+        hidden
+      >
+        <img
+          class="contact-success-toast__icon"
+          src="assets/svg/greenTick.svg"
+          width="48"
+          height="48"
+          alt=""
+          aria-hidden="true"
+        />
         <div class="contact-success-toast__body">
           <p class="contact-success-toast__title">Successfully Sent</p>
-          <p class="contact-success-toast__sub">Thanks for reaching out, we will get back soon!</p>
+          <p class="contact-success-toast__sub">
+            Thanks for reaching out, we will get back soon!
+          </p>
         </div>
       </div>
 
@@ -231,8 +247,7 @@
           </h1>
           <p class="contact-hero__sub">
             Get in touch to discuss your space, your goals, and the right
-            approach<br />
-            for your renovation or improvement project.
+            approach for your renovation or improvement project.
           </p>
         </div>
 
@@ -279,7 +294,12 @@
           </p>
         </div>
 
-        <form class="contact-form__fields" id="contact-form-el" action="https://formspree.io/f/xpqkpjon" method="POST">
+        <form
+          class="contact-form__fields"
+          id="contact-form-el"
+          action="https://formspree.io/f/xpqkpjon"
+          method="POST"
+        >
           <input
             class="contact-form__input"
             type="text"

@@ -2,9 +2,9 @@
 
 .contact-hero {
   position: relative;
-  /* No bottom margin — form container handles the gap */
   margin: var(--section-gap) var(--section-gap) 0;
   border-radius: var(--r-section);
+  overflow: hidden;
   height: calc(100svh - var(--section-gap));
   background:
     linear-gradient(
@@ -115,6 +115,10 @@
   color: var(--clr-white);
   line-height: 100%;
   text-shadow: 0 2px 0 rgba(0, 0, 0, 0.25);
+}
+
+.mob-br {
+  display: none;
 }
 
 /* ── Phone row ── */
@@ -493,7 +497,7 @@
   }
 
   .contact-hero {
-    margin: calc(var(--section-gap) / 2) calc(var(--section-gap) / 2) 0;
+    margin: calc(var(--section-gap) / 2);
   }
 
   .contact-hero__body {
@@ -510,7 +514,11 @@
 
   .contact-hero__sub {
     font-size: 0.875rem;
-    max-width: 16rem;
+    max-width: 20rem;
+  }
+
+  .mob-br {
+    display: block;
   }
 
   /* phones: WA on top, numbers stacked below */
