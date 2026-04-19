@@ -54,7 +54,10 @@
   flex-direction: column;
   opacity: 0;
   transform: translateY(1.5rem);
-  transition: opacity 0.5s ease, transform 0.5s ease, box-shadow var(--transition-base);
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease,
+    box-shadow var(--transition-base);
   cursor: pointer;
 }
 
@@ -119,7 +122,7 @@
 }
 
 .services__card:hover .services__title {
-  color: #FF9025;
+  color: #ff9025;
 }
 
 .services__desc {
@@ -131,7 +134,6 @@
 }
 
 /* ── CTA ─────────────────────────────────────────────── */
-
 
 /* ── Responsive ──────────────────────────────────────── */
 
@@ -159,6 +161,7 @@
 
   .services__grid {
     gap: 1.5rem;
+    padding: 0.625rem;
   }
 
   .services__inner {
@@ -234,7 +237,7 @@
   .services {
     margin: calc(var(--section-gap) / 2) 0 0;
     padding-inline: 0;
-    padding-bottom: 5rem;
+    padding-bottom: 1rem;
     border-radius: 0 0 1.5rem 1.5rem;
   }
 

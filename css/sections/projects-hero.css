@@ -95,12 +95,7 @@
     min-height: 17rem;
   }
 
-  /* When mobile nav is open, grow hero to contain it (avoids overflow: hidden clipping) */
-  .projects-hero:has(.nav.is-open) {
-    min-height: calc(100dvh - var(--section-gap));
-  }
-
-  .projects-hero__heading {
+.projects-hero__heading {
     font-size: 1.25rem;
   }
 

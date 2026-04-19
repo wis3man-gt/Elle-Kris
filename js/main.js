@@ -391,6 +391,8 @@ if (mainNav && burgerBtn && mobilePanel) {
 
   const closeMenu = () => {
     mainNav.classList.remove("is-open");
+    navOffset = 0;
+    mainNav.style.transform = "translateY(0)";
     burgerBtn.setAttribute("aria-expanded", "false");
     mobilePanel.setAttribute("aria-hidden", "true");
     document.body.style.overflow = "";
@@ -404,6 +406,46 @@ if (mainNav && burgerBtn && mobilePanel) {
     if (e.key === "Escape" && mainNav.classList.contains("is-open"))
       closeMenu();
   });
+}
+
+/* Nav: slide with scroll — pixel-for-pixel with scroll speed */
+
+let navOffset = 0;
+let navHideDistance = 0;
+
+const computeNavHideDistance = () => {
+  /* nav must be at translateY(0) when we measure — reset first */
+  mainNav.style.transform = "translateY(0)";
+  navOffset = 0;
+  const rect = mainNav.getBoundingClientRect();
+  navHideDistance = rect.top + rect.height;
+};
+
+if (mainNav) {
+  computeNavHideDistance();
+  window.addEventListener("resize", computeNavHideDistance, { passive: true });
+
+  let lastScrollY = window.scrollY;
+
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (mainNav.classList.contains("is-open")) return;
+
+      const y = window.scrollY;
+      const delta = y - lastScrollY;
+      lastScrollY = y;
+
+      if (y <= 0) {
+        navOffset = 0;
+      } else {
+        navOffset = Math.min(0, Math.max(-navHideDistance, navOffset - delta));
+      }
+
+      mainNav.style.transform = `translateY(${navOffset}px)`;
+    },
+    { passive: true },
+  );
 }
 
 /* Video performance: only play when in viewport */

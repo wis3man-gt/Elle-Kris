@@ -389,11 +389,21 @@
 
   .why-us__tag {
     font-size: 0.75rem;
-    padding: 0.375rem 0.625rem;
+    padding: 0.25rem 0.5rem;
   }
 }
 
 @media (max-width: 26.25rem) {
+  .why-us__tag {
+    font-size: 0.625rem;
+    padding: 0.2rem 0.375rem;
+  }
+
+  .why-us__tag--tl { top: 0.5rem; left: 0.5rem; }
+  .why-us__tag--tr { top: 0.5rem; right: 0.5rem; }
+  .why-us__tag--bl { bottom: 0.5rem; left: 0.5rem; }
+  .why-us__tag--br { bottom: 0.5rem; right: 0.5rem; }
+
   .why-us__content {
     padding: 1.75rem 1rem 0;
   }
