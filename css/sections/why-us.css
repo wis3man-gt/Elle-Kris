@@ -133,10 +133,18 @@
   height: 100%;
 }
 
-.why-us__tile--tl { border-radius: var(--r-tile) 0 0 0; }
-.why-us__tile--tr { border-radius: 0 var(--r-tile) 0 0; }
-.why-us__tile--bl { border-radius: 0 0 0 var(--r-tile); }
-.why-us__tile--br { border-radius: 0 0 var(--r-tile) 0; }
+.why-us__tile--tl {
+  border-radius: var(--r-tile) 0 0 0;
+}
+.why-us__tile--tr {
+  border-radius: 0 var(--r-tile) 0 0;
+}
+.why-us__tile--bl {
+  border-radius: 0 0 0 var(--r-tile);
+}
+.why-us__tile--br {
+  border-radius: 0 0 var(--r-tile) 0;
+}
 
 .why-us__video {
   position: absolute;
@@ -162,10 +170,22 @@
   z-index: 2;
 }
 
-.why-us__tag--tl { top: 0.75rem; left: 0.75rem; }
-.why-us__tag--tr { top: 0.75rem; right: 0.75rem; }
-.why-us__tag--bl { bottom: 0.75rem; left: 0.75rem; }
-.why-us__tag--br { bottom: 0.75rem; right: 0.75rem; }
+.why-us__tag--tl {
+  top: 0.75rem;
+  left: 0.75rem;
+}
+.why-us__tag--tr {
+  top: 0.75rem;
+  right: 0.75rem;
+}
+.why-us__tag--bl {
+  bottom: 0.75rem;
+  left: 0.75rem;
+}
+.why-us__tag--br {
+  bottom: 0.75rem;
+  right: 0.75rem;
+}
 
 /* ── Center logo badge ───────────────────────────────── */
 
@@ -211,28 +231,32 @@
 }
 
 .why-us__corner--tl {
-  top: -0.875rem; left: -0.875rem;
+  top: -0.875rem;
+  left: -0.875rem;
   border-top: 1px solid var(--clr-orange); /* More refined weight */
   border-left: 1px solid var(--clr-orange);
   border-top-left-radius: var(--r-section);
 }
 
 .why-us__corner--tr {
-  top: -0.875rem; right: -0.875rem;
+  top: -0.875rem;
+  right: -0.875rem;
   border-top: 1px solid var(--clr-orange);
   border-right: 1px solid var(--clr-orange);
   border-top-right-radius: var(--r-section);
 }
 
 .why-us__corner--bl {
-  bottom: -0.875rem; left: -0.875rem;
+  bottom: -0.875rem;
+  left: -0.875rem;
   border-bottom: 1px solid var(--clr-orange);
   border-left: 1px solid var(--clr-orange);
   border-bottom-left-radius: var(--r-section);
 }
 
 .why-us__corner--br {
-  bottom: -0.875rem; right: -0.875rem;
+  bottom: -0.875rem;
+  right: -0.875rem;
   border-bottom: 1px solid var(--clr-orange);
   border-right: 1px solid var(--clr-orange);
   border-bottom-right-radius: var(--r-section);
@@ -391,6 +415,11 @@
     font-size: 0.75rem;
     padding: 0.25rem 0.5rem;
   }
+
+  .why-us__logo-badge {
+    width: 5rem;
+    height: 5rem;
+  }
 }
 
 @media (max-width: 26.25rem) {
@@ -399,10 +428,22 @@
     padding: 0.2rem 0.375rem;
   }
 
-  .why-us__tag--tl { top: 0.5rem; left: 0.5rem; }
-  .why-us__tag--tr { top: 0.5rem; right: 0.5rem; }
-  .why-us__tag--bl { bottom: 0.5rem; left: 0.5rem; }
-  .why-us__tag--br { bottom: 0.5rem; right: 0.5rem; }
+  .why-us__tag--tl {
+    top: 0.5rem;
+    left: 0.5rem;
+  }
+  .why-us__tag--tr {
+    top: 0.5rem;
+    right: 0.5rem;
+  }
+  .why-us__tag--bl {
+    bottom: 0.5rem;
+    left: 0.5rem;
+  }
+  .why-us__tag--br {
+    bottom: 0.5rem;
+    right: 0.5rem;
+  }
 
   .why-us__content {
     padding: 1.75rem 1rem 0;

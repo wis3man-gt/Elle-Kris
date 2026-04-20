@@ -587,3 +587,29 @@ if (contactPhones && contactFormContainer && contactHero) {
   pinFormBelowPhones();
   window.addEventListener("resize", pinFormBelowPhones);
 }
+
+/* Scroll-to-top button */
+
+const scrollTopBtn = document.querySelector(".scroll-top");
+
+if (scrollTopBtn) {
+  let lastScrollY = window.scrollY;
+
+  window.addEventListener(
+    "scroll",
+    () => {
+      const currentY = window.scrollY;
+      if (currentY < lastScrollY && currentY > 200) {
+        scrollTopBtn.classList.add("is-visible");
+      } else {
+        scrollTopBtn.classList.remove("is-visible");
+      }
+      lastScrollY = currentY;
+    },
+    { passive: true }
+  );
+
+  scrollTopBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+}

@@ -41,7 +41,8 @@
   position: relative;
   z-index: 1;
   padding: var(--section-gap);
-  padding-top: 9rem;
+  padding-top: 11rem;
+  padding-bottom: 6rem;
   display: flex;
   flex-direction: column;
   gap: 6rem;
@@ -459,7 +460,7 @@
 @media (max-width: 64rem) {
   .projects {
     padding: clamp(4rem, 8vw, 5rem) clamp(2rem, 5vw, 3rem) 4rem;
-    padding-top: 7rem;
+    padding-top: 8rem;
     gap: 4rem;
   }
 
@@ -648,7 +649,7 @@
 
 @media (max-width: 40rem) {
   .projects {
-    padding: 3rem 1rem 2.5rem;
+    padding: 6rem 1rem 2.5rem;
     gap: 3rem;
   }
 
