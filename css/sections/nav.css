@@ -255,7 +255,11 @@
   }
 
   .nav.is-open {
-    height: calc(100dvh - 2.7rem);
+    position: fixed;
+    top: calc(var(--section-gap) / 2 + 0.75rem);
+    left: calc(var(--section-gap) / 2 + 0.75rem);
+    right: calc(var(--section-gap) / 2 + 0.75rem);
+    height: calc(100dvh - 2 * (var(--section-gap) / 2 + 0.75rem));
     box-shadow: 0 10px 24px -4px rgba(0, 0, 0, 0.14);
     background-color: var(--clr-bg);
     backdrop-filter: none;

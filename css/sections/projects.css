@@ -287,12 +287,6 @@
 
 /* ── CTA animated comet border ───────────────────────── */
 
-@property --cta-comet-angle {
-  syntax: "<angle>";
-  inherits: false;
-  initial-value: 0deg;
-}
-
 .projects__cta-wrap::before,
 .projects__cta-wrap::after {
   content: "";
@@ -343,11 +337,6 @@
   z-index: 0;
 }
 
-@keyframes cta-comet-spin {
-  to {
-    --cta-comet-angle: 360deg;
-  }
-}
 
 .projects__cta {
   display: flex;

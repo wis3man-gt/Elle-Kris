@@ -42,6 +42,7 @@
 
 .projects-page__footer {
   background: var(--clr-dark);
+  padding-top: 5rem;
 }
 
 /* ── Social CTA ──────────────────────────────────────── */

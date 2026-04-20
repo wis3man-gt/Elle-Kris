@@ -1,12 +1,27 @@
 /* ── Footer ──────────────────────────────────────────── */
 
+/* ── Comet animation (shared by footer CTA and homepage CTA) ── */
+
+@property --cta-comet-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@keyframes cta-comet-spin {
+  to {
+    --cta-comet-angle: 360deg;
+  }
+}
+
 /* ── Footer CTA ──────────────────────────────────────── */
 
 .footer__cta {
+  --_cta-pt: 5rem;
   max-width: 100rem;
   margin-inline: auto;
   padding: 3rem;
-  padding-top: 5rem;
+  padding-top: var(--_cta-pt);
   position: relative;
   isolation: isolate;
 }
@@ -14,8 +29,7 @@
 .footer__cta::after {
   content: "";
   position: absolute;
-  /* align with pill edges + 0.75rem glow bleed on each side */
-  inset: 4.25rem 2.25rem 2.25rem;
+  inset: calc(var(--_cta-pt) - 0.75rem) 2.25rem 2.25rem;
   border-radius: calc(var(--r-pill) + 0.75rem);
   background: conic-gradient(
     from var(--cta-comet-angle),
@@ -30,7 +44,7 @@
   filter: blur(1.5rem);
   pointer-events: none;
   animation: cta-comet-spin 8s linear infinite;
-  z-index: -1;
+  z-index: 0;
 }
 
 .footer__cta-pill {
@@ -46,6 +60,7 @@
   isolation: isolate;
   text-decoration: none;
   transition: transform var(--transition-base);
+  z-index: 1;
   /* Allow top/side overflow (PNG above border, comet glow), clip bottom (hide PNG below border) */
   clip-path: inset(-20rem -6rem -6rem -6rem);
 }

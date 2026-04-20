@@ -21,5 +21,5 @@
 /* ── Services: override footer__cta top padding ── */
 
 .footer__cta {
-  padding-top: calc(var(--r-footer) + clamp(6rem, 10vw, 10rem));
+  --_cta-pt: calc(var(--r-footer) + clamp(6rem, 10vw, 10rem));
 }
