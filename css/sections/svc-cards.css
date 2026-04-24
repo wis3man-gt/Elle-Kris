@@ -48,6 +48,10 @@
   transition: transform var(--transition-slow);
 }
 
+.svc-cards__img1 {
+  object-position: bottom;
+}
+
 .svc-cards__card:hover .svc-cards__img {
   transform: scale(1.04);
 }
@@ -138,7 +142,7 @@
 
   .svc-cards__img-wrap {
     aspect-ratio: unset;
-    height: 12.5rem; /* 200px */
+    height: 25rem;
   }
 
   .svc-cards__text {
@@ -166,5 +170,11 @@
 
   .svc-cards__card:last-child {
     border-bottom: none;
+  }
+
+  @media (max-width: 32rem) {
+    .svc-cards__img-wrap {
+      height: 18.5rem;
+    }
   }
 }

@@ -144,15 +144,15 @@
 /* PNG on wrap (overflow: visible), centered, overlaps top border and comet */
 .footer__cta-team {
   position: absolute;
-  left: clamp(62%, calc(100% - 26rem), 72%);
-  top: 50%;
+  left: clamp(62%, calc(100% - 24rem), 72%);
+  top: 66%;
   transform: translate(-50%, -50%);
-  height: 200%;
+  height: 259%;
   width: auto;
   display: block;
   pointer-events: none;
   z-index: 4;
-  clip-path: inset(0 0 25% 0);
+  clip-path: inset(0 0 37% 0);
 }
 
 /* Bottom border redrawn above PNG — top half clipped so PNG still overlaps top border */
@@ -539,6 +539,14 @@
     flex-direction: column;
     gap: 0.75rem;
   }
+
+  .footer__cta-pill {
+    padding: 0 1.9375rem 0 2.8125rem;
+  }
+
+  .footer__cta-logo {
+    right: 2.2rem;
+  }
 }
 
 @media (max-width: 90.625rem) {
@@ -560,14 +568,28 @@
     width: auto;
     justify-self: stretch;
   }
+
+  .footer__cta-pill {
+    height: 8.5rem;
+  }
+
+  .footer__cta-team {
+    height: 258%;
+  }
 }
 
 @media (max-width: 64rem) {
   .footer__cta {
+    --_cta-pt: clamp(2.5rem, 4vw, 4rem);
     padding-block: clamp(2.5rem, 4vw, 4rem);
     padding-inline: 1rem;
     display: flex;
     justify-content: center;
+  }
+
+  .footer__cta::after {
+    inset: calc(var(--_cta-pt) - 0.75rem) 0.25rem;
+    border-radius: 2.75rem;
   }
 
   /* ── CTA tall card ── */
@@ -579,7 +601,6 @@
 
   .footer__cta-pill {
     clip-path: inset(-2rem -2rem -0.125rem -2rem round 2rem);
-    max-width: 23.75rem;
     width: 100%;
     height: 32.5rem;
     flex-direction: column;
@@ -626,20 +647,20 @@
   .footer__cta-logo {
     right: auto;
     left: 50%;
-    top: 62%;
+    top: 58%;
     bottom: auto;
     transform: translate(-50%, -50%);
-    height: 38%;
+    height: 70%;
     z-index: 4;
   }
 
   /* PNG: in front of logo, feet clipped at bottom border */
   .footer__cta-team {
     left: 50%;
-    top: 87%;
-    height: 70%;
+    top: 92%;
+    height: 88%;
     z-index: 5;
-    clip-path: inset(0 0 32% 0);
+    clip-path: inset(0 0 41% 0);
   }
 
   .footer__inner {
@@ -730,6 +751,7 @@
 
 @media (max-width: 48rem) {
   .footer__cta {
+    --_cta-pt: 2rem;
     padding-block: 2rem;
   }
 
@@ -748,6 +770,15 @@
   .footer__link,
   .footer__contact-item {
     font-size: var(--fs-sm);
+  }
+
+  .footer__cta-logo {
+    height: 60%;
+  }
+
+  .footer__cta-team {
+    height: 80%;
+    top: 30rem;
   }
 }
 
@@ -795,6 +826,14 @@
 
   .footer__copyright {
     text-align: center;
+  }
+
+  .footer__cta-logo {
+    height: 50%;
+  }
+  .footer__cta-team {
+    height: 75%;
+    top: 30.1rem;
   }
 }
 

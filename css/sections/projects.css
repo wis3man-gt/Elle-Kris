@@ -337,7 +337,6 @@
   z-index: 0;
 }
 
-
 .projects__cta {
   display: flex;
   align-items: center;
@@ -633,6 +632,10 @@
 
   .projects__cta-team {
     width: min(calc(100% - 1rem), 25rem);
+  }
+
+  .top-padding-5rem {
+    padding-top: 5rem;
   }
 }
 

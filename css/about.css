@@ -28,7 +28,13 @@
 /* ── Override footer CTA top padding for section-sep offset ── */
 
 .footer__cta {
-  padding-top: calc(var(--r-footer) + clamp(6rem, 10vw, 10rem));
+  --_cta-pt: calc(var(--r-footer) + clamp(6rem, 10vw, 10rem));
+}
+
+@media (max-width: 64rem) {
+  .padding-top-5rem {
+    padding-top: 5rem;
+  }
 }
 
 @media (max-width: 48rem) {

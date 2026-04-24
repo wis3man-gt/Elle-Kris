@@ -53,6 +53,7 @@
   justify-content: center;
   padding: 5rem clamp(1rem, 5vw, 3rem);
   border-radius: 0 0 4rem 4rem;
+  transform: translateZ(0);
 }
 
 .proj-social__inner {
@@ -546,6 +547,10 @@
 
   .proj-social__icons {
     gap: 1.5rem;
+  }
+
+  .projects-page__footer {
+    padding-top: 0;
   }
 }
 

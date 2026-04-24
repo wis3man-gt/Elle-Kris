@@ -83,7 +83,7 @@
 
 .services__img-wrap {
   background-color: #ececec;
-  height: 15rem;
+  height: 16rem;
   border-radius: 1rem 1rem 0 0;
   overflow: hidden;
   box-shadow: 0 0.25rem 0 0 var(--clr-orange);
@@ -96,6 +96,10 @@
   object-fit: cover;
   display: block;
   transition: transform 0.5s ease;
+}
+
+.services__img1 {
+  object-position: bottom;
 }
 
 .services__card:hover .services__img {
@@ -270,7 +274,7 @@
   }
 
   .services__img-wrap {
-    height: clamp(14rem, 48vw, 18rem);
+    height: 18rem;
   }
 
   .services__body {
