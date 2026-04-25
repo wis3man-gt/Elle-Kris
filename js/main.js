@@ -385,6 +385,52 @@ document.querySelectorAll(".proj-card").forEach((card) => {
     goTo(current, true);
   }, { passive: true });
 
+  /* Mouse drag */
+  let mouseStartX = 0;
+  let isDragging = false;
+
+  sliderEl.addEventListener("mousedown", (e) => {
+    if (isAnimating || !step) return;
+    if (e.target.closest(".proj-card__arrow")) return;
+    mouseStartX = e.clientX;
+    isDragging = true;
+    track.style.transition = "none";
+    document.documentElement.style.cursor = "grabbing";
+    e.preventDefault();
+  });
+
+  const onMouseMove = (e) => {
+    if (!isDragging) return;
+    const dx = e.clientX - mouseStartX;
+    track.style.transform = `translateX(${-current * step + dx}px)`;
+  };
+
+  const onMouseUp = (e) => {
+    if (!isDragging) return;
+    isDragging = false;
+    document.documentElement.style.cursor = "";
+    const dx = e.clientX - mouseStartX;
+    if (Math.abs(dx) >= 40) {
+      isAnimating = true;
+      if (dx < 0) { current++; } else { current--; }
+    }
+    goTo(current, true);
+  };
+
+  window.addEventListener("mousemove", onMouseMove);
+  window.addEventListener("mouseup", onMouseUp);
+
+  /* Horizontal scroll (trackpad two-finger swipe) */
+  sliderEl.addEventListener("wheel", (e) => {
+    if (isAnimating) return;
+    if (Math.abs(e.deltaX) < Math.abs(e.deltaY) * 0.5) return;
+    if (Math.abs(e.deltaX) < 8) return;
+    e.preventDefault();
+    isAnimating = true;
+    if (e.deltaX > 0) { current++; } else { current--; }
+    goTo(current, true);
+  }, { passive: false });
+
   /* Double rAF: first frame commits styles, second frame gives mobile browsers
      time to resolve flex-basis percentages before we measure offsetLeft */
   requestAnimationFrame(() => {
@@ -392,6 +438,25 @@ document.querySelectorAll(".proj-card").forEach((card) => {
       computeStep();
       goTo(current, false);
     });
+  });
+});
+
+/* Project card review: expand quote on tap (mobile only) */
+
+const reviewMq = window.matchMedia("(max-width: 64rem)");
+
+document.querySelectorAll(".proj-card__review").forEach((review) => {
+  const toggle = review.querySelector(".proj-card__review-toggle");
+  const arrowImg = toggle ? toggle.querySelector("img") : null;
+
+  review.addEventListener("click", (e) => {
+    if (!reviewMq.matches) return;
+    const expanded = review.classList.toggle("is-expanded");
+    if (toggle) toggle.setAttribute("aria-expanded", String(expanded));
+    if (arrowImg) {
+      arrowImg.style.transform = expanded ? "rotate(270deg)" : "rotate(90deg)";
+    }
+    e.stopPropagation();
   });
 });
 
