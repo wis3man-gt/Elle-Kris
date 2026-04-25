@@ -1,0 +1,12 @@
+{
+  "name": "elle-kris-construction",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "optimize:images": "node tools/optimize-images.js",
+    "optimize:images:no-fallback": "node tools/optimize-images.js --no-fallback"
+  },
+  "devDependencies": {
+    "sharp": "^0.33.5"
+  }
+}

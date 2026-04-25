@@ -365,6 +365,26 @@ document.querySelectorAll(".proj-card").forEach((card) => {
     { passive: true },
   );
 
+  /* Touch swipe */
+  const sliderEl = card.querySelector(".proj-card__slider");
+  let touchStartX = 0;
+  let touchStartY = 0;
+
+  sliderEl.addEventListener("touchstart", (e) => {
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+  }, { passive: true });
+
+  sliderEl.addEventListener("touchend", (e) => {
+    if (isAnimating) return;
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    const dy = e.changedTouches[0].clientY - touchStartY;
+    if (Math.abs(dx) < 40 || Math.abs(dx) < Math.abs(dy)) return;
+    isAnimating = true;
+    if (dx < 0) { current++; } else { current--; }
+    goTo(current, true);
+  }, { passive: true });
+
   /* Double rAF: first frame commits styles, second frame gives mobile browsers
      time to resolve flex-basis percentages before we measure offsetLeft */
   requestAnimationFrame(() => {

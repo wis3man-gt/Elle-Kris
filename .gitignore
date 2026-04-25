@@ -1,3 +1,5 @@
 .claude/
 .vercel
 .env*.local
+node_modules/
+.live-server*.log
