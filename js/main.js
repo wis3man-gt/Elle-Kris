@@ -476,9 +476,12 @@ document.querySelectorAll(".proj-card__review").forEach((review) => {
   const toggle = review.querySelector(".proj-card__review-toggle");
   const arrowImg = toggle ? toggle.querySelector("img") : null;
 
+  const slider = review.closest(".proj-card__slider");
+
   review.addEventListener("click", (e) => {
     if (!reviewMq.matches) return;
     const expanded = review.classList.toggle("is-expanded");
+    if (slider) slider.classList.toggle("is-review-open", expanded);
     if (toggle) toggle.setAttribute("aria-expanded", String(expanded));
     if (arrowImg) {
       arrowImg.style.transform = expanded ? "rotate(180deg)" : "rotate(0deg)";
