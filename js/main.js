@@ -197,7 +197,9 @@ document.querySelectorAll(".contact-hero__phone-wrapper").forEach((wrapper) => {
         feedbackTimeout = setTimeout(() => {
           wrapper.classList.remove("is-copied");
           wrapper.classList.add("is-post-copy");
-          setTimeout(() => { tip.textContent = defaultText; }, 250);
+          setTimeout(() => {
+            tip.textContent = defaultText;
+          }, 250);
         }, 1000);
       })
       .catch((err) => {
@@ -318,7 +320,8 @@ document.querySelectorAll(".proj-card").forEach((card) => {
 
   const goTo = (index, animate) => {
     track.style.transition = animate ? "transform 0.4s ease" : "none";
-    if (!animate) void track.offsetWidth; /* flush so transition:none takes effect */
+    if (!animate)
+      void track.offsetWidth; /* flush so transition:none takes effect */
     track.style.transform = `translateX(${-index * step}px)`;
   };
 
@@ -370,20 +373,32 @@ document.querySelectorAll(".proj-card").forEach((card) => {
   let touchStartX = 0;
   let touchStartY = 0;
 
-  sliderEl.addEventListener("touchstart", (e) => {
-    touchStartX = e.touches[0].clientX;
-    touchStartY = e.touches[0].clientY;
-  }, { passive: true });
+  sliderEl.addEventListener(
+    "touchstart",
+    (e) => {
+      touchStartX = e.touches[0].clientX;
+      touchStartY = e.touches[0].clientY;
+    },
+    { passive: true },
+  );
 
-  sliderEl.addEventListener("touchend", (e) => {
-    if (isAnimating) return;
-    const dx = e.changedTouches[0].clientX - touchStartX;
-    const dy = e.changedTouches[0].clientY - touchStartY;
-    if (Math.abs(dx) < 40 || Math.abs(dx) < Math.abs(dy)) return;
-    isAnimating = true;
-    if (dx < 0) { current++; } else { current--; }
-    goTo(current, true);
-  }, { passive: true });
+  sliderEl.addEventListener(
+    "touchend",
+    (e) => {
+      if (isAnimating) return;
+      const dx = e.changedTouches[0].clientX - touchStartX;
+      const dy = e.changedTouches[0].clientY - touchStartY;
+      if (Math.abs(dx) < 40 || Math.abs(dx) < Math.abs(dy)) return;
+      isAnimating = true;
+      if (dx < 0) {
+        current++;
+      } else {
+        current--;
+      }
+      goTo(current, true);
+    },
+    { passive: true },
+  );
 
   /* Mouse drag */
   let mouseStartX = 0;
@@ -412,7 +427,11 @@ document.querySelectorAll(".proj-card").forEach((card) => {
     const dx = e.clientX - mouseStartX;
     if (Math.abs(dx) >= 40) {
       isAnimating = true;
-      if (dx < 0) { current++; } else { current--; }
+      if (dx < 0) {
+        current++;
+      } else {
+        current--;
+      }
     }
     goTo(current, true);
   };
@@ -421,15 +440,23 @@ document.querySelectorAll(".proj-card").forEach((card) => {
   window.addEventListener("mouseup", onMouseUp);
 
   /* Horizontal scroll (trackpad two-finger swipe) */
-  sliderEl.addEventListener("wheel", (e) => {
-    if (isAnimating) return;
-    if (Math.abs(e.deltaX) < Math.abs(e.deltaY) * 0.5) return;
-    if (Math.abs(e.deltaX) < 8) return;
-    e.preventDefault();
-    isAnimating = true;
-    if (e.deltaX > 0) { current++; } else { current--; }
-    goTo(current, true);
-  }, { passive: false });
+  sliderEl.addEventListener(
+    "wheel",
+    (e) => {
+      if (isAnimating) return;
+      if (Math.abs(e.deltaX) < Math.abs(e.deltaY) * 0.5) return;
+      if (Math.abs(e.deltaX) < 8) return;
+      e.preventDefault();
+      isAnimating = true;
+      if (e.deltaX > 0) {
+        current++;
+      } else {
+        current--;
+      }
+      goTo(current, true);
+    },
+    { passive: false },
+  );
 
   /* Double rAF: first frame commits styles, second frame gives mobile browsers
      time to resolve flex-basis percentages before we measure offsetLeft */
@@ -454,7 +481,7 @@ document.querySelectorAll(".proj-card__review").forEach((review) => {
     const expanded = review.classList.toggle("is-expanded");
     if (toggle) toggle.setAttribute("aria-expanded", String(expanded));
     if (arrowImg) {
-      arrowImg.style.transform = expanded ? "rotate(270deg)" : "rotate(90deg)";
+      arrowImg.style.transform = expanded ? "rotate(180deg)" : "rotate(0deg)";
     }
     e.stopPropagation();
   });
@@ -644,7 +671,7 @@ const contactFormContainer = document.querySelector(".contact-form-container");
 const contactHero = document.querySelector(".contact-hero");
 
 const cfServicePlaceholder = document.querySelector(
-  "#cf-service option[disabled][value='']"
+  "#cf-service option[disabled][value='']",
 );
 if (cfServicePlaceholder) {
   const mq = window.matchMedia("(max-width: 48rem)");
@@ -665,8 +692,11 @@ if (contactPhones && contactFormContainer && contactHero) {
     const gap = GAP_REM * rem;
     const phonesBottom = contactPhones.getBoundingClientRect().bottom;
     const heroBottom = contactHero.getBoundingClientRect().bottom;
-    const heroMarginBottom = parseFloat(getComputedStyle(contactHero).marginBottom);
-    contactFormContainer.style.marginTop = phonesBottom + gap - heroBottom - heroMarginBottom + "px";
+    const heroMarginBottom = parseFloat(
+      getComputedStyle(contactHero).marginBottom,
+    );
+    contactFormContainer.style.marginTop =
+      phonesBottom + gap - heroBottom - heroMarginBottom + "px";
   };
 
   pinFormBelowPhones();
@@ -691,7 +721,7 @@ if (scrollTopBtn) {
       }
       lastScrollY = currentY;
     },
-    { passive: true }
+    { passive: true },
   );
 
   scrollTopBtn.addEventListener("click", () => {

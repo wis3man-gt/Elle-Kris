@@ -225,6 +225,7 @@
   width: 1.5rem;
   height: 1.5rem;
   display: block;
+  filter: brightness(0) invert(1) sepia(0.12);
 }
 
 .projects__feature-text {
