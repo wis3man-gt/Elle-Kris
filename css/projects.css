@@ -338,8 +338,6 @@
   width: 1rem;
   height: 1rem;
   display: block;
-  filter: brightness(0) saturate(100%) invert(65%) sepia(100%) saturate(500%)
-    hue-rotate(345deg) brightness(110%);
 }
 
 .proj-card__reviewer {
